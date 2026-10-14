@@ -5,7 +5,7 @@ const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).footprint;
 const { footprint } = data;
 
-type Country = { name: any; lat: number; lng: number; iso?: string; region?: string };
+type Country = { name: any; lat: number; lng: number; iso?: string; region?: string; hq?: boolean };
 const places = (footprint.places as any[]).map((p) => ({
   id: p.id, type: p.type, anchor: p.anchor,
   // Una operación puede abarcar varias regiones (region: "multi"): cada país trae la suya
@@ -16,7 +16,7 @@ const places = (footprint.places as any[]).map((p) => ({
 const regions = footprint.regions.filter((r) => places.some((p) => p.regions.includes(r.id)));
 
 // Países únicos con operaciones o apoyo (excluye sedes académicas y la sede de Roma)
-const supported = new Set(places.filter((p) => p.type !== 'academic' && p.id !== 'rome').flatMap((p) => p.countries.map((c) => c.name)));
+const supported = new Set(places.filter((p) => p.type !== 'academic' && p.id !== 'rome').flatMap((p) => p.countries.filter((c) => !c.hq).map((c) => c.name)));
 const lead = T.leadCount.replace('{n}', String(supported.size));
 ---
 <section class="section" id="footprint">
@@ -78,8 +78,9 @@ const lead = T.leadCount.replace('{n}', String(supported.size));
   .sw.academic { border-color: var(--warm); background: transparent; }
 
   .panel { border-left: 1px solid var(--line-soft); display: flex; flex-direction: column; min-height: 0; max-height: clamp(400px, 54vw, 600px); }
-  .tabs { display: flex; gap: 4px; padding: 12px; border-bottom: 1px solid var(--line-soft); }
-  .tabs button { flex: 1; padding: 8px 6px; border-radius: 8px; font-size: 0.8125rem; color: var(--text-2); }
+  .tabs { display: flex; align-items: center; flex: none; gap: 4px; padding: 12px; border-bottom: 1px solid var(--line-soft); overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs button { flex: 0 0 auto; padding: 8px 10px; white-space: nowrap; border-radius: 8px; font-size: 0.8125rem; color: var(--text-2); }
   .tabs button[aria-selected='true'] { background: var(--surface-2); color: var(--text); font-weight: 700; }
   .places { list-style: none; margin: 0; padding: 6px; overflow-y: auto; }
   .places li[hidden] { display: none; }

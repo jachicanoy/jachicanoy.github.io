@@ -17,6 +17,9 @@ const ordered = [...projects].sort((a, b) => Number(b.featured) - Number(a.featu
 const regular = ordered.filter((p) => !p.featured).map((p) => p.id);
 const rem = regular.length % 3;
 const fill = new Map<string, string>(rem === 0 ? [] : regular.slice(-rem).map((id) => [id, rem === 1 ? 'fill-full' : 'fill-half']));
+// Destacados en número impar: el último ocupa la fila completa
+const featured = ordered.filter((p) => p.featured);
+if (featured.length % 2 === 1) fill.set(featured.at(-1)!.id, 'fill-full');
 ---
 <section class="section" id="projects">
   <div class="container">

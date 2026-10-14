@@ -956,6 +956,75 @@
       ]
     },
     {
+      "id": "oef-me-system",
+      "featured": true,
+      "title": {
+        "en": "Global M&E Information System",
+        "es": "Sistema global de información de M&E"
+      },
+      "subtitle": {
+        "en": "ActivityInfo platform · global, remote from USA",
+        "es": "Plataforma ActivityInfo · global, remoto desde EE. UU."
+      },
+      "org": "One Earth Future",
+      "region": "global",
+      "country": {
+        "en": "USA · Colombia · Somalia",
+        "es": "EE. UU. · Colombia · Somalia"
+      },
+      "year": "2023–2024",
+      "description": {
+        "en": "Organisation-wide M&E platform design: relational data model with multi-level online/offline sub-forms, automated indicator tracking, cross-platform integration with mobile collection, BI and GIS, and end-user and developer documentation for sustainability.",
+        "es": "Diseño de plataforma de M&E para toda una organización: modelo relacional con subformularios multinivel online/offline, seguimiento automatizado de indicadores, integración entre recolección móvil, BI y GIS, y documentación para usuarios y desarrolladores que garantiza su sostenibilidad."
+      },
+      "metrics": [
+        {
+          "label": {
+            "en": "Core platform",
+            "es": "Plataforma central"
+          },
+          "value": "ActivityInfo"
+        },
+        {
+          "label": {
+            "en": "Scope",
+            "es": "Alcance"
+          },
+          "value": {
+            "en": "HQ · Colombia · Somalia",
+            "es": "Sede · Colombia · Somalia"
+          }
+        }
+      ],
+      "tech": [
+        "activityinfo",
+        "kobo",
+        "powerbi",
+        "arcgisweb",
+        "mande",
+        "dataprotection"
+      ],
+      "links": [],
+      "method": [
+        {
+          "en": "Offline collection",
+          "es": "Recolección offline"
+        },
+        {
+          "en": "Relational M&E model",
+          "es": "Modelo relacional de M&E"
+        },
+        {
+          "en": "Indicator automation",
+          "es": "Automatización de indicadores"
+        },
+        {
+          "en": "Dashboards",
+          "es": "Tableros"
+        }
+      ]
+    },
+    {
       "id": "unicef-ews-ccri",
       "featured": false,
       "title": {
@@ -1020,65 +1089,6 @@
         {
           "en": "Preparedness decisions",
           "es": "Decisiones de preparación"
-        }
-      ]
-    },
-    {
-      "id": "oef-me-system",
-      "featured": false,
-      "title": {
-        "en": "Global M&E Information System",
-        "es": "Sistema global de información de M&E"
-      },
-      "subtitle": {
-        "en": "ActivityInfo + KoboToolbox + Power BI + ArcGIS",
-        "es": "ActivityInfo + KoboToolbox + Power BI + ArcGIS"
-      },
-      "org": "One Earth Future",
-      "region": "global",
-      "country": {
-        "en": "USA · Colombia · Somalia",
-        "es": "EE. UU. · Colombia · Somalia"
-      },
-      "year": "2023–2024",
-      "description": {
-        "en": "Organisation-wide M&E platform design: relational data model with multi-level online/offline sub-forms, automated indicator tracking, cross-platform integration with mobile collection, BI and GIS, and end-user and developer documentation for sustainability.",
-        "es": "Diseño de plataforma de M&E para toda una organización: modelo relacional con subformularios multinivel online/offline, seguimiento automatizado de indicadores, integración entre recolección móvil, BI y GIS, y documentación para usuarios y desarrolladores que garantiza su sostenibilidad."
-      },
-      "metrics": [
-        {
-          "label": {
-            "en": "Offices",
-            "es": "Oficinas"
-          },
-          "value": "HQ · COL · SOM"
-        }
-      ],
-      "tech": [
-        "activityinfo",
-        "kobo",
-        "powerbi",
-        "arcgisweb",
-        "mande",
-        "dataprotection"
-      ],
-      "links": [],
-      "method": [
-        {
-          "en": "Offline collection",
-          "es": "Recolección offline"
-        },
-        {
-          "en": "Relational M&E model",
-          "es": "Modelo relacional de M&E"
-        },
-        {
-          "en": "Indicator automation",
-          "es": "Automatización de indicadores"
-        },
-        {
-          "en": "Dashboards",
-          "es": "Tableros"
         }
       ]
     },
@@ -1689,7 +1699,25 @@
       "tech": [
         "powerbi"
       ],
-      "url": "https://app.powerbi.com/view?r=eyJrIjoiZGIwYmU3MWYtNjk4Ny00ODI1LWE3OWUtNzRhZjBlMDQyYjNkIiwidCI6IjU0ZDA3ZTJhLWEzNzEtNDhhZC1iN2FlLTJhMWM5M2FjYjM3MiIsImMiOjF9"
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiZGIwYmU3MWYtNjk4Ny00ODI1LWE3OWUtNzRhZjBlMDQyYjNkIiwidCI6IjU0ZDA3ZTJhLWEzNzEtNDhhZC1iN2FlLTJhMWM5M2FjYjM3MiIsImMiOjF9",
+      "method": [
+        {
+          "en": "Official statistics",
+          "es": "Estadísticas oficiales"
+        },
+        {
+          "en": "Child indicators model",
+          "es": "Modelo de indicadores de niñez"
+        },
+        {
+          "en": "Country pages",
+          "es": "Páginas por país"
+        },
+        {
+          "en": "Published report",
+          "es": "Reporte publicado"
+        }
+      ]
     },
     {
       "id": "unicef-tt-epr",
@@ -1752,26 +1780,38 @@
     },
     {
       "id": "r4v-rmrp-2023",
-      "type": "dashboard",
+      "type": "powerbi",
       "title": {
         "en": "R4V Regional Response Plan 2023",
         "es": "Plan Regional de Respuesta R4V 2023"
       },
-      "org": {
-        "en": "Work sample · R4V data",
-        "es": "Muestra de trabajo · datos R4V"
-      },
+      "org": "R4V · UNHCR",
       "year": "2023",
       "description": {
-        "en": "Power BI model rebuilt as a native, filterable web dashboard on public RMRP 2023 figures.",
-        "es": "Modelo de Power BI reconstruido como tablero web nativo y filtrable con cifras públicas del RMRP 2023."
+        "en": "Power BI model integrating population projections, people in need, targets and monthly reach by country, sector, population group and sex/age, with DAX measures for cumulative reach.",
+        "es": "Modelo de Power BI que integra proyecciones de población, personas con necesidades, metas y alcance mensual por país, sector, grupo de población y sexo/edad, con medidas DAX de alcance acumulado."
       },
       "tech": [
-        "powerbi",
-        "python"
+        "powerbi"
       ],
-      "url": "dashboards/rmrp-2023/",
-      "image": "dash_rmrp"
+      "method": [
+        {
+          "en": "Planning figures",
+          "es": "Cifras de planificación"
+        },
+        {
+          "en": "Relational model",
+          "es": "Modelo relacional"
+        },
+        {
+          "en": "DAX measures",
+          "es": "Medidas DAX"
+        },
+        {
+          "en": "Interactive filters",
+          "es": "Filtros interactivos"
+        }
+      ]
     },
     {
       "id": "r4v-activities",
@@ -1789,30 +1829,60 @@
       "tech": [
         "powerbi"
       ],
-      "url": "https://app.powerbi.com/view?r=eyJrIjoiNmRmYzkzYTYtNjNiMy00MTk3LWFkZGItNjJmY2Q4NTlkNjUxIiwidCI6IjU0ZDA3ZTJhLWEzNzEtNDhhZC1iN2FlLTJhMWM5M2FjYjM3MiIsImMiOjF9"
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiNmRmYzkzYTYtNjNiMy00MTk3LWFkZGItNjJmY2Q4NTlkNjUxIiwidCI6IjU0ZDA3ZTJhLWEzNzEtNDhhZC1iN2FlLTJhMWM5M2FjYjM3MiIsImMiOjF9",
+      "method": [
+        {
+          "en": "Partner reporting",
+          "es": "Reporte de socios"
+        },
+        {
+          "en": "Consolidation & QA",
+          "es": "Consolidación y control de calidad"
+        },
+        {
+          "en": "Activity model",
+          "es": "Modelo de actividades"
+        },
+        {
+          "en": "Published report",
+          "es": "Reporte publicado"
+        }
+      ]
     },
     {
       "id": "afg-country-profile",
-      "type": "dashboard",
+      "type": "powerbi",
       "title": {
         "en": "Afghanistan Country Profile",
         "es": "Perfil de país de Afganistán"
       },
-      "org": {
-        "en": "Work sample · public data",
-        "es": "Muestra de trabajo · datos públicos"
-      },
+      "org": "DPPA",
       "year": "2024",
       "description": {
-        "en": "Power BI country profile rebuilt natively: development, needs, displacement, conflict and risk (public data).",
-        "es": "Perfil de país de Power BI reconstruido en nativo: desarrollo, necesidades, desplazamiento, conflicto y riesgo (datos públicos)."
+        "en": "Country profile in Power BI combining development indicators, people in need by sector and province, displacement, conflict events and risk, fed by Power Query from public sources.",
+        "es": "Perfil de país en Power BI que combina indicadores de desarrollo, personas con necesidades por sector y provincia, desplazamiento, eventos de conflicto y riesgo, alimentado con Power Query desde fuentes públicas."
       },
       "tech": [
-        "powerbi",
-        "python"
+        "powerbi"
       ],
-      "url": "dashboards/afghanistan/",
-      "image": "dash_afg"
+      "method": [
+        {
+          "en": "Public sources",
+          "es": "Fuentes públicas"
+        },
+        {
+          "en": "Power Query ETL",
+          "es": "ETL en Power Query"
+        },
+        {
+          "en": "Thematic model",
+          "es": "Modelo temático"
+        },
+        {
+          "en": "Country profile",
+          "es": "Perfil de país"
+        }
+      ]
     },
     {
       "id": "oef-colombia-report",
@@ -1852,7 +1922,25 @@
       "tech": [
         "powerbi"
       ],
-      "url": "https://app.powerbi.com/view?r=eyJrIjoiZWJjODRmODQtYzZlZS00NmY5LWEwNmItYjcyYjJlY2NkODVmIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9"
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiZWJjODRmODQtYzZlZS00NmY5LWEwNmItYjcyYjJlY2NkODVmIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9",
+      "method": [
+        {
+          "en": "Service records",
+          "es": "Registros de servicio"
+        },
+        {
+          "en": "Validation",
+          "es": "Validación"
+        },
+        {
+          "en": "Monitoring model",
+          "es": "Modelo de monitoreo"
+        },
+        {
+          "en": "Published report",
+          "es": "Reporte publicado"
+        }
+      ]
     },
     {
       "id": "col-nfi",
@@ -1870,7 +1958,25 @@
       "tech": [
         "powerbi"
       ],
-      "url": "https://app.powerbi.com/view?r=eyJrIjoiNWI4NzU3NjItMDNjZC00YTI1LWExYzEtZTM5YzEzYmU5Y2VkIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9"
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiNWI4NzU3NjItMDNjZC00YTI1LWExYzEtZTM5YzEzYmU5Y2VkIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9",
+      "method": [
+        {
+          "en": "Distribution records",
+          "es": "Registros de distribución"
+        },
+        {
+          "en": "Validation",
+          "es": "Validación"
+        },
+        {
+          "en": "Coverage model",
+          "es": "Modelo de cobertura"
+        },
+        {
+          "en": "Published report",
+          "es": "Reporte publicado"
+        }
+      ]
     },
     {
       "id": "col-shelter",
@@ -1888,7 +1994,25 @@
       "tech": [
         "powerbi"
       ],
-      "url": "https://app.powerbi.com/view?r=eyJrIjoiNjg4ODM2MjQtNTcyNy00NDIxLWJlM2UtZDg5Y2RlMmVhMTgzIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9"
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiNjg4ODM2MjQtNTcyNy00NDIxLWJlM2UtZDg5Y2RlMmVhMTgzIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9",
+      "method": [
+        {
+          "en": "Capacity data",
+          "es": "Datos de capacidad"
+        },
+        {
+          "en": "Validation",
+          "es": "Validación"
+        },
+        {
+          "en": "Capacity model",
+          "es": "Modelo de capacidad"
+        },
+        {
+          "en": "Published report",
+          "es": "Reporte publicado"
+        }
+      ]
     },
     {
       "id": "venesperanza",
@@ -2027,7 +2151,7 @@
     }
   ],
   "footprint": {
-    "$comment": "Each engagement groups the countries it covered. type: lead = on-site operations · regional = regional/remote support · academic = research & events. iso = ISO 3166-1 numeric (shaded when present in the 1:110m basemap; small islands show as points only). anchor = point the overview arcs connect to. A place with region 'multi' spans regions; each of its countries then carries its own region.",
+    "$comment": "Each engagement groups the countries it covered. type: lead = on-site operations · regional = regional/remote support · academic = research & events. iso = ISO 3166-1 numeric (shaded when present in the 1:110m basemap; small islands show as points only). anchor = point the overview arcs connect to. A place with region 'multi' spans regions; each of its countries then carries its own region. hq: true marks a headquarters location that is not counted as a supported country.",
     "regions": [
       {
         "id": "latam",
@@ -2041,6 +2165,13 @@
         "name": {
           "en": "Africa",
           "es": "África"
+        }
+      },
+      {
+        "id": "namerica",
+        "name": {
+          "en": "N. America",
+          "es": "Norteamérica"
         }
       },
       {
@@ -2085,6 +2216,47 @@
             "lat": 4.71,
             "lng": -74.07,
             "iso": "170"
+          }
+        ]
+      },
+      {
+        "id": "oef",
+        "name": "One Earth Future",
+        "region": "multi",
+        "type": "regional",
+        "anchor": [
+          39.8,
+          -98.6
+        ],
+        "note": {
+          "en": "Global ActivityInfo M&E system · remote from HQ (USA) for Colombia & Somalia",
+          "es": "Sistema global de M&E en ActivityInfo · remoto desde la sede (EE. UU.) para Colombia y Somalia"
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "United States (HQ)",
+              "es": "Estados Unidos (sede)"
+            },
+            "lat": 39.8,
+            "lng": -98.6,
+            "iso": "840",
+            "region": "namerica",
+            "hq": true
+          },
+          {
+            "name": "Colombia",
+            "lat": 4.71,
+            "lng": -74.07,
+            "iso": "170",
+            "region": "latam"
+          },
+          {
+            "name": "Somalia",
+            "lat": 2.05,
+            "lng": 45.32,
+            "iso": "706",
+            "region": "africa"
           }
         ]
       },
@@ -2980,8 +3152,8 @@
         "es": "Oct 2023 — Oct 2024"
       },
       "location": {
-        "en": "United States (global)",
-        "es": "Estados Unidos (global)"
+        "en": "United States (remote, global)",
+        "es": "Estados Unidos (remoto, global)"
       },
       "highlights": {
         "en": [
