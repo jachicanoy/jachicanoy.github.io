@@ -5,13 +5,15 @@ const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).footprint;
 const { footprint } = data;
 
-type Country = { name: any; lat: number; lng: number; iso?: string };
+type Country = { name: any; lat: number; lng: number; iso?: string; region?: string };
 const places = (footprint.places as any[]).map((p) => ({
-  id: p.id, type: p.type, region: p.region, anchor: p.anchor,
+  id: p.id, type: p.type, anchor: p.anchor,
+  // Una operación puede abarcar varias regiones (region: "multi"): cada país trae la suya
+  regions: p.region === 'multi' ? [...new Set((p.countries as Country[]).map((c) => c.region!))] : [p.region],
   name: L(p.name, lang) as string, note: L(p.note, lang) as string,
   countries: (p.countries as Country[]).map((c) => ({ ...c, name: L(c.name, lang) as string })),
 }));
-const regions = footprint.regions.filter((r) => places.some((p) => p.region === r.id));
+const regions = footprint.regions.filter((r) => places.some((p) => p.regions.includes(r.id)));
 
 // Países únicos con operaciones o apoyo (excluye sedes académicas y la sede de Roma)
 const supported = new Set(places.filter((p) => p.type !== 'academic' && p.id !== 'rome').flatMap((p) => p.countries.map((c) => c.name)));
@@ -42,7 +44,7 @@ const lead = T.leadCount.replace('{n}', String(supported.size));
         </div>
         <ol class="places">
           {places.map((p, i) => (
-            <li data-region={p.region}>
+            <li data-region={p.regions.join(' ')}>
               <button data-place={i}>
                 <span class={`sw ${p.type}`} aria-hidden="true"></span>
                 <span class="pl">
@@ -112,8 +114,8 @@ const lead = T.leadCount.replace('{n}', String(supported.size));
   import worldUrl from 'world-atlas/countries-110m.json?url';
 
   type Kind = 'lead' | 'regional' | 'academic';
-  type Country = { name: string; lat: number; lng: number; iso?: string };
-  type Place = { id: string; name: string; note: string; region: string; type: Kind; anchor: [number, number]; countries: Country[] };
+  type Country = { name: string; lat: number; lng: number; iso?: string; region?: string };
+  type Place = { id: string; name: string; note: string; regions: string[]; type: Kind; anchor: [number, number]; countries: Country[] };
 
   const el = document.getElementById('footprint-map')!;
   const places: Place[] = JSON.parse(el.dataset.places || '[]');
@@ -131,7 +133,7 @@ const lead = T.leadCount.replace('{n}', String(supported.size));
     const key = c.iso ?? c.name;
     const d = dots.get(key) ?? { key, c, type: p.type, regions: new Set<string>(), places: [] };
     if (rank[p.type] > rank[d.type]) d.type = p.type;
-    d.regions.add(p.region); d.places.push(i);
+    d.regions.add(c.region ?? p.regions[0]); d.places.push(i);
     dots.set(key, d);
   }));
 
@@ -208,10 +210,10 @@ const lead = T.leadCount.replace('{n}', String(supported.size));
     tabs.forEach((tab) => tab.addEventListener('click', () => {
       const r = tab.dataset.region!;
       tabs.forEach((x) => x.setAttribute('aria-selected', String(x === tab)));
-      items.forEach((li) => (li.hidden = r !== 'all' && li.dataset.region !== r));
+      items.forEach((li) => (li.hidden = r !== 'all' && !li.dataset.region!.split(' ').includes(r)));
       const shown = dotLayers.filter(({ d }) => r === 'all' || d.regions.has(r));
       dotLayers.forEach(({ g }) => g.remove()); shown.forEach(({ g }) => g.addTo(map));
-      drawArcs(r === 'all' ? places : places.filter((p) => p.region === r));
+      drawArcs(r === 'all' ? places : places.filter((p) => p.regions.includes(r)));
       const pts = shown.map(({ d }) => [d.c.lat, d.c.lng] as [number, number]);
       if (pts.length) map.flyToBounds(bounds(pts, pts.length > 3 ? 0.15 : 0.6), { maxZoom: 5, duration: 0.8 });
     }));

@@ -1264,6 +1264,72 @@
       ]
     },
     {
+      "id": "el-nino-country-outlooks",
+      "featured": false,
+      "title": {
+        "en": "El Niño Country Risk Outlooks",
+        "es": "Perspectivas de riesgo El Niño por país"
+      },
+      "subtitle": {
+        "en": "Hotspot maps for anticipatory action in 12 countries",
+        "es": "Mapas de puntos críticos para acción anticipatoria en 12 países"
+      },
+      "org": "FAO",
+      "region": "global",
+      "country": {
+        "en": "12 countries",
+        "es": "12 países"
+      },
+      "year": "2026",
+      "description": {
+        "en": "Country risk outlooks for the El Niño season combining multi-model seasonal forecasts, the historical response of cropland vegetation to past El Niño events and food-insecurity data into drought and flood hotspot maps, each translated into what the map shows and which anticipatory actions follow — with explicit caveats on analogue years.",
+        "es": "Perspectivas de riesgo por país para la temporada de El Niño que combinan pronósticos estacionales multimodelo, la respuesta histórica de la vegetación en zonas de cultivo ante episodios pasados de El Niño y datos de inseguridad alimentaria en mapas de puntos críticos de sequía e inundación, cada uno traducido en qué muestra el mapa y qué acciones anticipatorias se derivan, con advertencias explícitas sobre los años análogos."
+      },
+      "metrics": [
+        {
+          "label": {
+            "en": "Countries",
+            "es": "Países"
+          },
+          "value": "12"
+        },
+        {
+          "label": {
+            "en": "Hazards",
+            "es": "Amenazas"
+          },
+          "value": {
+            "en": "Drought · Floods",
+            "es": "Sequía · Inundaciones"
+          }
+        }
+      ],
+      "tech": [
+        "aa",
+        "ews",
+        "drr"
+      ],
+      "links": [],
+      "method": [
+        {
+          "en": "Seasonal forecasts",
+          "es": "Pronósticos estacionales"
+        },
+        {
+          "en": "Historical vegetation response",
+          "es": "Respuesta histórica de la vegetación"
+        },
+        {
+          "en": "Food insecurity",
+          "es": "Inseguridad alimentaria"
+        },
+        {
+          "en": "Hotspots & actions",
+          "es": "Puntos críticos y acciones"
+        }
+      ]
+    },
+    {
       "id": "ibaas",
       "featured": false,
       "title": {
@@ -1798,7 +1864,7 @@
     }
   ],
   "footprint": {
-    "$comment": "Each engagement groups the countries it covered. type: lead = on-site operations · regional = regional/remote support · academic = research & events. iso = ISO 3166-1 numeric (shaded when present in the 1:110m basemap; small islands show as points only). anchor = point the overview arcs connect to.",
+    "$comment": "Each engagement groups the countries it covered. type: lead = on-site operations · regional = regional/remote support · academic = research & events. iso = ISO 3166-1 numeric (shaded when present in the 1:110m basemap; small islands show as points only). anchor = point the overview arcs connect to. A place with region 'multi' spans regions; each of its countries then carries its own region.",
     "regions": [
       {
         "id": "latam",
@@ -1826,6 +1892,13 @@
         "name": {
           "en": "Asia",
           "es": "Asia"
+        }
+      },
+      {
+        "id": "pacific",
+        "name": {
+          "en": "Pacific",
+          "es": "Pacífico"
         }
       }
     ],
@@ -2222,6 +2295,130 @@
         ]
       },
       {
+        "id": "fao-el-nino-outlooks",
+        "name": {
+          "en": "El Niño country risk outlooks",
+          "es": "Perspectivas de riesgo El Niño por país"
+        },
+        "region": "multi",
+        "type": "regional",
+        "anchor": [
+          41.88,
+          12.49
+        ],
+        "note": {
+          "en": "FAO · regional support to 12 countries (drought & floods)",
+          "es": "FAO · apoyo regional a 12 países (sequía e inundaciones)"
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "Afghanistan",
+              "es": "Afganistán"
+            },
+            "lat": 34.53,
+            "lng": 69.17,
+            "region": "asia",
+            "iso": "004"
+          },
+          {
+            "name": {
+              "en": "Bangladesh",
+              "es": "Bangladés"
+            },
+            "lat": 23.81,
+            "lng": 90.41,
+            "region": "asia",
+            "iso": "050"
+          },
+          {
+            "name": "El Salvador",
+            "lat": 13.69,
+            "lng": -89.22,
+            "region": "latam",
+            "iso": "222"
+          },
+          {
+            "name": {
+              "en": "Ethiopia",
+              "es": "Etiopía"
+            },
+            "lat": 9.03,
+            "lng": 38.74,
+            "region": "africa",
+            "iso": "231"
+          },
+          {
+            "name": "Guatemala",
+            "lat": 14.63,
+            "lng": -90.51,
+            "region": "latam",
+            "iso": "320"
+          },
+          {
+            "name": {
+              "en": "Haiti",
+              "es": "Haití"
+            },
+            "lat": 18.59,
+            "lng": -72.31,
+            "region": "latam",
+            "iso": "332"
+          },
+          {
+            "name": "Honduras",
+            "lat": 14.07,
+            "lng": -87.19,
+            "region": "latam",
+            "iso": "340"
+          },
+          {
+            "name": {
+              "en": "Kenya",
+              "es": "Kenia"
+            },
+            "lat": -1.29,
+            "lng": 36.82,
+            "region": "africa",
+            "iso": "404"
+          },
+          {
+            "name": "Kiribati",
+            "lat": 1.45,
+            "lng": 173.0,
+            "region": "pacific",
+            "iso": "296"
+          },
+          {
+            "name": {
+              "en": "Malawi",
+              "es": "Malaui"
+            },
+            "lat": -13.96,
+            "lng": 33.79,
+            "region": "africa",
+            "iso": "454"
+          },
+          {
+            "name": "Nicaragua",
+            "lat": 12.11,
+            "lng": -86.24,
+            "region": "latam",
+            "iso": "558"
+          },
+          {
+            "name": {
+              "en": "Papua New Guinea",
+              "es": "Papúa Nueva Guinea"
+            },
+            "lat": -9.44,
+            "lng": 147.18,
+            "region": "pacific",
+            "iso": "598"
+          }
+        ]
+      },
+      {
         "id": "ethiopia",
         "name": {
           "en": "Ethiopia",
@@ -2246,28 +2443,6 @@
             "lat": 9.03,
             "lng": 38.74,
             "iso": "231"
-          }
-        ]
-      },
-      {
-        "id": "malawi",
-        "name": "Malawi",
-        "region": "africa",
-        "type": "regional",
-        "anchor": [
-          -13.96,
-          33.79
-        ],
-        "note": {
-          "en": "El Niño country risk outlook",
-          "es": "Perspectiva de riesgo El Niño"
-        },
-        "countries": [
-          {
-            "name": "Malawi",
-            "lat": -13.96,
-            "lng": 33.79,
-            "iso": "454"
           }
         ]
       },
