@@ -37,27 +37,27 @@
     },
     "currentOrg": "FAO",
     "currentScope": {
-      "en": "Anticipatory Action focal point for Latin America and the Caribbean",
-      "es": "Punto focal de Acción Anticipatoria para América Latina y el Caribe"
+      "en": "Global coverage",
+      "es": "Cobertura global"
     },
     "location": {
       "en": "Bogotá, Colombia · Rome, Italy",
       "es": "Bogotá, Colombia · Roma, Italia"
     },
     "tagline": {
-      "en": "I turn Earth observation, machine learning and interoperable data platforms into operational decisions — before the disaster hits.",
-      "es": "Convierto observación de la Tierra, machine learning y plataformas de datos interoperables en decisiones operativas, antes de que llegue el desastre."
+      "en": "I build data science, machine learning and AI systems on Earth observation that turn risk signals into anticipatory action — protecting lives and livelihoods before disasters strike.",
+      "es": "Construyo sistemas de ciencia de datos, machine learning e IA sobre observación de la Tierra que convierten señales de riesgo en acción anticipatoria, protegiendo vidas y medios de vida antes de que llegue el desastre."
     },
     "summary": {
       "en": [
-        "Data scientist and geospatial information systems expert with 14+ years designing interoperable data architectures and decision-support systems across the United Nations system — FAO, WFP, UNICEF, UNHCR, IOM, UNODC and UNTMIS — in Latin America, the Caribbean and Africa.",
+        "Data scientist and geospatial information systems expert with 14+ years designing interoperable data architectures and decision-support systems across the United Nations system — FAO, WFP, UNICEF, UNHCR, IOM, UNODC and UNTMIS — plus international nonprofits (iMMAP, One Earth Future, 3iS) — across Latin America, the Caribbean, Africa and Asia.",
         "Currently supporting FAO's Anticipatory Action programme, integrating Earth observation, climate-risk analytics and Digital Public Infrastructure principles to protect agricultural livelihoods and food security.",
-        "Track record architecting multi-country data platforms (ActivityInfo, KoboToolbox, Power BI, ArcGIS), automating workflows with Power Apps, Power Automate, Python and R, and training 850+ professionals. PhD candidate in Data Science (machine learning, Earth observation, predictive modelling)."
+        "Track record architecting multi-country data platforms (ActivityInfo, KoboToolbox, Power BI, ArcGIS), automating workflows with Power Apps, Power Automate, Python and R, and training 1,000+ professionals through workshops, webinars and on-the-job knowledge transfer. PhD candidate in Data Science (machine learning, Earth observation, predictive modelling)."
       ],
       "es": [
-        "Científico de datos y experto en sistemas de información geográfica con más de 14 años diseñando arquitecturas de datos interoperables y sistemas de soporte a la decisión en el Sistema de Naciones Unidas (FAO, WFP, UNICEF, UNHCR, IOM, UNODC y UNTMIS) en América Latina, el Caribe y África.",
+        "Científico de datos y experto en sistemas de información geográfica con más de 14 años diseñando arquitecturas de datos interoperables y sistemas de soporte a la decisión en el Sistema de Naciones Unidas (FAO, WFP, UNICEF, UNHCR, IOM, UNODC y UNTMIS) además de organizaciones internacionales sin ánimo de lucro (iMMAP, One Earth Future, 3iS), en América Latina, el Caribe, África y Asia.",
         "Actualmente apoyo el programa de Acción Anticipatoria de la FAO, integrando observación de la Tierra, analítica de riesgo climático y principios de Infraestructura Pública Digital para proteger los medios de vida agrícolas y la seguridad alimentaria.",
-        "He diseñado plataformas de datos multipaís (ActivityInfo, KoboToolbox, Power BI, ArcGIS), automatizado flujos con Power Apps, Power Automate, Python y R, y formado a más de 850 profesionales. Candidato a doctor en Ciencia de Datos (machine learning, observación de la Tierra, modelado predictivo)."
+        "He diseñado plataformas de datos multipaís (ActivityInfo, KoboToolbox, Power BI, ArcGIS), automatizado flujos con Power Apps, Power Automate, Python y R, y formado a más de 1.000 profesionales mediante talleres, webinars y transferencia de conocimiento en terreno. Candidato a doctor en Ciencia de Datos (machine learning, observación de la Tierra, modelado predictivo)."
       ]
     },
     "focus": {
@@ -87,14 +87,14 @@
         }
       },
       {
-        "value": "7",
+        "value": "7 + 3",
         "label": {
-          "en": "UN agencies & missions",
-          "es": "agencias y misiones ONU"
+          "en": "UN entities + international NGOs",
+          "es": "entidades ONU + ONG internacionales"
         }
       },
       {
-        "value": "850+",
+        "value": "1,000+",
         "label": {
           "en": "professionals trained",
           "es": "profesionales formados"
@@ -116,11 +116,7 @@
     "orcid": "",
     "scholar": "",
     "gee": "https://ee-jersoncatalyst.projects.earthengine.app/",
-    "mapsDrive": "https://drive.google.com/drive/folders/1tGA7pQPmmxrKPp7Qc0ODjnIwV94CcggC?usp=sharing",
-    "cv": {
-      "en": "cv/CV_Jerson_Achicanoy_EN.pdf",
-      "es": "cv/CV_Jerson_Achicanoy_ES.pdf"
-    }
+    "mapsDrive": "https://drive.google.com/drive/folders/1tGA7pQPmmxrKPp7Qc0ODjnIwV94CcggC?usp=sharing"
   },
   "about": {
     "pillars": [

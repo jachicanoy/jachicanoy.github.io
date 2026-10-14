@@ -1,5 +1,4 @@
 ---
-import fs from 'node:fs';
 import Icon from './Icon.astro';
 import data from '../data/portfolio.json';
 import { L, t, type Lang } from '../i18n';
@@ -8,11 +7,6 @@ const { lang } = Astro.props as { lang: Lang };
 const T = t(lang);
 const { profile, links } = data;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-
-// CV: usa el PDF del idioma; si no existe, el del otro idioma; si ninguno, LinkedIn.
-const cvCandidates = [L(links.cv, lang), L(links.cv, lang === 'en' ? 'es' : 'en')];
-const cvFile = cvCandidates.find((f) => fs.existsSync(new URL(`../../public/${f}`, import.meta.url)));
-const cvHref = cvFile ? `${base}${cvFile}` : links.linkedin;
 
 // Curvas de nivel procedurales (generadas en build, 0 KB de JS en cliente).
 function contour(r: number, seed: number, cx = 300, cy = 300) {
@@ -46,13 +40,12 @@ const ok = (u: string) => /^https?:/.test(u) && !u.includes('TODO');
       <p class="tagline reveal">{L(profile.tagline, lang)}</p>
       <p class="scope reveal"><Icon name="pin" size={16} /> {L(profile.location, lang)} · {L(profile.currentScope, lang)}</p>
       <div class="ctas reveal">
-        <a class="btn btn-primary" href={cvHref} {...(cvFile ? { download: '' } : { target: '_blank', rel: 'noopener' })}>
-          <Icon name="download" /> {T.hero.cv}
+        <a class="btn btn-primary" href={links.linkedin} target="_blank" rel="noopener">
+          <Icon name="linkedin" /> {T.hero.cv}
         </a>
         <a class="btn" href="#projects">{T.hero.projects} <Icon name="arrow" /></a>
         <div class="socials">
           {ok(links.github) && <a class="icon-link" href={links.github} target="_blank" rel="noopener" aria-label="GitHub"><Icon name="github" size={20} /></a>}
-          {ok(links.linkedin) && <a class="icon-link" href={links.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn"><Icon name="linkedin" size={20} /></a>}
           <a class="icon-link" href={`mailto:${links.email}`} aria-label={T.contact.email}><Icon name="mail" size={20} /></a>
         </div>
       </div>

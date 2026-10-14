@@ -27,7 +27,7 @@ export const ui = {
     menu: 'Open menu',
     langSwitch: 'Español',
     langSwitchLabel: 'Ver en español',
-    hero: { cv: 'Download CV', projects: 'View projects' },
+    hero: { cv: 'CV on LinkedIn', projects: 'View projects' },
     about: { eyebrow: '01 · Profile', title: 'From the <strong>territory</strong> to the model, from the model to the <strong>decision</strong>.' },
     stack: {
       eyebrow: '02 · Core stack', title: 'Technology <strong>matrix</strong>',
@@ -67,7 +67,7 @@ export const ui = {
     menu: 'Abrir menú',
     langSwitch: 'English',
     langSwitchLabel: 'View in English',
-    hero: { cv: 'Descargar CV', projects: 'Ver proyectos' },
+    hero: { cv: 'CV en LinkedIn', projects: 'Ver proyectos' },
     about: { eyebrow: '01 · Perfil', title: 'Del <strong>territorio</strong> al modelo, del modelo a la <strong>decisión</strong>.' },
     stack: {
       eyebrow: '02 · Core stack', title: 'Matriz <strong>tecnológica</strong>',
