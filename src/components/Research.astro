@@ -6,6 +6,7 @@ const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).research;
 const { phd, outputs } = data.research;
 const affiliations = (data.research as any).affiliations ?? [];
+const rosters = ((data.research as any).rosters ?? []).map((r: any) => L(r, lang));
 const { education } = data;
 ---
 <section class="section" id="research">
@@ -52,6 +53,12 @@ const { education } = data;
                 <Icon name="external" size={16} class="ext" />
               </a>
             ))}
+            {rosters.length > 0 && (
+              <div class="rosters">
+                <p class="rost-title">{T.rosters}</p>
+                <ul>{rosters.map((r: string) => <li class="chip">{r}</li>)}</ul>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -111,6 +118,9 @@ const { education } = data;
   :global(.aff-item .ext) { position: absolute; right: 0; top: 2px; color: var(--muted); }
   .aff-item:hover :global(.ext) { color: var(--accent); }
   .aff-item:hover strong { color: var(--accent); }
+  .rosters { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line-soft); }
+  .rost-title { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .rosters ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
   .outputs { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
   .out { position: relative; display: grid; gap: 6px; padding: 20px 52px 20px 24px; background: var(--bg); height: 100%; transition: background 0.2s; }
   a.out:hover { background: var(--surface); }

@@ -3027,6 +3027,22 @@
           "es": "Uno de ~40 expertos globales que definen el marco de gobernanza de un satélite de observación de la Tierra sin ánimo de lucro, concebido como infraestructura de interés público: principios, membresía, protocolo de asignación del satélite y recomendaciones de uso comunitario de datos."
         }
       }
+    ],
+    "rosters": [
+      "UNDP GPN/ExpRes",
+      "UN Secretariat",
+      "UNICEF",
+      "UNHCR Talent Pool",
+      "WFP",
+      "Food Security Cluster",
+      "FAO",
+      "CANADEM",
+      "iMMAP",
+      "MSB",
+      {
+        "en": "National Professional Council of Engineers (Colombia)",
+        "es": "Consejo Profesional Nacional de Ingenierías (Colombia)"
+      }
     ]
   },
   "experience": [

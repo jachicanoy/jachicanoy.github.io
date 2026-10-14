@@ -53,7 +53,7 @@ export const ui = {
       all: 'All', loading: 'Loading map…', aria: 'Interactive operations map', filter: 'Filter by region',
       types: { lead: 'On-site operations', regional: 'Regional / remote support', academic: 'Research & events' },
     },
-    research: { eyebrow: '06 · Research & academic hub', title: 'Doctoral <strong>research</strong> and technical output', education: 'Education', affiliations: 'Affiliations & governance' },
+    research: { eyebrow: '06 · Research & academic hub', title: 'Doctoral <strong>research</strong> and technical output', education: 'Education', affiliations: 'Affiliations & governance', rosters: 'Expert rosters' },
     experience: { eyebrow: '07 · Career', title: 'Professional <strong>timeline</strong>', lead: 'Roles across UN agencies, missions and international organisations. Expand each role for detail.' },
     contact: {
       eyebrow: '08 · Contact', title: 'An early-warning system, a geospatial pipeline or a <strong>decision that needs evidence</strong>?',
@@ -93,7 +93,7 @@ export const ui = {
       all: 'Todas', loading: 'Cargando mapa…', aria: 'Mapa interactivo de operaciones', filter: 'Filtrar por región',
       types: { lead: 'Operaciones en terreno', regional: 'Apoyo regional / remoto', academic: 'Investigación y eventos' },
     },
-    research: { eyebrow: '06 · Investigación y academia', title: 'Investigación <strong>doctoral</strong> y producción técnica', education: 'Formación', affiliations: 'Afiliaciones y gobernanza' },
+    research: { eyebrow: '06 · Investigación y academia', title: 'Investigación <strong>doctoral</strong> y producción técnica', education: 'Formación', affiliations: 'Afiliaciones y gobernanza', rosters: 'Rosters de expertos' },
     experience: { eyebrow: '07 · Trayectoria', title: 'Línea de tiempo <strong>profesional</strong>', lead: 'Roles en agencias, misiones de la ONU y organizaciones internacionales. Despliega cada rol para ver el detalle.' },
     contact: {
       eyebrow: '08 · Contacto', title: '¿Un sistema de alerta temprana, un pipeline geoespacial o una <strong>decisión que necesita evidencia</strong>?',
