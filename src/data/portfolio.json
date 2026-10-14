@@ -58,7 +58,7 @@
 
   "links": {
     "email": "jerson.achicanoy@outlook.com",
-    "github": "https://github.com/JersonCatalyst",
+    "github": "https://github.com/jachicanoy",
     "linkedin": "https://www.linkedin.com/in/jachicanoy",
     "orcid": "",
     "scholar": "",
@@ -191,8 +191,8 @@
       ],
       "tech": ["javascript", "webmaps", "python", "aa", "ews"],
       "links": [
-        { "label": { "en": "Live app", "es": "App en vivo" }, "url": "https://jersoncatalyst.github.io/fao_aa_map/" },
-        { "label": "GitHub", "url": "https://github.com/JersonCatalyst/fao_aa_map" }
+        { "label": { "en": "Live app", "es": "App en vivo" }, "url": "https://jachicanoy.github.io/fao_aa_map/" },
+        { "label": "GitHub", "url": "https://github.com/jachicanoy/fao_aa_map" }
       ]
     },
     {
@@ -214,8 +214,8 @@
       ],
       "tech": ["python", "sentinel", "gee", "webmaps", "github", "aa", "drr"],
       "links": [
-        { "label": { "en": "Interactive atlas", "es": "Atlas interactivo" }, "url": "https://jersoncatalyst.github.io/hazard-chronicity-index/" },
-        { "label": "GitHub", "url": "https://github.com/JersonCatalyst/hazard-chronicity-index" }
+        { "label": { "en": "Interactive atlas", "es": "Atlas interactivo" }, "url": "https://jachicanoy.github.io/hazard-chronicity-index/" },
+        { "label": "GitHub", "url": "https://github.com/jachicanoy/hazard-chronicity-index" }
       ]
     },
     {
@@ -237,8 +237,8 @@
       ],
       "tech": ["python", "javascript", "webmaps", "powerbi", "github", "drr", "ews"],
       "links": [
-        { "label": { "en": "Live app", "es": "App en vivo" }, "url": "https://jersoncatalyst.github.io/amazon-basin-monitor/" },
-        { "label": "GitHub", "url": "https://github.com/JersonCatalyst/amazon-basin-monitor" }
+        { "label": { "en": "Live app", "es": "App en vivo" }, "url": "https://jachicanoy.github.io/amazon-basin-monitor/" },
+        { "label": "GitHub", "url": "https://github.com/jachicanoy/amazon-basin-monitor" }
       ]
     },
     {
@@ -448,7 +448,7 @@
       "description": { "en": "Earth Engine app for climate-change and early-warning monitoring in Karamoja.", "es": "App de Earth Engine para monitoreo de cambio climático y alerta temprana en Karamoja." },
       "tech": ["gee", "javascript", "ews"],
       "url": "https://ee-jersoncatalyst.projects.earthengine.app/view/karamoja-climate-portal",
-      "repo": "https://github.com/JersonCatalyst/karamoja-climate-portal"
+      "repo": "https://github.com/jachicanoy/karamoja-climate-portal"
     },
     {
       "id": "purace-volcanic-sentry",
@@ -458,8 +458,8 @@
       "year": "2025",
       "description": { "en": "Near-real-time SO₂ plume monitoring from Sentinel-5P TROPOMI in Earth Engine.", "es": "Monitoreo casi en tiempo real de la pluma de SO₂ con Sentinel-5P TROPOMI en Earth Engine." },
       "tech": ["gee", "sentinel", "javascript", "ews"],
-      "url": "https://jersoncatalyst.github.io/purace_volcano_monitor/",
-      "repo": "https://github.com/JersonCatalyst/purace_volcano_monitor",
+      "url": "https://jachicanoy.github.io/purace_volcano_monitor/",
+      "repo": "https://github.com/jachicanoy/purace_volcano_monitor",
       "image": "purace"
     },
     {
@@ -647,7 +647,7 @@
       "description": { "en": "Segment-geospatial point prompts for feature extraction from imagery.", "es": "Prompts de puntos con segment-geospatial para extraer objetos de imágenes." },
       "tech": ["python", "sam"],
       "url": "",
-      "repo": "https://github.com/JersonCatalyst/Humanitarian-Geocode"
+      "repo": "https://github.com/jachicanoy/Humanitarian-Geocode"
     },
     {
       "id": "maps-infographics",

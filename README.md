@@ -78,7 +78,7 @@ npm run preview
 
 ## Despliegue en GitHub Pages
 
-1. Repositorio: `JersonCatalyst/JersonCatalyst.github.io` (rama `main`) → sitio en `https://jersoncatalyst.github.io/`.
+1. Repositorio: `jachicanoy/jachicanoy.github.io` (rama `main`) → sitio en `https://jachicanoy.github.io/`.
 2. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
 3. Haz push a `main`. El workflow detecta si el repo es `usuario.github.io` (raíz) o un repo de proyecto (`/nombre-repo`) y ajusta `base` automáticamente.
 
