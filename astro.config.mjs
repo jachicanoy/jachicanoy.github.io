@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 /**
  * SITE y BASE_PATH los inyecta el workflow de GitHub Actions
@@ -14,6 +15,12 @@ export default defineConfig({
   site,
   base,
   output: 'static',
+  integrations: [
+    sitemap({
+      i18n: { defaultLocale: 'en', locales: { en: 'en', es: 'es' } },
+      filter: (page) => !page.includes('/404'),
+    }),
+  ],
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],

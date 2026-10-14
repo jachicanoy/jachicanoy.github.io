@@ -8,7 +8,8 @@ import { L, t, type Lang } from '../i18n';
 const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).products;
 const TP = t(lang).projects;
-const { products, stack } = data;
+const { stack } = data;
+const products = (data.products as any[]).filter((p) => !p.hidden);
 const techName = new Map(stack.domains.flatMap((d) => d.items.map((i) => [i.id, L(i.name as any, lang) as string] as const)));
 
 // Pestañas solo para los tipos presentes; con imagen primero dentro del orden del JSON
@@ -85,7 +86,7 @@ const typeIcon: Record<string, string> = { gee: 'EE', powerbi: 'BI', arcgis: 'GI
   .tabs button span { font-size: 0.75rem; color: var(--muted); }
   .tabs button:hover { border-color: var(--line); color: var(--text); }
   .tabs button[aria-selected='true'] { background: var(--accent-fill); border-color: var(--accent-fill); color: #fff; }
-  .tabs button[aria-selected='true'] span { color: rgba(255, 255, 255, 0.8); }
+  .tabs button[aria-selected='true'] span { color: #fff; }
 
   .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
   .tile {

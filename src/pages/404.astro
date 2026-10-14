@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { homeUrl } from '../i18n';
+---
+<BaseLayout lang="en" noindex>
+  <main id="main" class="nf">
+    <div class="container">
+      <p class="code mono-num">404</p>
+      <h1>This page doesn’t exist <span>· Esta página no existe</span></h1>
+      <p class="lead">The link may be outdated — project sites now live under <strong>jachicanoy.github.io</strong>.<br />
+        El enlace puede estar desactualizado: los sitios de proyectos ahora están en <strong>jachicanoy.github.io</strong>.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href={homeUrl('en')}>Home (EN)</a>
+        <a class="btn" href={homeUrl('es')}>Inicio (ES)</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .nf { min-height: 100vh; display: grid; align-items: center; padding: 64px 0; }
+  .code { font-size: clamp(4rem, 14vw, 9rem); font-weight: 300; letter-spacing: -0.04em; color: var(--accent); line-height: 1; }
+  h1 { margin-top: 16px; font-size: clamp(1.5rem, 3.4vw, 2.4rem); font-weight: 300; }
+  h1 span { color: var(--muted); }
+  .lead { margin-top: 18px; max-width: 46em; color: var(--text-2); font-weight: 300; }
+  .ctas { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+</style>

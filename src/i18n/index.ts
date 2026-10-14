@@ -38,7 +38,7 @@ export const ui = {
       eyebrow: '03 · Portfolio', title: 'Projects & <strong>case studies</strong>',
       lead: 'Production systems, data platforms and decision frameworks for humanitarian operations and risk management.',
       clear: 'Clear filter', none: 'Nothing published with this technology yet.',
-      one: 'item', many: 'items', with: 'with', techs: 'Technologies',
+      one: 'item', many: 'items', with: 'with', techs: 'Technologies', method: 'Method',
     },
     products: {
       eyebrow: '04 · Products', title: 'Apps, dashboards & <strong>maps</strong>',
@@ -48,9 +48,10 @@ export const ui = {
     },
     footprint: {
       eyebrow: '05 · Geospatial footprint', title: 'Operations <strong>map</strong>',
-      lead: 'Countries and regions where I have led technical operations, provided regional or remote coverage, or carried out research.',
+      lead: 'Countries and regions where I have led technical operations, provided regional or remote support, or carried out research.',
+      leadCount: '{n} countries supported.',
       all: 'All', loading: 'Loading map…', aria: 'Interactive operations map', filter: 'Filter by region',
-      types: { lead: 'On-site operations', regional: 'Regional / remote coverage', academic: 'Research & events' },
+      types: { lead: 'On-site operations', regional: 'Regional / remote support', academic: 'Research & events' },
     },
     research: { eyebrow: '06 · Research & academic hub', title: 'Doctoral <strong>research</strong> and technical output', education: 'Education' },
     experience: { eyebrow: '07 · Career', title: 'Professional <strong>timeline</strong>', lead: 'Roles across UN agencies, missions and international organisations. Expand each role for detail.' },
@@ -77,7 +78,7 @@ export const ui = {
       eyebrow: '03 · Portafolio', title: 'Proyectos y <strong>casos de estudio</strong>',
       lead: 'Sistemas en producción, plataformas de datos y marcos de decisión para operaciones humanitarias y gestión del riesgo.',
       clear: 'Limpiar filtro', none: 'Aún no hay trabajos publicados con esta tecnología.',
-      one: 'elemento', many: 'elementos', with: 'con', techs: 'Tecnologías',
+      one: 'elemento', many: 'elementos', with: 'con', techs: 'Tecnologías', method: 'Método',
     },
     products: {
       eyebrow: '04 · Productos', title: 'Apps, tableros y <strong>mapas</strong>',
@@ -87,9 +88,10 @@ export const ui = {
     },
     footprint: {
       eyebrow: '05 · Huella geoespacial', title: 'Mapa de <strong>operaciones</strong>',
-      lead: 'Países y regiones donde he liderado operaciones técnicas, dado cobertura regional o remota, o realizado investigación.',
+      lead: 'Países y regiones donde he liderado operaciones técnicas, dado apoyo regional o remoto, o realizado investigación.',
+      leadCount: '{n} países apoyados.',
       all: 'Todas', loading: 'Cargando mapa…', aria: 'Mapa interactivo de operaciones', filter: 'Filtrar por región',
-      types: { lead: 'Operaciones en terreno', regional: 'Cobertura regional / remota', academic: 'Investigación y eventos' },
+      types: { lead: 'Operaciones en terreno', regional: 'Apoyo regional / remoto', academic: 'Investigación y eventos' },
     },
     research: { eyebrow: '06 · Investigación y academia', title: 'Investigación <strong>doctoral</strong> y producción técnica', education: 'Formación' },
     experience: { eyebrow: '07 · Trayectoria', title: 'Línea de tiempo <strong>profesional</strong>', lead: 'Roles en agencias, misiones de la ONU y organizaciones internacionales. Despliega cada rol para ver el detalle.' },

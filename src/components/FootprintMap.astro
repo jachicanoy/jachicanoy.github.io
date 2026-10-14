@@ -4,16 +4,25 @@ import { L, t, type Lang } from '../i18n';
 const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).footprint;
 const { footprint } = data;
-const places = footprint.places.map((p: any) => ({ ...p, name: L(p.name, lang), note: L(p.note, lang) }));
-// Solo regiones con lugares
+
+type Country = { name: any; lat: number; lng: number; iso?: string };
+const places = (footprint.places as any[]).map((p) => ({
+  id: p.id, type: p.type, region: p.region, anchor: p.anchor,
+  name: L(p.name, lang) as string, note: L(p.note, lang) as string,
+  countries: (p.countries as Country[]).map((c) => ({ ...c, name: L(c.name, lang) as string })),
+}));
 const regions = footprint.regions.filter((r) => places.some((p) => p.region === r.id));
+
+// Países únicos con operaciones o apoyo (excluye sedes académicas y la sede de Roma)
+const supported = new Set(places.filter((p) => p.type !== 'academic' && p.id !== 'rome').flatMap((p) => p.countries.map((c) => c.name)));
+const lead = T.leadCount.replace('{n}', String(supported.size));
 ---
 <section class="section" id="footprint">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">{T.eyebrow}</span>
       <h2 class="section-title" set:html={T.title} />
-      <p class="section-lead">{T.lead}</p>
+      <p class="section-lead">{T.lead} <strong class="count">{lead}</strong></p>
     </div>
 
     <div class="map-shell reveal">
@@ -36,7 +45,11 @@ const regions = footprint.regions.filter((r) => places.some((p) => p.region === 
             <li data-region={p.region}>
               <button data-place={i}>
                 <span class={`sw ${p.type}`} aria-hidden="true"></span>
-                <span class="pl"><strong>{p.name}</strong><span>{p.note}</span></span>
+                <span class="pl">
+                  <strong>{p.name}{p.countries.length > 1 && <em class="n mono-num">{p.countries.length}</em>}</strong>
+                  <span>{p.note}</span>
+                  {p.countries.length > 1 && <small>{p.countries.map((c) => c.name).join(' · ')}</small>}
+                </span>
               </button>
             </li>
           ))}
@@ -47,9 +60,10 @@ const regions = footprint.regions.filter((r) => places.some((p) => p.region === 
 </section>
 
 <style>
-  .map-shell { display: grid; grid-template-columns: minmax(0, 1fr) 320px; border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; background: var(--bg-elev); }
+  .count { font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .map-shell { display: grid; grid-template-columns: minmax(0, 1fr) 340px; border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; background: var(--bg-elev); }
   .map-wrap { position: relative; }
-  .map { height: clamp(380px, 52vw, 560px); background: var(--bg-elev); }
+  .map { height: clamp(400px, 54vw, 600px); background: var(--bg-elev); }
   :global(#footprint-map.leaflet-container) { background: var(--bg-elev); }
   .map-placeholder { height: 100%; display: grid; place-items: center; color: var(--muted); font-size: 0.875rem;
     background-image: radial-gradient(var(--line) 1px, transparent 1px); background-size: 22px 22px; }
@@ -61,7 +75,7 @@ const regions = footprint.regions.filter((r) => places.some((p) => p.region === 
   .sw.regional { border-color: var(--tech); background: var(--tech-soft); }
   .sw.academic { border-color: var(--warm); background: transparent; }
 
-  .panel { border-left: 1px solid var(--line-soft); display: flex; flex-direction: column; min-height: 0; max-height: clamp(380px, 52vw, 560px); }
+  .panel { border-left: 1px solid var(--line-soft); display: flex; flex-direction: column; min-height: 0; max-height: clamp(400px, 54vw, 600px); }
   .tabs { display: flex; gap: 4px; padding: 12px; border-bottom: 1px solid var(--line-soft); }
   .tabs button { flex: 1; padding: 8px 6px; border-radius: 8px; font-size: 0.8125rem; color: var(--text-2); }
   .tabs button[aria-selected='true'] { background: var(--surface-2); color: var(--text); font-weight: 700; }
@@ -71,24 +85,25 @@ const regions = footprint.regions.filter((r) => places.some((p) => p.region === 
   .places button:hover, .places button.is-active { background: var(--surface); }
   .places .sw { margin-top: 6px; }
   .pl { display: grid; gap: 2px; }
-  .pl strong { font-size: 0.9rem; }
+  .pl strong { font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+  .pl .n { font-style: normal; font-size: 0.6875rem; font-weight: 700; padding: 1px 7px; border-radius: 999px; background: var(--surface-2); color: var(--text-2); }
   .pl span { font-size: 0.8125rem; color: var(--muted); line-height: 1.45; }
+  .pl small { font-size: 0.75rem; color: var(--text-2); line-height: 1.5; margin-top: 2px; }
 
   @media (max-width: 900px) {
     .map-shell { grid-template-columns: 1fr; }
-    .panel { border-left: 0; border-top: 1px solid var(--line-soft); max-height: 340px; }
-    .map { height: 380px; }
+    .panel { border-left: 0; border-top: 1px solid var(--line-soft); max-height: 360px; }
+    .map { height: 400px; }
   }
 
-  /* Leaflet — integración con tokens */
   :global(.leaflet-container) { font-family: var(--font); background: var(--bg-elev); }
   :global(.leaflet-control-zoom a) { background: var(--surface) !important; color: var(--text) !important; border-color: var(--line) !important; }
   :global(.leaflet-control-attribution) { background: color-mix(in srgb, var(--bg) 75%, transparent) !important; color: var(--muted) !important; font-size: 10px; }
   :global(.leaflet-control-attribution a) { color: var(--text-2) !important; }
-  :global(.leaflet-tooltip.fp-tip) { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 8px 10px; font-size: 0.8125rem; max-width: 240px; white-space: normal; }
+  :global(.leaflet-tooltip.fp-tip) { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 8px 10px; font-size: 0.8125rem; max-width: 260px; white-space: normal; }
   :global(.leaflet-tooltip.fp-tip::before) { display: none; }
-  :global(.fp-tip strong) { display: block; font-size: 0.875rem; }
-  :global(.fp-tip span) { color: var(--text-2); }
+  :global(.fp-tip strong) { display: block; font-size: 0.875rem; margin-bottom: 2px; }
+  :global(.fp-tip span) { display: block; color: var(--text-2); }
   :global(.fp-pulse) { animation: fpPulse 2.8s ease-out infinite; transform-origin: center; transform-box: fill-box; }
   @keyframes fpPulse { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(3.2); } }
 </style>
@@ -96,19 +111,31 @@ const regions = footprint.regions.filter((r) => places.some((p) => p.region === 
 <script>
   import worldUrl from 'world-atlas/countries-110m.json?url';
 
-  type Place = { name: string; lat: number; lng: number; region: string; type: 'lead' | 'regional' | 'academic'; note: string; iso?: string };
+  type Kind = 'lead' | 'regional' | 'academic';
+  type Country = { name: string; lat: number; lng: number; iso?: string };
+  type Place = { id: string; name: string; note: string; region: string; type: Kind; anchor: [number, number]; countries: Country[] };
 
   const el = document.getElementById('footprint-map')!;
   const places: Place[] = JSON.parse(el.dataset.places || '[]');
   const tabs = [...document.querySelectorAll<HTMLButtonElement>('#footprint button[data-region]')];
   const items = [...document.querySelectorAll<HTMLLIElement>('#footprint .places li')];
   const buttons = [...document.querySelectorAll<HTMLButtonElement>('#footprint [data-place]')];
-
+  const rank: Record<Kind, number> = { lead: 3, regional: 2, academic: 1 };
   const css = (v: string) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const color = (k: Kind) => (k === 'lead' ? css('--accent') : k === 'regional' ? css('--tech') : css('--warm'));
+
+  // Un punto por país (deduplicado): conserva el tipo de mayor rango y todas las operaciones que lo cubren
+  type Dot = { key: string; c: Country; type: Kind; regions: Set<string>; places: number[] };
+  const dots = new Map<string, Dot>();
+  places.forEach((p, i) => p.countries.forEach((c) => {
+    const key = c.iso ?? c.name;
+    const d = dots.get(key) ?? { key, c, type: p.type, regions: new Set<string>(), places: [] };
+    if (rank[p.type] > rank[d.type]) d.type = p.type;
+    d.regions.add(p.region); d.places.push(i);
+    dots.set(key, d);
+  }));
 
   async function boot() {
-    // Leaflet + mapa base vectorial auto-hospedado (Natural Earth 1:110m vía world-atlas):
-    // sin API keys, sin teselas de terceros, coherente con el tema claro/oscuro.
     const [{ default: L }, { feature }, topo] = await Promise.all([
       import('leaflet'),
       import('topojson-client'),
@@ -117,97 +144,85 @@ const regions = footprint.regions.filter((r) => places.some((p) => p.region === 
     ]);
     el.innerHTML = '';
     const map = L.map(el, {
-      scrollWheelZoom: false, worldCopyJump: false, zoomSnap: 0.25, minZoom: 1.5, maxZoom: 6,
+      scrollWheelZoom: false, zoomSnap: 0.25, minZoom: 1.5, maxZoom: 7,
       maxBounds: [[-75, -200], [85, 200]], attributionControl: true,
     });
     map.attributionControl.setPrefix('').addAttribution('Natural Earth');
 
-    const active = new Set(places.map((p) => p.iso).filter(Boolean));
+    // Sombreado de países por el tipo de mayor rango
+    const isoType = new Map<string, Kind>();
+    dots.forEach((d) => { if (d.c.iso) isoType.set(d.c.iso, d.type); });
     const world = feature(topo, topo.objects.countries) as any;
     const countryStyle = (f: any) => {
-      const on = active.has(f.id);
-      return {
-        color: on ? css('--accent') : css('--line'),
-        weight: on ? 1 : 0.6,
-        fillColor: on ? css('--accent') : css('--surface-2'),
-        fillOpacity: on ? 0.22 : 1,
-      };
+      const k = isoType.get(f.id);
+      return k
+        ? { color: color(k), weight: 0.9, fillColor: color(k), fillOpacity: k === 'academic' ? 0.1 : 0.22 }
+        : { color: css('--line'), weight: 0.6, fillColor: css('--surface-2'), fillOpacity: 1 };
     };
     const countries = L.geoJSON(world, { style: countryStyle, interactive: false }).addTo(map);
 
-    const color = (t: Place['type']) => (t === 'lead' ? css('--accent') : t === 'regional' ? css('--tech') : css('--warm'));
-    const hub = places[0];
-
-    // Arcos desde la base (curva cuadrática en lat/lng: ligera y suficiente a esta escala)
+    // Arcos: de la base (Bogotá) al ancla de cada operación
+    const hub = places[0].anchor;
     const arcs = L.layerGroup().addTo(map);
-    const drawArcs = () => {
+    const drawArcs = (subset = places.slice(1)) => {
       arcs.clearLayers();
-      places.slice(1).forEach((p) => {
-        const mid = [(hub.lat + p.lat) / 2 + Math.abs(hub.lng - p.lng) * 0.12, (hub.lng + p.lng) / 2];
+      subset.filter((p) => p !== places[0]).forEach((p) => {
+        const [la, ln] = p.anchor;
+        const mid = [(hub[0] + la) / 2 + Math.abs(hub[1] - ln) * 0.12, (hub[1] + ln) / 2];
         const pts: [number, number][] = [];
-        for (let t = 0; t <= 1.0001; t += 0.05) {
-          pts.push([
-            (1 - t) ** 2 * hub.lat + 2 * (1 - t) * t * mid[0] + t ** 2 * p.lat,
-            (1 - t) ** 2 * hub.lng + 2 * (1 - t) * t * mid[1] + t ** 2 * p.lng,
-          ]);
+        for (let s = 0; s <= 1.0001; s += 0.05) {
+          pts.push([(1 - s) ** 2 * hub[0] + 2 * (1 - s) * s * mid[0] + s ** 2 * la, (1 - s) ** 2 * hub[1] + 2 * (1 - s) * s * mid[1] + s ** 2 * ln]);
         }
-        L.polyline(pts, { color: css('--text'), opacity: 0.14, weight: 1, dashArray: '2 5', interactive: false }).addTo(arcs);
+        L.polyline(pts, { color: css('--text'), opacity: 0.12, weight: 1, dashArray: '2 5', interactive: false }).addTo(arcs);
       });
     };
     drawArcs();
 
-    const markers = places.map((p, i) => {
-      const c = color(p.type);
+    const dotLayers = [...dots.values()].map((d) => {
       const g = L.layerGroup();
-      if (p.type === 'lead') {
-        L.circleMarker([p.lat, p.lng], { radius: 6, color: c, weight: 1, fillOpacity: 0, className: 'fp-pulse', interactive: false }).addTo(g);
+      const c = color(d.type);
+      if (d.type === 'lead' && d.c.iso) {
+        L.circleMarker([d.c.lat, d.c.lng], { radius: 5, color: c, weight: 1, fillOpacity: 0, className: 'fp-pulse', interactive: false }).addTo(g);
       }
-      const m = L.circleMarker([p.lat, p.lng], {
-        radius: p.type === 'lead' ? 6 : 5, color: c, weight: 2,
-        fillColor: c, fillOpacity: p.type === 'academic' ? 0 : 0.3,
-      })
-        .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span>`, { className: 'fp-tip', direction: 'top', offset: [0, -8] })
-        .on('click', () => focus(i));
-      m.addTo(g);
+      const html = `<strong>${d.c.name}</strong>` + d.places.map((i) => `<span>${places[i].name} — ${places[i].note}</span>`).join('');
+      L.circleMarker([d.c.lat, d.c.lng], {
+        radius: d.c.iso ? 5 : 3.5, color: c, weight: 1.6, fillColor: c, fillOpacity: d.type === 'academic' ? 0 : 0.35,
+      }).bindTooltip(html, { className: 'fp-tip', direction: 'top', offset: [0, -6] }).addTo(g);
       g.addTo(map);
-      return { g, m, p };
+      return { d, g };
     });
 
-    const fitAll = (subset = markers) => {
-      const b = L.latLngBounds(subset.map((x) => [x.p.lat, x.p.lng] as [number, number]));
-      map.fitBounds(b.pad(subset.length > 3 ? 0.18 : 0.6), { maxZoom: 5, animate: true });
-    };
-    fitAll();
+    const bounds = (pts: [number, number][], pad: number) => L.latLngBounds(pts).pad(pad);
+    const allPts = [...dots.values()].map((d) => [d.c.lat, d.c.lng] as [number, number]);
+    map.fitBounds(bounds(allPts, 0.12), { maxZoom: 5 });
 
     function focus(i: number) {
-      const { p, m } = markers[i];
-      map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), 4.5), { duration: 0.8 });
-      m.openTooltip();
+      const p = places[i];
+      const pts = p.countries.map((c) => [c.lat, c.lng] as [number, number]);
+      if (pts.length > 1) map.flyToBounds(bounds(pts, 0.35), { maxZoom: 6, duration: 0.8 });
+      else map.flyTo(pts[0], Math.max(map.getZoom(), 5), { duration: 0.8 });
       buttons.forEach((b) => b.classList.toggle('is-active', Number(b.dataset.place) === i));
     }
     buttons.forEach((b) => b.addEventListener('click', () => focus(Number(b.dataset.place))));
 
-    tabs.forEach((t) =>
-      t.addEventListener('click', () => {
-        const r = t.dataset.region!;
-        tabs.forEach((x) => x.setAttribute('aria-selected', String(x === t)));
-        items.forEach((li) => (li.hidden = r !== 'all' && li.dataset.region !== r));
-        markers.forEach((x) => {
-          const on = r === 'all' || x.p.region === r;
-          if (on) x.g.addTo(map); else x.g.remove();
-        });
-        fitAll(r === 'all' ? markers : markers.filter((x) => x.p.region === r));
-      }),
-    );
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      const r = tab.dataset.region!;
+      tabs.forEach((x) => x.setAttribute('aria-selected', String(x === tab)));
+      items.forEach((li) => (li.hidden = r !== 'all' && li.dataset.region !== r));
+      const shown = dotLayers.filter(({ d }) => r === 'all' || d.regions.has(r));
+      dotLayers.forEach(({ g }) => g.remove()); shown.forEach(({ g }) => g.addTo(map));
+      drawArcs(r === 'all' ? places : places.filter((p) => p.region === r));
+      const pts = shown.map(({ d }) => [d.c.lat, d.c.lng] as [number, number]);
+      if (pts.length) map.flyToBounds(bounds(pts, pts.length > 3 ? 0.15 : 0.6), { maxZoom: 5, duration: 0.8 });
+    }));
 
     document.addEventListener('themechange', () => {
       countries.setStyle(countryStyle);
-      markers.forEach(({ g, p }) => g.eachLayer((l: any) => l.setStyle?.({ color: color(p.type), fillColor: color(p.type) })));
+      dotLayers.forEach(({ d, g }) => g.eachLayer((l: any) => l.setStyle?.({ color: color(d.type), fillColor: color(d.type) })));
       drawArcs();
     });
   }
 
-  // Carga diferida: Leaflet solo se descarga cuando el mapa se acerca al viewport.
   const io = new IntersectionObserver((entries) => {
     if (entries.some((e) => e.isIntersecting)) { io.disconnect(); boot(); }
   }, { rootMargin: '300px 0px' });

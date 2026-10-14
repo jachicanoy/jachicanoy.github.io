@@ -13,7 +13,7 @@ const items = (['about', 'stack', 'projects', 'products', 'footprint', 'research
 ---
 <header class="nav" data-nav>
   <div class="container nav-inner">
-    <a href="#top" class="brand" aria-label={profile.name}>
+    <a href="#top" class="brand">
       <span class="mark">{profile.initials}</span>
       <span class="brand-name">{profile.name}</span>
     </a>
@@ -24,7 +24,7 @@ const items = (['about', 'stack', 'projects', 'products', 'footprint', 'research
       </ul>
     </nav>
     <div class="actions">
-      <a class="lang" href={homeUrl(other)} hreflang={other} lang={other} aria-label={T.langSwitchLabel} data-lang-switch>
+      <a class="lang" href={homeUrl(other)} hreflang={other} lang={other} aria-label={`${other.toUpperCase()} — ${T.langSwitchLabel}`} data-lang-switch>
         <span class="lang-code">{other.toUpperCase()}</span>
       </a>
       <button class="icon-btn" data-theme-toggle aria-label={T.themeToggle}>

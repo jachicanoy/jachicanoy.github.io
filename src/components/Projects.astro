@@ -39,6 +39,13 @@ const fill = new Map<string, string>(rem === 0 ? [] : regular.slice(-rem).map((i
         return (
           <article class:list={['card', fill.get(p.id), { featured: p.featured }]} data-item data-group="projects" data-tech={p.tech.join(' ')}>
             {img && <Image src={img} alt="" class="thumb" widths={[480, 800]} sizes="(max-width: 640px) 100vw, 400px" loading="lazy" />}
+            {p.method && (
+              <ol class="method" aria-label={T.method}>
+                {p.method.map((m: any, i: number) => (
+                  <li><span class="step mono-num">{String(i + 1).padStart(2, '0')}</span><span class="lbl">{L(m, lang)}</span></li>
+                ))}
+              </ol>
+            )}
             <header>
               <div class="meta">
                 <span class="region">{regionName[p.region] ?? p.region}</span>
@@ -103,6 +110,32 @@ const fill = new Map<string, string>(rem === 0 ? [] : regular.slice(-rem).map((i
     width: calc(100% + 2 * clamp(22px, 2.4vw, 30px)); max-width: none; height: 160px; object-fit: cover; object-position: top;
     border-bottom: 1px solid var(--line-soft);
   }
+
+  /* Diagrama de metodología: pasos genéricos conectados, sin datos ni parámetros institucionales */
+  .method {
+    list-style: none; margin: calc(-1 * clamp(22px, 2.4vw, 30px)) calc(-1 * clamp(22px, 2.4vw, 30px)) 0; padding: 18px clamp(22px, 2.4vw, 30px) 16px;
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0; position: relative;
+    background:
+      linear-gradient(180deg, var(--accent-soft), transparent),
+      radial-gradient(var(--line-soft) 1px, transparent 1px) 0 0 / 14px 14px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .method li { position: relative; display: grid; justify-items: center; gap: 8px; text-align: center; padding: 0 4px; }
+  .method li::before {
+    content: ''; position: absolute; top: 13px; left: 50%; right: -50%; height: 1px;
+    background: linear-gradient(90deg, var(--accent-line), var(--accent-line) 70%, transparent);
+  }
+  .method li:last-child::before { display: none; }
+  .method .step {
+    position: relative; z-index: 1; display: grid; place-items: center; width: 27px; height: 27px; border-radius: 50%;
+    font-size: 0.6875rem; font-weight: 700; color: var(--accent); background: var(--bg-elev); border: 1px solid var(--accent-line);
+    transition: background 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .method li:last-child .step { background: var(--accent-fill); border-color: var(--accent-fill); color: #fff; }
+  .card:hover .method .step { background: var(--surface); }
+  .card:hover .method li:last-child .step { background: var(--accent-fill); }
+  .method .lbl { font-size: 0.6875rem; line-height: 1.3; color: var(--text-2); letter-spacing: 0.01em; max-width: 12ch; }
+  .card.featured .method .lbl, .card.fill-half .method .lbl, .card.fill-full .method .lbl { font-size: 0.75rem; max-width: 16ch; }
 
   .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; }
   .region { color: var(--warm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }

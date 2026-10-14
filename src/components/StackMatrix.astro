@@ -3,7 +3,8 @@ import data from '../data/portfolio.json';
 import { L, t, type Lang } from '../i18n';
 const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).stack;
-const { stack, projects, products } = data;
+const { stack, projects } = data;
+const products = (data.products as any[]).filter((p) => !p.hidden);
 const all = [...projects, ...products];
 
 // Conteo y co-ocurrencias calculados en build.

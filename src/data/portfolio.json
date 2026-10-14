@@ -435,6 +435,24 @@
           "label": "GitHub",
           "url": "https://github.com/jachicanoy/fao_aa_map"
         }
+      ],
+      "method": [
+        {
+          "en": "Source protocols",
+          "es": "Protocolos fuente"
+        },
+        {
+          "en": "Structured extraction",
+          "es": "Extracción estructurada"
+        },
+        {
+          "en": "Harmonised dataset",
+          "es": "Dataset armonizado"
+        },
+        {
+          "en": "Interactive map",
+          "es": "Mapa interactivo"
+        }
       ]
     },
     {
@@ -495,6 +513,24 @@
         {
           "label": "GitHub",
           "url": "https://github.com/jachicanoy/hazard-chronicity-index"
+        }
+      ],
+      "method": [
+        {
+          "en": "Disaster records",
+          "es": "Registros de desastres"
+        },
+        {
+          "en": "Chronicity components",
+          "es": "Componentes de cronicidad"
+        },
+        {
+          "en": "Weight validation",
+          "es": "Validación de pesos"
+        },
+        {
+          "en": "Index & atlas",
+          "es": "Índice y atlas"
         }
       ]
     },
@@ -557,6 +593,24 @@
           "label": "GitHub",
           "url": "https://github.com/jachicanoy/amazon-basin-monitor"
         }
+      ],
+      "method": [
+        {
+          "en": "Event curation",
+          "es": "Curaduría de eventos"
+        },
+        {
+          "en": "Hazard layers",
+          "es": "Capas de amenaza"
+        },
+        {
+          "en": "Automated rebuild",
+          "es": "Recompilación automática"
+        },
+        {
+          "en": "Multilingual monitor",
+          "es": "Monitor multilingüe"
+        }
       ]
     },
     {
@@ -612,7 +666,25 @@
         "dataprotection",
         "mande"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Captive portal",
+          "es": "Portal cautivo"
+        },
+        {
+          "en": "Self-administered survey",
+          "es": "Encuesta autoadministrada"
+        },
+        {
+          "en": "Flow analytics",
+          "es": "Analítica de flujos"
+        },
+        {
+          "en": "Monitoring dashboards",
+          "es": "Tableros de monitoreo"
+        }
+      ]
     },
     {
       "id": "cp-performance-evaluation",
@@ -633,26 +705,16 @@
       },
       "year": "2025",
       "description": {
-        "en": "Low-code app for structured evaluation of cooperating partners. Loads activity-specific indicator sets (GFA, AMS, Nutrition, SRM) from SharePoint lists, creates idempotent response records per evaluation, scores and risk-categorises each sector, enforces observations and recommendations for medium- and high-risk sectors before reporting, notifies the evaluation team via Outlook and produces printable reports.",
-        "es": "App low-code para la evaluación estructurada de socios cooperantes. Carga conjuntos de indicadores por actividad (GFA, AMS, Nutrición, SRM) desde listas de SharePoint, crea registros de respuesta idempotentes por evaluación, puntúa y clasifica el riesgo por sector, exige observaciones y recomendaciones en sectores de riesgo medio y alto antes del reporte, notifica al equipo evaluador vía Outlook y genera reportes imprimibles."
+        "en": "Low-code evaluation app for programme partners: configurable indicator libraries per programme activity, structured scoring and risk categorisation, validation rules that enforce qualitative evidence where risk is elevated, automated team notifications and printable reports — on a governed SharePoint backend.",
+        "es": "App low-code de evaluación de socios programáticos: bibliotecas de indicadores configurables por actividad, puntuación estructurada y clasificación de riesgo, reglas de validación que exigen evidencia cualitativa cuando el riesgo es elevado, notificaciones automáticas al equipo y reportes imprimibles, sobre un backend gobernado en SharePoint."
       },
       "metrics": [
         {
           "label": {
-            "en": "Activities",
-            "es": "Actividades"
+            "en": "Platform",
+            "es": "Plataforma"
           },
-          "value": "GFA · AMS · NUT · SRM"
-        },
-        {
-          "label": {
-            "en": "Backend",
-            "es": "Backend"
-          },
-          "value": {
-            "en": "SharePoint lists",
-            "es": "Listas SharePoint"
-          }
+          "value": "Power Apps · SharePoint"
         }
       ],
       "tech": [
@@ -661,7 +723,25 @@
         "mande",
         "vam"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Indicator library",
+          "es": "Biblioteca de indicadores"
+        },
+        {
+          "en": "Structured scoring",
+          "es": "Puntuación estructurada"
+        },
+        {
+          "en": "Risk validation",
+          "es": "Validación de riesgo"
+        },
+        {
+          "en": "Automated reporting",
+          "es": "Reporte automatizado"
+        }
+      ]
     },
     {
       "id": "semliki-flood-pipeline",
@@ -682,30 +762,23 @@
       },
       "year": "2025",
       "description": {
-        "en": "Floods AAP analytics for the Semliki Basin: an Earth Engine pipeline over 16 historical flood events (2013–2024) — CHIRPS extreme-rainfall diagnostics against a 2010–2024 baseline, Sentinel-1 SAR pre/post change detection, NASADEM slope and JRC permanent-water masks, WorldCover and WorldPop exposure layers — plus an ALOS PALSAR 12.5 m drainage and basin-delineation workflow in ArcGIS Pro.",
-        "es": "Analítica para el AAP de inundaciones de la cuenca del Semliki: pipeline en Earth Engine sobre 16 eventos históricos (2013–2024) con diagnóstico de lluvias extremas CHIRPS frente a una línea base 2010–2024, detección de cambios pre/post con SAR Sentinel-1, máscaras de pendiente (NASADEM) y agua permanente (JRC), capas de exposición WorldCover y WorldPop, y un flujo de delimitación de drenajes y cuencas con DEM ALOS PALSAR de 12,5 m en ArcGIS Pro."
+        "en": "Flood analytics for anticipatory action at basin scale: multi-event SAR change detection, extreme-rainfall diagnostics against a long-term baseline, terrain and permanent-water masking, DEM-based drainage and basin delineation, and population and land-cover exposure layers as inputs to hazard and risk indices.",
+        "es": "Analítica de inundaciones para acción anticipatoria a escala de cuenca: detección de cambios SAR multievento, diagnóstico de lluvias extremas frente a una línea base de largo plazo, enmascaramiento por terreno y agua permanente, delimitación de drenajes y cuencas con DEM, y capas de exposición de población y cobertura como insumo de índices de amenaza y riesgo."
       },
       "metrics": [
         {
           "label": {
-            "en": "Flood events",
-            "es": "Eventos"
+            "en": "Sensors",
+            "es": "Sensores"
           },
-          "value": "16"
+          "value": "Sentinel-1 · CHIRPS"
         },
         {
           "label": {
-            "en": "Sensor",
-            "es": "Sensor"
+            "en": "Terrain",
+            "es": "Terreno"
           },
-          "value": "Sentinel-1 SAR"
-        },
-        {
-          "label": {
-            "en": "DEM",
-            "es": "DEM"
-          },
-          "value": "ALOS PALSAR 12.5 m"
+          "value": "DEM 12.5 m"
         }
       ],
       "tech": [
@@ -718,7 +791,24 @@
         "drr"
       ],
       "links": [],
-      "image": "semliki_basin_workflow"
+      "method": [
+        {
+          "en": "Rainfall diagnostics",
+          "es": "Diagnóstico de lluvias"
+        },
+        {
+          "en": "SAR change detection",
+          "es": "Detección de cambios SAR"
+        },
+        {
+          "en": "Terrain & water masks",
+          "es": "Máscaras de terreno y agua"
+        },
+        {
+          "en": "Exposure & risk",
+          "es": "Exposición y riesgo"
+        }
+      ]
     },
     {
       "id": "karamoja-dfsci",
@@ -739,8 +829,8 @@
       },
       "year": "2025",
       "description": {
-        "en": "Expert composite index ranking sub-counties for anticipatory action. Earth Engine ingestion of observed and forecast SPI, NDVI/VHI, LST, evapotranspiration deficit, soil moisture (SMAP/ESA CCI), surface water and WorldPop, combined with IPC; a population-weighted downscaling of district IPC to sub-county with the IPC 20% rule; hazard and food-security sub-indices; priority classes; and back-testing against the 2017, 2019 and 2021–22 crises. Feeds the targeting SOP from forecast trigger to household enrolment.",
-        "es": "Índice compuesto experto que prioriza subcondados para la acción anticipatoria. Ingesta en Earth Engine de SPI observado y pronosticado, NDVI/VHI, LST, déficit de evapotranspiración, humedad del suelo (SMAP/ESA CCI), agua superficial y WorldPop, combinados con la IPC; reducción de escala de la IPC distrital a subcondado ponderada por población con la regla del 20 %; subíndices de amenaza y seguridad alimentaria; clases de prioridad; y validación retrospectiva con las crisis de 2017, 2019 y 2021–22. Alimenta el SOP de focalización desde el disparador hasta el registro de hogares."
+        "en": "Composite index method for geographic targeting in drought anticipatory action: combines observed and forecast climate stress, vegetation, soil-moisture and water indicators with food-security estimates, downscales those estimates to finer administrative units, and ranks areas into priority classes validated against past crises.",
+        "es": "Método de índice compuesto para la focalización geográfica en acción anticipatoria por sequía: combina estrés climático observado y pronosticado, indicadores de vegetación, humedad del suelo y agua con estimaciones de seguridad alimentaria, reduce la escala de esas estimaciones a unidades administrativas más finas y clasifica áreas en niveles de prioridad validados con crisis pasadas."
       },
       "metrics": [
         {
@@ -749,16 +839,19 @@
             "es": "Unidad"
           },
           "value": {
-            "en": "Sub-county",
-            "es": "Subcondado"
+            "en": "Sub-national",
+            "es": "Subnacional"
           }
         },
         {
           "label": {
-            "en": "Back-testing",
+            "en": "Validation",
             "es": "Validación"
           },
-          "value": "2017 · 2019 · 2021–22"
+          "value": {
+            "en": "Historical crises",
+            "es": "Crisis históricas"
+          }
         }
       ],
       "tech": [
@@ -769,7 +862,25 @@
         "vam",
         "ews"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Hazard indicators",
+          "es": "Indicadores de amenaza"
+        },
+        {
+          "en": "Food-security downscaling",
+          "es": "Reducción de escala SAN"
+        },
+        {
+          "en": "Composite index",
+          "es": "Índice compuesto"
+        },
+        {
+          "en": "Targeting priorities",
+          "es": "Prioridades de focalización"
+        }
+      ]
     },
     {
       "id": "karamoja-sentinel",
@@ -790,8 +901,8 @@
       },
       "year": "2025–2026",
       "description": {
-        "en": "End-to-end forecasting architecture: Python/Airflow ETL from CHIRPS, Copernicus and survey sources into a cloud data lake; hybrid CNN+LSTM and XGBoost models with an NLP stress-signal module; an integrated risk product served via REST API; and a trigger SOP requiring three converging evidence streams — sustained model confidence, NLP corroboration and drone field verification — before AA activation.",
-        "es": "Arquitectura de pronóstico de extremo a extremo: ETL en Python/Airflow desde CHIRPS, Copernicus y encuestas hacia un data lake en la nube; modelos híbridos CNN+LSTM y XGBoost con un módulo NLP de señales de estrés; un producto integrado de riesgo servido vía API REST; y un SOP de activación que exige la convergencia de tres fuentes de evidencia (confianza sostenida del modelo, corroboración NLP y verificación en campo con drones) antes de activar la AA."
+        "en": "Forecasting architecture for food-security early warning: multi-source ETL of climate, Earth-observation and survey data; hybrid deep-learning and gradient-boosting models with an NLP stress-signal module; a risk product exposed as a service; and a trigger protocol that requires convergent evidence before anticipatory action.",
+        "es": "Arquitectura de pronóstico para alerta temprana de seguridad alimentaria: ETL multifuente de datos climáticos, de observación de la Tierra y de encuestas; modelos híbridos de deep learning y gradient boosting con un módulo NLP de señales de estrés; un producto de riesgo expuesto como servicio; y un protocolo de activación que exige evidencia convergente antes de la acción anticipatoria."
       },
       "metrics": [
         {
@@ -824,7 +935,25 @@
         "uav",
         "aa"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Multi-source ETL",
+          "es": "ETL multifuente"
+        },
+        {
+          "en": "Hybrid ML + NLP",
+          "es": "ML híbrido + NLP"
+        },
+        {
+          "en": "Risk service",
+          "es": "Servicio de riesgo"
+        },
+        {
+          "en": "Evidence-based trigger",
+          "es": "Disparador basado en evidencia"
+        }
+      ]
     },
     {
       "id": "unicef-ews-ccri",
@@ -874,6 +1003,24 @@
           },
           "url": "https://gis.unicef.org/portal/apps/webappviewer/index.html?id=356b9a78e223406b9bf8d621d8372bb6"
         }
+      ],
+      "method": [
+        {
+          "en": "Hazard feeds",
+          "es": "Fuentes de amenaza"
+        },
+        {
+          "en": "Child-risk exposure",
+          "es": "Exposición y riesgo infantil"
+        },
+        {
+          "en": "Web early warning",
+          "es": "Alerta temprana web"
+        },
+        {
+          "en": "Preparedness decisions",
+          "es": "Decisiones de preparación"
+        }
       ]
     },
     {
@@ -895,8 +1042,8 @@
       },
       "year": "2023–2024",
       "description": {
-        "en": "Architected the organisation-wide M&E platform: relational design with multi-level online/offline sub-forms, automated indicator tracking and reporting dashboards, plus end-user and systems-programming manuals for sustainability.",
-        "es": "Arquitectura de la plataforma de M&E de toda la organización: diseño relacional con subformularios multinivel online/offline, seguimiento automatizado de indicadores y tableros de reporte, más manuales de usuario y de programación para su sostenibilidad."
+        "en": "Organisation-wide M&E platform design: relational data model with multi-level online/offline sub-forms, automated indicator tracking, cross-platform integration with mobile collection, BI and GIS, and end-user and developer documentation for sustainability.",
+        "es": "Diseño de plataforma de M&E para toda una organización: modelo relacional con subformularios multinivel online/offline, seguimiento automatizado de indicadores, integración entre recolección móvil, BI y GIS, y documentación para usuarios y desarrolladores que garantiza su sostenibilidad."
       },
       "metrics": [
         {
@@ -915,7 +1062,25 @@
         "mande",
         "dataprotection"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Offline collection",
+          "es": "Recolección offline"
+        },
+        {
+          "en": "Relational M&E model",
+          "es": "Modelo relacional de M&E"
+        },
+        {
+          "en": "Indicator automation",
+          "es": "Automatización de indicadores"
+        },
+        {
+          "en": "Dashboards",
+          "es": "Tableros"
+        }
+      ]
     },
     {
       "id": "untmis-protection-map",
@@ -936,8 +1101,8 @@
       },
       "year": "2024",
       "description": {
-        "en": "Spatial network and correlation analyses of service accessibility for IDPs and marginalised groups, and a pilot Protection Map of human-rights and discrimination patterns with UNSOM HRPG, OHCHR and UNSOS GIS — handling sensitive protection data in a high-risk duty station.",
-        "es": "Análisis de redes espaciales y correlación sobre acceso a servicios de desplazados internos y grupos marginados, y un Mapa de Protección piloto de patrones de derechos humanos y discriminación con UNSOM HRPG, OHCHR y UNSOS GIS, manejando datos sensibles en una misión de alto riesgo."
+        "en": "Spatial network and correlation analysis of service accessibility for displaced and marginalised groups, translated into a protection map with an automation manual and training — designed for protection-sensitive data in a high-risk setting.",
+        "es": "Análisis de redes espaciales y correlación sobre el acceso a servicios de poblaciones desplazadas y marginadas, traducido en un mapa de protección con manual de automatización y formación, diseñado para datos sensibles de protección en un contexto de alto riesgo."
       },
       "metrics": [
         {
@@ -957,7 +1122,25 @@
         "python",
         "dataprotection"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Service network",
+          "es": "Red de servicios"
+        },
+        {
+          "en": "Accessibility analysis",
+          "es": "Análisis de accesibilidad"
+        },
+        {
+          "en": "Pattern analysis",
+          "es": "Análisis de patrones"
+        },
+        {
+          "en": "Protection map",
+          "es": "Mapa de protección"
+        }
+      ]
     },
     {
       "id": "unodc-landcover-ml",
@@ -1000,49 +1183,25 @@
         "sentinel",
         "r"
       ],
-      "links": []
-    },
-    {
-      "id": "mass-movements-ai",
-      "featured": false,
-      "title": {
-        "en": "AI for Mass-Movement Detection",
-        "es": "IA para detección de movimientos en masa"
-      },
-      "subtitle": {
-        "en": "SAM + Gradient Boosting susceptibility",
-        "es": "Susceptibilidad con SAM + Gradient Boosting"
-      },
-      "org": "3iS",
-      "region": "latam",
-      "country": {
-        "en": "Colombia",
-        "es": "Colombia"
-      },
-      "year": "2025",
-      "description": {
-        "en": "Landslide polygons generated with Segment Anything on Sentinel-2 and a Gradient Boosting susceptibility model (elevation, lithology, precipitation) combined with a Social Exposure and Sensitivity Index for risk planning.",
-        "es": "Polígonos de deslizamientos generados con Segment Anything sobre Sentinel-2 y un modelo de susceptibilidad con Gradient Boosting (elevación, litología, precipitación) combinado con un Índice de Exposición y Sensibilidad Social para la planificación del riesgo."
-      },
-      "metrics": [
-        {
-          "label": {
-            "en": "Imagery",
-            "es": "Imágenes"
-          },
-          "value": "Sentinel-2"
-        }
-      ],
-      "tech": [
-        "sam",
-        "gbm",
-        "python",
-        "sentinel",
-        "arcgis",
-        "drr"
-      ],
       "links": [],
-      "image": "mass_movements"
+      "method": [
+        {
+          "en": "Multisensor imagery",
+          "es": "Imágenes multisensor"
+        },
+        {
+          "en": "Training samples",
+          "es": "Muestras de entrenamiento"
+        },
+        {
+          "en": "ML classification",
+          "es": "Clasificación ML"
+        },
+        {
+          "en": "Policy statistics",
+          "es": "Estadísticas para política"
+        }
+      ]
     },
     {
       "id": "aa-protocol-intelligence",
@@ -1063,8 +1222,8 @@
       },
       "year": "2026",
       "description": {
-        "en": "Local MCP server exposing the AA protocol portfolio (by country, hazard, zone, trigger, calendar and governance) to locally run LLMs, alongside protocol tracking and template standardisation (Honduras pilot).",
-        "es": "Servidor MCP local que expone el portafolio de protocolos AA (por país, amenaza, zona, disparador, calendario y gobernanza) a LLMs ejecutados en local, junto con seguimiento de protocolos y estandarización de plantilla (piloto Honduras)."
+        "en": "Retrieval method over anticipatory-action protocols: documents structured into a queryable knowledge base (country, hazard, zone, trigger, calendar, governance) and exposed through MCP tools to locally run LLMs — no data leaves the machine.",
+        "es": "Método de consulta sobre protocolos de acción anticipatoria: documentos estructurados en una base de conocimiento consultable (país, amenaza, zona, disparador, calendario, gobernanza) y expuestos mediante herramientas MCP a LLMs ejecutados en local, sin que los datos salgan del equipo."
       },
       "metrics": [
         {
@@ -1084,7 +1243,25 @@
         "localllm",
         "aa"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Protocol documents",
+          "es": "Documentos de protocolo"
+        },
+        {
+          "en": "Knowledge base",
+          "es": "Base de conocimiento"
+        },
+        {
+          "en": "MCP tools",
+          "es": "Herramientas MCP"
+        },
+        {
+          "en": "Local LLM queries",
+          "es": "Consultas con LLM local"
+        }
+      ]
     },
     {
       "id": "ibaas",
@@ -1129,7 +1306,25 @@
         "aa",
         "ews"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Hazard forecast",
+          "es": "Pronóstico de amenaza"
+        },
+        {
+          "en": "Vulnerability & exposure",
+          "es": "Vulnerabilidad y exposición"
+        },
+        {
+          "en": "Impact thresholds",
+          "es": "Umbrales de impacto"
+        },
+        {
+          "en": "Auditable triggers",
+          "es": "Disparadores auditables"
+        }
+      ]
     },
     {
       "id": "wfp-colombia-sdi",
@@ -1169,7 +1364,25 @@
         "uav",
         "vam"
       ],
-      "links": []
+      "links": [],
+      "method": [
+        {
+          "en": "Field & remote data",
+          "es": "Datos de campo y remotos"
+        },
+        {
+          "en": "ETL & SDI",
+          "es": "ETL e IDE"
+        },
+        {
+          "en": "Analysis services",
+          "es": "Servicios de análisis"
+        },
+        {
+          "en": "Web maps",
+          "es": "Mapas web"
+        }
+      ]
     }
   ],
   "products": [
@@ -1272,7 +1485,8 @@
         "drr"
       ],
       "url": "",
-      "image": "tt_epr"
+      "image": "tt_epr",
+      "hidden": true
     },
     {
       "id": "wfp-nutrition-uganda",
@@ -1330,7 +1544,8 @@
         "powerbi"
       ],
       "url": "",
-      "image": "r4v_rmrp"
+      "image": "r4v_rmrp",
+      "hidden": true
     },
     {
       "id": "r4v-activities",
@@ -1367,7 +1582,8 @@
         "powerbi"
       ],
       "url": "",
-      "image": "afg_profile"
+      "image": "afg_profile",
+      "hidden": true
     },
     {
       "id": "oef-colombia-report",
@@ -1388,7 +1604,8 @@
         "mande"
       ],
       "url": "",
-      "image": "oef_colombia"
+      "image": "oef_colombia",
+      "hidden": true
     },
     {
       "id": "col-humanitarian-transport",
@@ -1581,7 +1798,7 @@
     }
   ],
   "footprint": {
-    "$comment": "type: lead = on-site operations led · regional = regional/remote coverage · academic = research & events. iso = ISO 3166-1 numeric (shaded on the local basemap).",
+    "$comment": "Each engagement groups the countries it covered. type: lead = on-site operations · regional = regional/remote support · academic = research & events. iso = ISO 3166-1 numeric (shaded when present in the 1:110m basemap; small islands show as points only). anchor = point the overview arcs connect to.",
     "regions": [
       {
         "id": "latam",
@@ -1614,185 +1831,557 @@
     ],
     "places": [
       {
+        "id": "colombia",
         "name": "Colombia",
-        "lat": 4.71,
-        "lng": -74.07,
         "region": "latam",
         "type": "lead",
-        "iso": "170",
+        "anchor": [
+          4.71,
+          -74.07
+        ],
         "note": {
           "en": "Base · UNODC, WFP, IOM, iMMAP, 3iS",
           "es": "Base · UNODC, WFP, IOM, iMMAP, 3iS"
-        }
+        },
+        "countries": [
+          {
+            "name": "Colombia",
+            "lat": 4.71,
+            "lng": -74.07,
+            "iso": "170"
+          }
+        ]
       },
       {
-        "name": "Trinidad & Tobago",
-        "lat": 10.66,
-        "lng": -61.51,
+        "id": "unicef-eca",
+        "name": {
+          "en": "Eastern Caribbean",
+          "es": "Caribe Oriental"
+        },
         "region": "latam",
         "type": "lead",
-        "iso": "780",
+        "anchor": [
+          13.1,
+          -59.61
+        ],
         "note": {
-          "en": "UNHCR · Caribbean RMRP, 5 countries",
-          "es": "UNHCR · RMRP Caribe, 5 países"
-        }
+          "en": "UNICEF · IM support to 12 countries & territories (Barbados hub)",
+          "es": "UNICEF · soporte de IM a 12 países y territorios (sede en Barbados)"
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "Anguilla",
+              "es": "Anguila"
+            },
+            "lat": 18.22,
+            "lng": -63.06
+          },
+          {
+            "name": {
+              "en": "Antigua & Barbuda",
+              "es": "Antigua y Barbuda"
+            },
+            "lat": 17.12,
+            "lng": -61.85
+          },
+          {
+            "name": "Barbados",
+            "lat": 13.1,
+            "lng": -59.61
+          },
+          {
+            "name": {
+              "en": "British Virgin Islands",
+              "es": "Islas Vírgenes Británicas"
+            },
+            "lat": 18.43,
+            "lng": -64.62
+          },
+          {
+            "name": "Dominica",
+            "lat": 15.41,
+            "lng": -61.37
+          },
+          {
+            "name": {
+              "en": "Grenada",
+              "es": "Granada"
+            },
+            "lat": 12.06,
+            "lng": -61.75
+          },
+          {
+            "name": "Montserrat",
+            "lat": 16.74,
+            "lng": -62.19
+          },
+          {
+            "name": {
+              "en": "Saint Kitts & Nevis",
+              "es": "San Cristóbal y Nieves"
+            },
+            "lat": 17.3,
+            "lng": -62.72
+          },
+          {
+            "name": {
+              "en": "Saint Lucia",
+              "es": "Santa Lucía"
+            },
+            "lat": 13.91,
+            "lng": -60.98
+          },
+          {
+            "name": {
+              "en": "Saint Vincent & the Grenadines",
+              "es": "San Vicente y las Granadinas"
+            },
+            "lat": 13.25,
+            "lng": -61.2
+          },
+          {
+            "name": {
+              "en": "Trinidad & Tobago",
+              "es": "Trinidad y Tobago"
+            },
+            "lat": 10.66,
+            "lng": -61.51,
+            "iso": "780"
+          },
+          {
+            "name": {
+              "en": "Turks & Caicos",
+              "es": "Islas Turcas y Caicos"
+            },
+            "lat": 21.69,
+            "lng": -71.8
+          }
+        ]
       },
       {
-        "name": "Barbados",
-        "lat": 13.1,
-        "lng": -59.61,
+        "id": "unhcr-caribbean",
+        "name": {
+          "en": "Caribbean RMRP",
+          "es": "RMRP Caribe"
+        },
         "region": "latam",
         "type": "lead",
+        "anchor": [
+          10.66,
+          -61.51
+        ],
         "note": {
-          "en": "UNICEF · Eastern Caribbean, 12 countries",
-          "es": "UNICEF · Caribe Oriental, 12 países"
-        }
+          "en": "UNHCR · regional IM for 5 countries (Port of Spain hub)",
+          "es": "UNHCR · IM regional para 5 países (sede en Puerto España)"
+        },
+        "countries": [
+          {
+            "name": "Aruba",
+            "lat": 12.52,
+            "lng": -69.97,
+            "iso": "533"
+          },
+          {
+            "name": {
+              "en": "Curaçao",
+              "es": "Curazao"
+            },
+            "lat": 12.17,
+            "lng": -68.98,
+            "iso": "531"
+          },
+          {
+            "name": {
+              "en": "Dominican Republic",
+              "es": "República Dominicana"
+            },
+            "lat": 18.49,
+            "lng": -69.93,
+            "iso": "214"
+          },
+          {
+            "name": "Guyana",
+            "lat": 6.8,
+            "lng": -58.16,
+            "iso": "328"
+          },
+          {
+            "name": {
+              "en": "Trinidad & Tobago",
+              "es": "Trinidad y Tobago"
+            },
+            "lat": 10.66,
+            "lng": -61.51,
+            "iso": "780"
+          }
+        ]
       },
       {
-        "name": "Ecuador",
-        "lat": -1.83,
-        "lng": -78.18,
+        "id": "fao-cac",
+        "name": {
+          "en": "Central America & Caribbean",
+          "es": "Centroamérica y el Caribe"
+        },
         "region": "latam",
         "type": "regional",
-        "iso": "218",
+        "anchor": [
+          14.63,
+          -90.51
+        ],
         "note": {
-          "en": "Hazard Chronicity Index (El Niño)",
-          "es": "Índice de cronicidad de amenazas (El Niño)"
-        }
+          "en": "FAO · anticipatory action support",
+          "es": "FAO · apoyo en acción anticipatoria"
+        },
+        "countries": [
+          {
+            "name": "Guatemala",
+            "lat": 14.63,
+            "lng": -90.51,
+            "iso": "320"
+          },
+          {
+            "name": "El Salvador",
+            "lat": 13.69,
+            "lng": -89.22,
+            "iso": "222"
+          },
+          {
+            "name": "Honduras",
+            "lat": 14.07,
+            "lng": -87.19,
+            "iso": "340"
+          },
+          {
+            "name": {
+              "en": "Haiti",
+              "es": "Haití"
+            },
+            "lat": 18.59,
+            "lng": -72.31,
+            "iso": "332"
+          },
+          {
+            "name": {
+              "en": "Dominican Republic",
+              "es": "República Dominicana"
+            },
+            "lat": 18.49,
+            "lng": -69.93,
+            "iso": "214"
+          }
+        ]
       },
       {
-        "name": "Venezuela",
-        "lat": 10.48,
-        "lng": -66.9,
-        "region": "latam",
-        "type": "regional",
-        "iso": "862",
-        "note": {
-          "en": "Displacement response & 2026 earthquakes",
-          "es": "Respuesta al desplazamiento y sismos 2026"
-        }
-      },
-      {
-        "name": "Honduras",
-        "lat": 14.07,
-        "lng": -87.19,
-        "region": "latam",
-        "type": "regional",
-        "iso": "340",
-        "note": {
-          "en": "Drought thresholds · AA template pilot",
-          "es": "Umbrales de sequía · piloto de plantilla AA"
-        }
-      },
-      {
+        "id": "amazon",
         "name": {
           "en": "Amazon basin",
           "es": "Cuenca amazónica"
         },
-        "lat": -3.75,
-        "lng": -64.0,
         "region": "latam",
         "type": "regional",
+        "anchor": [
+          -3.75,
+          -64.0
+        ],
         "note": {
-          "en": "Amazon Basin Risk Monitor · ECHO-DP",
-          "es": "Monitor de riesgos amazónico · ECHO-DP"
-        }
+          "en": "3iS · Amazon Basin Risk Monitor (remote, 6 countries)",
+          "es": "3iS · Monitor de riesgos amazónico (remoto, 6 países)"
+        },
+        "countries": [
+          {
+            "name": "Bolivia",
+            "lat": -16.5,
+            "lng": -68.15,
+            "iso": "068"
+          },
+          {
+            "name": {
+              "en": "Brazil",
+              "es": "Brasil"
+            },
+            "lat": -15.79,
+            "lng": -47.88,
+            "iso": "076"
+          },
+          {
+            "name": "Colombia",
+            "lat": 4.71,
+            "lng": -74.07,
+            "iso": "170"
+          },
+          {
+            "name": "Ecuador",
+            "lat": -1.83,
+            "lng": -78.18,
+            "iso": "218"
+          },
+          {
+            "name": {
+              "en": "Peru",
+              "es": "Perú"
+            },
+            "lat": -12.05,
+            "lng": -77.04,
+            "iso": "604"
+          },
+          {
+            "name": "Venezuela",
+            "lat": 10.48,
+            "lng": -66.9,
+            "iso": "862"
+          }
+        ]
       },
       {
+        "id": "ecuador",
+        "name": "Ecuador",
+        "region": "latam",
+        "type": "regional",
+        "anchor": [
+          -1.83,
+          -78.18
+        ],
+        "note": {
+          "en": "Hazard Chronicity Index (El Niño)",
+          "es": "Índice de cronicidad de amenazas (El Niño)"
+        },
+        "countries": [
+          {
+            "name": "Ecuador",
+            "lat": -1.83,
+            "lng": -78.18,
+            "iso": "218"
+          }
+        ]
+      },
+      {
+        "id": "venezuela",
+        "name": "Venezuela",
+        "region": "latam",
+        "type": "regional",
+        "anchor": [
+          10.48,
+          -66.9
+        ],
+        "note": {
+          "en": "Displacement response & 2026 earthquakes",
+          "es": "Respuesta al desplazamiento y sismos 2026"
+        },
+        "countries": [
+          {
+            "name": "Venezuela",
+            "lat": 10.48,
+            "lng": -66.9,
+            "iso": "862"
+          }
+        ]
+      },
+      {
+        "id": "uganda",
         "name": "Uganda",
-        "lat": 0.35,
-        "lng": 32.58,
         "region": "africa",
         "type": "lead",
-        "iso": "800",
+        "anchor": [
+          0.35,
+          32.58
+        ],
         "note": {
-          "en": "WFP · RAM Ecosystems Team Lead, Karamoja",
-          "es": "WFP · Líder del equipo RAM Ecosystems, Karamoja"
-        }
+          "en": "WFP · RAM Ecosystems Team Lead",
+          "es": "WFP · Líder del equipo RAM Ecosystems"
+        },
+        "countries": [
+          {
+            "name": "Uganda",
+            "lat": 0.35,
+            "lng": 32.58,
+            "iso": "800"
+          }
+        ]
       },
       {
+        "id": "somalia",
         "name": "Somalia",
-        "lat": 2.05,
-        "lng": 45.32,
         "region": "africa",
         "type": "lead",
-        "iso": "706",
+        "anchor": [
+          2.05,
+          45.32
+        ],
         "note": {
           "en": "UNTMIS Mogadishu · PhD case study",
           "es": "UNTMIS Mogadiscio · caso de estudio doctoral"
-        }
+        },
+        "countries": [
+          {
+            "name": "Somalia",
+            "lat": 2.05,
+            "lng": 45.32,
+            "iso": "706"
+          }
+        ]
       },
       {
-        "name": "Malawi",
-        "lat": -13.25,
-        "lng": 34.3,
+        "id": "ethiopia",
+        "name": {
+          "en": "Ethiopia",
+          "es": "Etiopía"
+        },
         "region": "africa",
         "type": "regional",
-        "iso": "454",
+        "anchor": [
+          9.03,
+          38.74
+        ],
+        "note": {
+          "en": "Anticipatory action trigger support",
+          "es": "Apoyo en disparadores de acción anticipatoria"
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "Ethiopia",
+              "es": "Etiopía"
+            },
+            "lat": 9.03,
+            "lng": 38.74,
+            "iso": "231"
+          }
+        ]
+      },
+      {
+        "id": "malawi",
+        "name": "Malawi",
+        "region": "africa",
+        "type": "regional",
+        "anchor": [
+          -13.96,
+          33.79
+        ],
         "note": {
           "en": "El Niño country risk outlook",
           "es": "Perspectiva de riesgo El Niño"
-        }
+        },
+        "countries": [
+          {
+            "name": "Malawi",
+            "lat": -13.96,
+            "lng": 33.79,
+            "iso": "454"
+          }
+        ]
       },
       {
+        "id": "afghanistan",
         "name": {
           "en": "Afghanistan",
           "es": "Afganistán"
         },
-        "lat": 34.53,
-        "lng": 69.17,
         "region": "asia",
         "type": "regional",
-        "iso": "004",
+        "anchor": [
+          34.53,
+          69.17
+        ],
         "note": {
           "en": "Country profile & conflict dashboards (remote)",
           "es": "Perfil de país y tableros de conflicto (remoto)"
-        }
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "Afghanistan",
+              "es": "Afganistán"
+            },
+            "lat": 34.53,
+            "lng": 69.17,
+            "iso": "004"
+          }
+        ]
       },
       {
+        "id": "rome",
         "name": {
           "en": "Rome, Italy",
           "es": "Roma, Italia"
         },
-        "lat": 41.88,
-        "lng": 12.49,
         "region": "europe",
         "type": "lead",
-        "iso": "380",
+        "anchor": [
+          41.88,
+          12.49
+        ],
         "note": {
           "en": "FAO HQ · current duty station",
           "es": "Sede FAO · lugar de destino actual"
-        }
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "Italy",
+              "es": "Italia"
+            },
+            "lat": 41.88,
+            "lng": 12.49,
+            "iso": "380"
+          }
+        ]
       },
       {
+        "id": "seville",
         "name": {
           "en": "Seville, Spain",
           "es": "Sevilla, España"
         },
-        "lat": 37.39,
-        "lng": -5.98,
         "region": "europe",
         "type": "academic",
-        "iso": "724",
+        "anchor": [
+          37.39,
+          -5.98
+        ],
         "note": {
           "en": "Universidad Loyola Andalucía · PhD",
           "es": "Universidad Loyola Andalucía · Doctorado"
-        }
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "Spain",
+              "es": "España"
+            },
+            "lat": 37.39,
+            "lng": -5.98,
+            "iso": "724"
+          }
+        ]
       },
       {
+        "id": "berlin",
         "name": {
           "en": "Berlin, Germany",
           "es": "Berlín, Alemania"
         },
-        "lat": 52.52,
-        "lng": 13.4,
         "region": "europe",
         "type": "academic",
-        "iso": "276",
+        "anchor": [
+          52.52,
+          13.4
+        ],
         "note": {
           "en": "Global Dialogue Platform on AA 2026",
           "es": "Global Dialogue Platform sobre AA 2026"
-        }
+        },
+        "countries": [
+          {
+            "name": {
+              "en": "Germany",
+              "es": "Alemania"
+            },
+            "lat": 52.52,
+            "lng": 13.4,
+            "iso": "276"
+          }
+        ]
       }
     ]
   },
