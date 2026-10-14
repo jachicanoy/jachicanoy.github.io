@@ -5,6 +5,7 @@ import { L, t, type Lang } from '../i18n';
 const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).research;
 const { phd, outputs } = data.research;
+const affiliations = (data.research as any).affiliations ?? [];
 const { education } = data;
 ---
 <section class="section" id="research">
@@ -35,10 +36,24 @@ const { education } = data;
           <p class="edu-title">{T.education}</p>
           <ol>
             {education.map((e) => (
-              <li><span class="years mono-num">{e.years}</span><span><strong>{L(e.degree, lang)}</strong><small>{e.institution}</small></span></li>
+              <li><span class="years mono-num">{e.years}</span><span><strong>{L(e.degree, lang)}</strong><small>{L(e.institution as any, lang)}</small></span></li>
             ))}
           </ol>
         </div>
+
+        {affiliations.length > 0 && (
+          <div class="aff reveal">
+            <p class="edu-title">{T.affiliations}</p>
+            {affiliations.map((a: any) => (
+              <a class="aff-item" href={a.url} target="_blank" rel="noopener">
+                <span class="aff-head"><strong>{a.org}</strong><span class="mono-num">{a.year}</span></span>
+                <span class="aff-role">{L(a.role, lang)}</span>
+                <span class="aff-desc">{L(a.desc, lang)}</span>
+                <Icon name="external" size={16} class="ext" />
+              </a>
+            ))}
+          </div>
+        )}
       </div>
 
       <ol class="outputs">
@@ -85,6 +100,17 @@ const { education } = data;
   .edu strong { display: block; font-weight: 700; font-size: 0.95rem; }
   .edu small { color: var(--text-2); font-size: 0.8125rem; }
 
+  .aff { padding: 22px 24px; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--bg-elev); display: grid; gap: 12px; }
+  .aff .edu-title { margin-bottom: 0; }
+  .aff-item { position: relative; display: grid; gap: 4px; padding-right: 28px; }
+  .aff-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .aff-head strong { font-size: 1rem; }
+  .aff-head span { font-size: 0.8125rem; color: var(--muted); }
+  .aff-role { font-size: 0.875rem; color: var(--accent); font-weight: 700; }
+  .aff-desc { font-size: 0.875rem; color: var(--text-2); font-weight: 300; line-height: 1.55; }
+  :global(.aff-item .ext) { position: absolute; right: 0; top: 2px; color: var(--muted); }
+  .aff-item:hover :global(.ext) { color: var(--accent); }
+  .aff-item:hover strong { color: var(--accent); }
   .outputs { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
   .out { position: relative; display: grid; gap: 6px; padding: 20px 52px 20px 24px; background: var(--bg); height: 100%; transition: background 0.2s; }
   a.out:hover { background: var(--surface); }

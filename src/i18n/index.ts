@@ -27,7 +27,7 @@ export const ui = {
     menu: 'Open menu',
     langSwitch: 'Español',
     langSwitchLabel: 'Ver en español',
-    hero: { cv: 'CV on LinkedIn', projects: 'View projects' },
+    hero: { cv: 'LinkedIn', projects: 'View projects' },
     about: { eyebrow: '01 · Profile', title: 'From the <strong>territory</strong> to the model, from the model to the <strong>decision</strong>.' },
     stack: {
       eyebrow: '02 · Core stack', title: 'Technology <strong>matrix</strong>',
@@ -53,7 +53,7 @@ export const ui = {
       all: 'All', loading: 'Loading map…', aria: 'Interactive operations map', filter: 'Filter by region',
       types: { lead: 'On-site operations', regional: 'Regional / remote support', academic: 'Research & events' },
     },
-    research: { eyebrow: '06 · Research & academic hub', title: 'Doctoral <strong>research</strong> and technical output', education: 'Education' },
+    research: { eyebrow: '06 · Research & academic hub', title: 'Doctoral <strong>research</strong> and technical output', education: 'Education', affiliations: 'Affiliations & governance' },
     experience: { eyebrow: '07 · Career', title: 'Professional <strong>timeline</strong>', lead: 'Roles across UN agencies, missions and international organisations. Expand each role for detail.' },
     contact: {
       eyebrow: '08 · Contact', title: 'An early-warning system, a geospatial pipeline or a <strong>decision that needs evidence</strong>?',
@@ -67,7 +67,7 @@ export const ui = {
     menu: 'Abrir menú',
     langSwitch: 'English',
     langSwitchLabel: 'View in English',
-    hero: { cv: 'CV en LinkedIn', projects: 'Ver proyectos' },
+    hero: { cv: 'LinkedIn', projects: 'Ver proyectos' },
     about: { eyebrow: '01 · Perfil', title: 'Del <strong>territorio</strong> al modelo, del modelo a la <strong>decisión</strong>.' },
     stack: {
       eyebrow: '02 · Core stack', title: 'Matriz <strong>tecnológica</strong>',
@@ -93,7 +93,7 @@ export const ui = {
       all: 'Todas', loading: 'Cargando mapa…', aria: 'Mapa interactivo de operaciones', filter: 'Filtrar por región',
       types: { lead: 'Operaciones en terreno', regional: 'Apoyo regional / remoto', academic: 'Investigación y eventos' },
     },
-    research: { eyebrow: '06 · Investigación y academia', title: 'Investigación <strong>doctoral</strong> y producción técnica', education: 'Formación' },
+    research: { eyebrow: '06 · Investigación y academia', title: 'Investigación <strong>doctoral</strong> y producción técnica', education: 'Formación', affiliations: 'Afiliaciones y gobernanza' },
     experience: { eyebrow: '07 · Trayectoria', title: 'Línea de tiempo <strong>profesional</strong>', lead: 'Roles en agencias, misiones de la ONU y organizaciones internacionales. Despliega cada rol para ver el detalle.' },
     contact: {
       eyebrow: '08 · Contacto', title: '¿Un sistema de alerta temprana, un pipeline geoespacial o una <strong>decisión que necesita evidencia</strong>?',

@@ -2949,19 +2949,6 @@
       },
       {
         "type": {
-          "en": "Governance",
-          "es": "Gobernanza"
-        },
-        "title": {
-          "en": "Data Governance Task Force — open vs. restricted imagery access and harm prevention",
-          "es": "Data Governance Task Force — acceso abierto vs. restringido a imágenes y prevención de daño"
-        },
-        "venue": "Common Space",
-        "year": "2026",
-        "url": "https://commonspace.world"
-      },
-      {
-        "type": {
           "en": "Report",
           "es": "Informe"
         },
@@ -3024,6 +3011,21 @@
         "venue": "Revista de Ciencias Agrícolas 29(2)",
         "year": "2012",
         "url": ""
+      }
+    ],
+    "affiliations": [
+      {
+        "org": "Common Space",
+        "url": "https://www.commonspace.world/governance",
+        "year": "2026",
+        "role": {
+          "en": "Governance Task Force · Independent Expert",
+          "es": "Governance Task Force · Experto independiente"
+        },
+        "desc": {
+          "en": "One of ~40 global experts shaping the governance framework of a nonprofit Earth-observation satellite built as public-interest infrastructure: principles, membership, satellite tasking protocol and community data-use recommendations.",
+          "es": "Uno de ~40 expertos globales que definen el marco de gobernanza de un satélite de observación de la Tierra sin ánimo de lucro, concebido como infraestructura de interés público: principios, membresía, protocolo de asignación del satélite y recomendaciones de uso comunitario de datos."
+        }
       }
     ]
   },
@@ -3317,7 +3319,10 @@
         "en": "PhD (candidate), Data Science",
         "es": "Doctorado (candidato), Ciencia de Datos"
       },
-      "institution": "Universidad Loyola Andalucía, Spain",
+      "institution": {
+        "en": "Universidad Loyola Andalucía, Spain",
+        "es": "Universidad Loyola Andalucía, España"
+      },
       "years": "2023–2027"
     },
     {
