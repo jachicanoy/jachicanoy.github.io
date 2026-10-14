@@ -674,7 +674,7 @@
         "en": "Sentinel-1 flood mapping for anticipatory action",
         "es": "Mapeo de inundaciones con Sentinel-1 para acción anticipatoria"
       },
-      "org": "Google Earth Engine",
+      "org": "WFP Uganda",
       "region": "africa",
       "country": {
         "en": "Uganda · DR Congo",
@@ -682,8 +682,8 @@
       },
       "year": "2025",
       "description": {
-        "en": "Earth Engine pipeline over 16 historical flood events (2013–2024): CHIRPS extreme-rainfall diagnostics against a 2010–2024 baseline, Sentinel-1 SAR pre/post change detection, NASADEM slope and JRC permanent-water masks, and WorldCover and WorldPop layers as the base for hazard, exposure and risk indices.",
-        "es": "Pipeline en Earth Engine sobre 16 eventos históricos de inundación (2013–2024): diagnóstico de lluvias extremas con CHIRPS frente a una línea base 2010–2024, detección de cambios pre/post con SAR Sentinel-1, máscaras de pendiente (NASADEM) y agua permanente (JRC) y capas WorldCover y WorldPop como base de índices de amenaza, exposición y riesgo."
+        "en": "Floods AAP analytics for the Semliki Basin: an Earth Engine pipeline over 16 historical flood events (2013–2024) — CHIRPS extreme-rainfall diagnostics against a 2010–2024 baseline, Sentinel-1 SAR pre/post change detection, NASADEM slope and JRC permanent-water masks, WorldCover and WorldPop exposure layers — plus an ALOS PALSAR 12.5 m drainage and basin-delineation workflow in ArcGIS Pro.",
+        "es": "Analítica para el AAP de inundaciones de la cuenca del Semliki: pipeline en Earth Engine sobre 16 eventos históricos (2013–2024) con diagnóstico de lluvias extremas CHIRPS frente a una línea base 2010–2024, detección de cambios pre/post con SAR Sentinel-1, máscaras de pendiente (NASADEM) y agua permanente (JRC), capas de exposición WorldCover y WorldPop, y un flujo de delimitación de drenajes y cuencas con DEM ALOS PALSAR de 12,5 m en ArcGIS Pro."
       },
       "metrics": [
         {
@@ -699,21 +699,81 @@
             "es": "Sensor"
           },
           "value": "Sentinel-1 SAR"
+        },
+        {
+          "label": {
+            "en": "DEM",
+            "es": "DEM"
+          },
+          "value": "ALOS PALSAR 12.5 m"
         }
       ],
       "tech": [
         "gee",
         "javascript",
         "sentinel",
+        "arcgis",
         "aa",
         "ews",
         "drr"
+      ],
+      "links": [],
+      "image": "semliki_basin_workflow"
+    },
+    {
+      "id": "karamoja-dfsci",
+      "featured": true,
+      "title": {
+        "en": "Drought–Food Security Composite Index (DFSCI)",
+        "es": "Índice compuesto de sequía y seguridad alimentaria (DFSCI)"
+      },
+      "subtitle": {
+        "en": "Geographic targeting for the Karamoja Drought AAP",
+        "es": "Focalización geográfica del AAP de sequía de Karamoja"
+      },
+      "org": "WFP Uganda",
+      "region": "africa",
+      "country": {
+        "en": "Uganda",
+        "es": "Uganda"
+      },
+      "year": "2025",
+      "description": {
+        "en": "Expert composite index ranking sub-counties for anticipatory action. Earth Engine ingestion of observed and forecast SPI, NDVI/VHI, LST, evapotranspiration deficit, soil moisture (SMAP/ESA CCI), surface water and WorldPop, combined with IPC; a population-weighted downscaling of district IPC to sub-county with the IPC 20% rule; hazard and food-security sub-indices; priority classes; and back-testing against the 2017, 2019 and 2021–22 crises. Feeds the targeting SOP from forecast trigger to household enrolment.",
+        "es": "Índice compuesto experto que prioriza subcondados para la acción anticipatoria. Ingesta en Earth Engine de SPI observado y pronosticado, NDVI/VHI, LST, déficit de evapotranspiración, humedad del suelo (SMAP/ESA CCI), agua superficial y WorldPop, combinados con la IPC; reducción de escala de la IPC distrital a subcondado ponderada por población con la regla del 20 %; subíndices de amenaza y seguridad alimentaria; clases de prioridad; y validación retrospectiva con las crisis de 2017, 2019 y 2021–22. Alimenta el SOP de focalización desde el disparador hasta el registro de hogares."
+      },
+      "metrics": [
+        {
+          "label": {
+            "en": "Unit",
+            "es": "Unidad"
+          },
+          "value": {
+            "en": "Sub-county",
+            "es": "Subcondado"
+          }
+        },
+        {
+          "label": {
+            "en": "Back-testing",
+            "es": "Validación"
+          },
+          "value": "2017 · 2019 · 2021–22"
+        }
+      ],
+      "tech": [
+        "gee",
+        "python",
+        "sentinel",
+        "aa",
+        "vam",
+        "ews"
       ],
       "links": []
     },
     {
       "id": "karamoja-sentinel",
-      "featured": false,
+      "featured": true,
       "title": {
         "en": "Karamoja Sentinel",
         "es": "Karamoja Sentinel"
@@ -730,8 +790,8 @@
       },
       "year": "2025–2026",
       "description": {
-        "en": "Forecasting pipeline combining Earth-observation time series with hybrid CNN+LSTM and XGBoost models, an NLP module over text sources and an operational dashboard for the RAM team.",
-        "es": "Pipeline de pronóstico que combina series de observación de la Tierra con modelos híbridos CNN+LSTM y XGBoost, un módulo NLP sobre fuentes textuales y un tablero operativo para el equipo RAM."
+        "en": "End-to-end forecasting architecture: Python/Airflow ETL from CHIRPS, Copernicus and survey sources into a cloud data lake; hybrid CNN+LSTM and XGBoost models with an NLP stress-signal module; an integrated risk product served via REST API; and a trigger SOP requiring three converging evidence streams — sustained model confidence, NLP corroboration and drone field verification — before AA activation.",
+        "es": "Arquitectura de pronóstico de extremo a extremo: ETL en Python/Airflow desde CHIRPS, Copernicus y encuestas hacia un data lake en la nube; modelos híbridos CNN+LSTM y XGBoost con un módulo NLP de señales de estrés; un producto integrado de riesgo servido vía API REST; y un SOP de activación que exige la convergencia de tres fuentes de evidencia (confianza sostenida del modelo, corroboración NLP y verificación en campo con drones) antes de activar la AA."
       },
       "metrics": [
         {
@@ -740,6 +800,16 @@
             "es": "Modelos"
           },
           "value": "CNN+LSTM · XGBoost"
+        },
+        {
+          "label": {
+            "en": "Trigger",
+            "es": "Disparador"
+          },
+          "value": {
+            "en": "3-stream convergence",
+            "es": "Convergencia de 3 fuentes"
+          }
         }
       ],
       "tech": [
@@ -750,7 +820,9 @@
         "gee",
         "tableau",
         "vam",
-        "ews"
+        "ews",
+        "uav",
+        "aa"
       ],
       "links": []
     },

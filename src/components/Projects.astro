@@ -12,6 +12,11 @@ const { projects, stack } = data;
 const techName = new Map(stack.domains.flatMap((d) => d.items.map((i) => [i.id, L(i.name as any, lang) as string] as const)));
 const regionName: Record<string, string> = { latam: 'LAC', africa: lang === 'es' ? 'África' : 'Africa', europe: lang === 'es' ? 'Europa' : 'Europe', global: 'Global', asia: 'Asia' };
 const ordered = [...projects].sort((a, b) => Number(b.featured) - Number(a.featured));
+// Cuadrícula equilibrada en escritorio: si la última fila de tarjetas regulares queda incompleta,
+// sus tarjetas se ensanchan (1 sobrante → ancho completo; 2 sobrantes → mitad y mitad).
+const regular = ordered.filter((p) => !p.featured).map((p) => p.id);
+const rem = regular.length % 3;
+const fill = new Map<string, string>(rem === 0 ? [] : regular.slice(-rem).map((id) => [id, rem === 1 ? 'fill-full' : 'fill-half']));
 ---
 <section class="section" id="projects">
   <div class="container">
@@ -32,7 +37,7 @@ const ordered = [...projects].sort((a, b) => Number(b.featured) - Number(a.featu
       {ordered.map((p: any) => {
         const img = workImage(p.image);
         return (
-          <article class:list={['card', { featured: p.featured }]} data-item data-group="projects" data-tech={p.tech.join(' ')}>
+          <article class:list={['card', fill.get(p.id), { featured: p.featured }]} data-item data-group="projects" data-tech={p.tech.join(' ')}>
             {img && <Image src={img} alt="" class="thumb" widths={[480, 800]} sizes="(max-width: 640px) 100vw, 400px" loading="lazy" />}
             <header>
               <div class="meta">
@@ -88,7 +93,8 @@ const ordered = [...projects].sort((a, b) => Number(b.featured) - Number(a.featu
     transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s;
     animation: fade 0.45s var(--ease);
   }
-  .card.featured { grid-column: span 3; }
+  .card.featured, .card.fill-half { grid-column: span 3; }
+  .card.fill-full { grid-column: span 6; }
   .card:hover { border-color: var(--line); transform: translateY(-2px); background: var(--surface); }
   .card[hidden] { display: none; }
   @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
@@ -123,7 +129,7 @@ const ordered = [...projects].sort((a, b) => Number(b.featured) - Number(a.featu
 
   @media (max-width: 1024px) {
     .grid { grid-template-columns: repeat(2, 1fr); }
-    .card, .card.featured { grid-column: span 1; }
+    .card, .card.featured, .card.fill-half, .card.fill-full { grid-column: span 1; }
   }
   @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
 </style>
