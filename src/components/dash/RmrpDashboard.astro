@@ -1,0 +1,157 @@
+---
+import DashShell from './DashShell.astro';
+import data from '../../data/dashboards/rmrp-2023.json';
+import type { Lang } from '../../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const es = lang === 'es';
+const nf = new Intl.NumberFormat(es ? 'es-CO' : 'en-US');
+const cf = new Intl.NumberFormat(es ? 'es-CO' : 'en-US', { notation: 'compact', maximumFractionDigits: 2 });
+
+const countryEs: Record<string, string> = { Brazil: 'Brasil', Curaçao: 'Curazao', 'Dominican Republic': 'República Dominicana', 'Trinidad and Tobago': 'Trinidad y Tobago', Mexico: 'México', Panama: 'Panamá', Peru: 'Perú' };
+const platformEs: Record<string, string> = { Caribbean: 'Caribe', 'Central America and Mexico': 'Centroamérica y México', 'Southern Cone': 'Cono Sur', Brazil: 'Brasil', Peru: 'Perú' };
+const sectorEs: Record<string, string> = {
+  Education: 'Educación', 'Food Security': 'Seguridad alimentaria', Health: 'Salud', 'Humanitarian transportation': 'Transporte humanitario',
+  Integration: 'Integración', 'Multipurpose Cash Assistance (MPC)': 'Transferencias multipropósito (MPC)', Nutrition: 'Nutrición',
+  'Protection (Child Protection)': 'Protección (niñez)', 'Protection (GBV)': 'Protección (VBG)', 'Protection (General)': 'Protección (general)',
+  'Protection (Human Trafficking and Smuggling)': 'Protección (trata y tráfico)', Shelter: 'Alojamiento', WASH: 'WASH',
+};
+const tr = (m: Record<string, string>, s: string) => (es ? m[s] ?? s : s);
+
+const countries = data.countries.map((c) => ({
+  ...c,
+  label: tr(countryEs, c.name),
+  platformLabel: tr(platformEs, c.platform),
+  sectors: Object.fromEntries(Object.entries(c.sectors).map(([k, v]) => [tr(sectorEs, k), v])),
+}));
+const sum = (f: (c: (typeof countries)[number]) => number) => countries.reduce((a, c) => a + f(c), 0);
+const tot = {
+  pop: sum((c) => c.pop.destination + c.pop.transit + c.pop.host),
+  pin: sum((c) => c.pin),
+  target: sum((c) => c.target),
+  reached: sum((c) => c.reached.at(-1)?.value ?? 0),
+};
+
+const T = es
+  ? {
+      eyebrow: 'Tablero · Plan Regional de Respuesta para Refugiados y Migrantes',
+      title: 'RMRP 2023: necesidades, metas y alcance',
+      lead: 'Reconstrucción nativa de un tablero de Power BI: proyecciones de población, personas con necesidades (PiN), población meta y personas alcanzadas en los 17 países del plan, con filtro por país.',
+      note: 'Muestra de trabajo personal (prueba técnica) construida con cifras públicas de planificación del RMRP 2023. Alcance acumulado enero–abril 2023.',
+      kpi: ['Población proyectada', 'Personas con necesidades', 'Población meta', 'Alcanzadas (ene–abr)'],
+      country: 'País', all: 'Los 17 países',
+      byCountry: 'PiN y meta por país', byCountrySub: 'Intersectorial, 2023',
+      bySector: 'PiN y meta por sector', bySectorSub: 'Selección actual',
+      groups: 'Población proyectada por grupo', groupsSub: 'Selección actual',
+      sex: 'PiN por sexo y edad', sexSub: 'Intersectorial, selección actual',
+      reached: 'Personas alcanzadas (acumulado)', reachedSub: 'Intersectorial, por mes',
+      pinL: 'PiN', targetL: 'Meta', table: 'Ver tabla', name: 'Nombre', value: 'Valor',
+      g: ['En destino', 'En tránsito', 'Comunidad de acogida'], s: ['Niñas', 'Niños', 'Mujeres', 'Hombres'],
+    }
+  : {
+      eyebrow: 'Dashboard · Regional Refugee and Migrant Response Plan',
+      title: 'RMRP 2023: needs, targets and reach',
+      lead: 'Native rebuild of a Power BI dashboard: population projections, people in need (PiN), people targeted and people reached across the 17 plan countries, with a country filter.',
+      note: 'Personal work sample (technical test) built on public RMRP 2023 planning figures. Reach is cumulative January–April 2023.',
+      kpi: ['Projected population', 'People in need', 'People targeted', 'Reached (Jan–Apr)'],
+      country: 'Country', all: 'All 17 countries',
+      byCountry: 'PiN and target by country', byCountrySub: 'Intersector, 2023',
+      bySector: 'PiN and target by sector', bySectorSub: 'Current selection',
+      groups: 'Projected population by group', groupsSub: 'Current selection',
+      sex: 'PiN by sex and age', sexSub: 'Intersector, current selection',
+      reached: 'People reached (cumulative)', reachedSub: 'Intersector, by month',
+      pinL: 'PiN', targetL: 'Target', table: 'View table', name: 'Name', value: 'Value',
+      g: ['In destination', 'In transit', 'Host community'], s: ['Girls', 'Boys', 'Women', 'Men'],
+    };
+const byCountry = [...countries].sort((a, b) => b.pin - a.pin);
+---
+<DashShell
+  lang={lang} slug="rmrp-2023" eyebrow={T.eyebrow} title={T.title} lead={T.lead} note={T.note}
+  sources={[{ label: 'R4V — RMRP 2023', url: 'https://www.r4v.info/en/rmrp2023' }, { label: es ? 'Modelo original: Power BI (Jerson Achicanoy)' : 'Original model: Power BI (Jerson Achicanoy)' }]}
+>
+  <div id="rmrp" data-countries={JSON.stringify(countries)} data-t={JSON.stringify(T)} data-lang={lang}>
+    <div class="filters">
+      <label for="rmrp-country">{T.country}</label>
+      <select id="rmrp-country">
+        <option value="">{T.all}</option>
+        {[...countries].sort((a, b) => a.label.localeCompare(b.label)).map((c) => <option value={c.name}>{c.label} · {c.platformLabel}</option>)}
+      </select>
+    </div>
+
+    <div class="kpis" aria-live="polite">
+      <div class="kpi"><b data-k="pop">{cf.format(tot.pop)}</b><span>{T.kpi[0]}</span></div>
+      <div class="kpi"><b data-k="pin">{cf.format(tot.pin)}</b><span>{T.kpi[1]}</span></div>
+      <div class="kpi"><b data-k="target">{cf.format(tot.target)}</b><span>{T.kpi[2]}</span></div>
+      <div class="kpi"><b data-k="reached">{cf.format(tot.reached)}</b><span>{T.kpi[3]}</span></div>
+    </div>
+
+    <div class="grid2">
+      <section class="ccard wide" data-country-only="all">
+        <h2>{T.byCountry}</h2><p class="sub">{T.byCountrySub}</p>
+        <div class="legend"><span><i class="legend-sw s1"></i>{T.pinL}</span><span><i class="legend-sw s2"></i>{T.targetL}</span></div>
+        <div class="chart" id="c-country"></div>
+        <details><summary>{T.table}</summary>
+          <table><thead><tr><th>{T.country}</th><th class="n">{T.pinL}</th><th class="n">{T.targetL}</th></tr></thead>
+            <tbody>{byCountry.map((c) => <tr><td>{c.label}</td><td class="n">{nf.format(c.pin)}</td><td class="n">{nf.format(c.target)}</td></tr>)}</tbody></table>
+        </details>
+      </section>
+      <section class="ccard wide">
+        <h2>{T.bySector}</h2><p class="sub" data-sel>{T.bySectorSub}</p>
+        <div class="legend"><span><i class="legend-sw s1"></i>{T.pinL}</span><span><i class="legend-sw s2"></i>{T.targetL}</span></div>
+        <div class="chart" id="c-sector"></div>
+      </section>
+      <section class="ccard"><h2>{T.groups}</h2><p class="sub" data-sel>{T.groupsSub}</p><div class="chart" id="c-groups"></div></section>
+      <section class="ccard"><h2>{T.sex}</h2><p class="sub" data-sel>{T.sexSub}</p><div class="chart" id="c-sex"></div></section>
+      <section class="ccard wide"><h2>{T.reached}</h2><p class="sub" data-sel>{T.reachedSub}</p><div class="chart" id="c-reached"></div></section>
+    </div>
+  </div>
+</DashShell>
+
+<script>
+  import { hbars, columns, responsive, compact, full } from '../../scripts/charts';
+  const root = document.getElementById('rmrp')!;
+  const countries: any[] = JSON.parse(root.dataset.countries!);
+  const T = JSON.parse(root.dataset.t!);
+  const lang = root.dataset.lang!;
+  const cfmt = compact(lang), ffmt = full(lang);
+  const sel = root.querySelector<HTMLSelectElement>('#rmrp-country')!;
+  const $ = (id: string) => root.querySelector<HTMLElement>(id)!;
+  const monthName = (m: string) => new Date(m + '-01T00:00:00').toLocaleDateString(lang === 'es' ? 'es-CO' : 'en-US', { month: 'short' });
+
+  function current() {
+    const pick = sel.value ? countries.filter((c) => c.name === sel.value) : countries;
+    const add = (f: (c: any) => number) => pick.reduce((a, c) => a + f(c), 0);
+    const sectors: Record<string, { pin: number; target: number }> = {};
+    pick.forEach((c) => Object.entries(c.sectors).forEach(([k, v]: any) => {
+      sectors[k] ??= { pin: 0, target: 0 }; sectors[k].pin += v.pin; sectors[k].target += v.target;
+    }));
+    const months: Record<string, number> = {};
+    pick.forEach((c) => c.reached.forEach((r: any) => (months[r.month] = (months[r.month] ?? 0) + r.value)));
+    return {
+      label: sel.value ? pick[0].label : T.all,
+      pop: { d: add((c) => c.pop.destination), t: add((c) => c.pop.transit), h: add((c) => c.pop.host) },
+      pin: add((c) => c.pin), target: add((c) => c.target),
+      reached: Object.entries(months).sort()[Object.keys(months).length - 1]?.[1] ?? 0,
+      sex: ['Girls', 'Boys', 'Women', 'Men'].map((k) => add((c) => c.pinSex[k])),
+      sectors, months,
+    };
+  }
+
+  function draw() {
+    const s = current();
+    const set = (k: string, v: number) => (root.querySelector(`[data-k="${k}"]`)!.textContent = cfmt(v));
+    set('pop', s.pop.d + s.pop.t + s.pop.h); set('pin', s.pin); set('target', s.target); set('reached', s.reached);
+    root.querySelectorAll('[data-sel]').forEach((p) => (p.textContent = s.label));
+    root.querySelector<HTMLElement>('[data-country-only]')!.hidden = !!sel.value;
+    if (!sel.value) {
+      hbars($('#c-country'), [...countries].sort((a, b) => b.pin - a.pin).map((c) => ({ label: c.label, a: c.pin, b: c.target })), { fmt: ffmt, names: [T.pinL, T.targetL] });
+    }
+    hbars($('#c-sector'), Object.entries(s.sectors).filter(([, v]) => v.pin || v.target).sort((a, b) => b[1].pin - a[1].pin).map(([k, v]) => ({ label: k, a: v.pin, b: v.target })), { fmt: ffmt, names: [T.pinL, T.targetL], labelW: 290 });
+    hbars($('#c-groups'), [{ label: T.g[0], a: s.pop.d }, { label: T.g[1], a: s.pop.t }, { label: T.g[2], a: s.pop.h }].filter((d) => d.a), { fmt: ffmt });
+    hbars($('#c-sex'), T.s.map((l: string, i: number) => ({ label: l, a: s.sex[i] })), { fmt: ffmt });
+    columns($('#c-reached'), Object.entries(s.months).sort().map(([m, v]) => ({ label: monthName(m), a: v as number })), { fmt: cfmt, label: (d) => ffmt(d.a) });
+  }
+
+  sel.addEventListener('change', draw);
+  responsive(root, draw);
+</script>

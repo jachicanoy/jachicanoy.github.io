@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../Icon.astro';
+import { homeUrl, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+  note: string;
+  sources: { label: string; url?: string }[];
+}
+const { lang, slug, eyebrow, title, lead, note, sources } = Astro.props;
+const other: Lang = lang === 'en' ? 'es' : 'en';
+const t = {
+  en: { back: 'Portfolio', sources: 'Sources', theme: 'Toggle light/dark theme', switch: 'Ver en español' },
+  es: { back: 'Portafolio', sources: 'Fuentes', theme: 'Cambiar tema claro/oscuro', switch: 'View in English' },
+}[lang];
+---
+<BaseLayout lang={lang} title={`${title} — Jerson Achicanoy`} path={`dashboards/${slug}/`}>
+  <header class="dash-nav">
+    <div class="container row">
+      <a class="back" href={`${homeUrl(lang)}#products`}><Icon name="arrow" size={16} class="flip" /> {t.back}</a>
+      <div class="actions">
+        <a class="pill" href={`${homeUrl(other)}dashboards/${slug}/`} hreflang={other} lang={other} aria-label={`${other.toUpperCase()} — ${t.switch}`}>{other.toUpperCase()}</a>
+        <button class="pill" data-dash-theme aria-label={t.theme}><Icon name="sun" class="i-sun" /><Icon name="moon" class="i-moon" /></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="dash">
+    <div class="container">
+      <div class="head">
+        <span class="eyebrow">{eyebrow}</span>
+        <h1>{title}</h1>
+        <p class="lead">{lead}</p>
+        <p class="note">{note}</p>
+      </div>
+      <slot />
+      <footer class="src">
+        <strong>{t.sources}</strong>
+        <ul>{sources.map((s) => <li>{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.label}</a> : s.label}</li>)}</ul>
+      </footer>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .dash-nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line-soft); }
+  .row { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  .back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-2); }
+  .back:hover { color: var(--text); }
+  :global(.flip) { transform: rotate(180deg); }
+  .actions { display: flex; gap: 8px; }
+  .pill { display: grid; place-items: center; min-width: 40px; height: 36px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line-soft); color: var(--text-2); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; }
+  .pill:hover { color: var(--text); border-color: var(--line); }
+  :global(:root:not([data-theme='light']) .i-moon) { display: none; }
+  :global(:root[data-theme='light'] .i-sun) { display: none; }
+  .dash { padding: clamp(36px, 6vw, 72px) 0 64px; }
+  .head { display: grid; gap: 12px; max-width: 760px; margin-bottom: 32px; }
+  h1 { font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 300; letter-spacing: -0.02em; }
+  .lead { color: var(--text-2); font-weight: 300; font-size: 1.0625rem; }
+  .note { font-size: 0.8125rem; color: var(--muted); border-left: 2px solid var(--warm); padding-left: 12px; }
+  .src { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line-soft); font-size: 0.8125rem; color: var(--muted); display: grid; gap: 8px; }
+  .src ul { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .src a { color: var(--text-2); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Piezas compartidas por los tableros */
+  :global(.kpis) { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; }
+  :global(.kpi) { background: var(--bg-elev); padding: 18px 20px; display: grid; gap: 4px; }
+  :global(.kpi b) { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 300; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  :global(.kpi span) { font-size: 0.8125rem; color: var(--muted); }
+  :global(.filters) { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 20px; }
+  :global(.filters label) { font-size: 0.8125rem; color: var(--muted); }
+  :global(.filters select) { font: inherit; font-size: 0.9rem; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; min-width: 220px; }
+  :global(.grid2) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  :global(.ccard) { background: var(--bg-elev); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 20px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+  :global(.ccard.wide) { grid-column: 1 / -1; }
+  :global(.ccard h2) { font-size: 1rem; font-weight: 700; }
+  :global(.ccard .sub) { font-size: 0.8125rem; color: var(--muted); margin-top: -6px; }
+  :global(.legend) { display: flex; gap: 16px; font-size: 0.8125rem; color: var(--text-2); }
+  :global(.legend span) { display: inline-flex; align-items: center; gap: 6px; }
+  :global(.ccard details) { font-size: 0.8125rem; color: var(--text-2); }
+  :global(.ccard summary) { cursor: pointer; color: var(--muted); }
+  :global(.ccard table) { width: 100%; border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+  :global(.ccard th), :global(.ccard td) { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line-soft); }
+  :global(.ccard td.n), :global(.ccard th.n) { text-align: right; }
+  @media (max-width: 860px) { :global(.grid2) { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  document.querySelector('[data-dash-theme]')?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const light = root.dataset.theme !== 'light';
+    if (light) root.dataset.theme = 'light'; else delete root.dataset.theme;
+    try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch {}
+  });
+</script>

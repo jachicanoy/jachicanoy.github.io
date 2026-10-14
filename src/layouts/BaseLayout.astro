@@ -5,12 +5,12 @@ import lato700 from '../assets/fonts/lato-latin-700-normal.woff2?url';
 import data from '../data/portfolio.json';
 import { L, t, homeUrl, languages, defaultLang, type Lang } from '../i18n';
 
-const { lang, noindex = false } = Astro.props as { lang: Lang; noindex?: boolean };
+const { lang, noindex = false, title: pageTitle, path = '' } = Astro.props as { lang: Lang; noindex?: boolean; title?: string; path?: string };
 const { meta, profile, links } = data;
-const title = L(meta.title, lang);
+const title = pageTitle ?? L(meta.title, lang);
 const description = L(meta.description, lang);
 const site = Astro.site ?? new URL('http://localhost:4321');
-const abs = (l: Lang) => new URL(homeUrl(l), site).href;
+const abs = (l: Lang) => new URL(homeUrl(l) + path, site).href;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
 const jsonLd = {
@@ -55,7 +55,7 @@ const jsonLd = {
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
     <link rel="preload" href={lato300} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={lato700} as="font" type="font/woff2" crossorigin />
-    <script is:inline define:vars={{ lang, esUrl: homeUrl('es') }}>
+    <script is:inline define:vars={{ lang, esUrl: homeUrl('es') + path }}>
       (function () {
         var d = document.documentElement;
         d.classList.add('js');

@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import data from '../data/portfolio.json';
 import { workImage } from '../data/images';
-import { L, t, type Lang } from '../i18n';
+import { L, t, homeUrl, type Lang } from '../i18n';
 
 const { lang } = Astro.props as { lang: Lang };
 const T = t(lang).products;
@@ -15,7 +15,7 @@ const techName = new Map(stack.domains.flatMap((d) => d.items.map((i) => [i.id, 
 // Pestañas solo para los tipos presentes; con imagen primero dentro del orden del JSON
 const types = (Object.keys(T.types) as (keyof typeof T.types)[]).filter((k) => products.some((p) => p.type === k));
 const ordered = [...products].sort((a: any, b: any) => Number(!!b.image) - Number(!!a.image));
-const typeIcon: Record<string, string> = { gee: 'EE', powerbi: 'BI', arcgis: 'GIS', infographic: 'INF', code: '</>' };
+const typeIcon: Record<string, string> = { dashboard: 'DB', gee: 'EE', powerbi: 'BI', arcgis: 'GIS', infographic: 'INF', code: '</>' };
 ---
 <section class="section" id="products">
   <div class="container">
@@ -42,7 +42,9 @@ const typeIcon: Record<string, string> = { gee: 'EE', powerbi: 'BI', arcgis: 'GI
     <div class="gallery">
       {ordered.map((p: any) => {
         const img = workImage(p.image);
-        const href = p.url || p.repo || '';
+        // URL relativa = tablero propio del sitio (respeta idioma y base path)
+        const internal = !!p.url && !/^https?:/.test(p.url);
+        const href = internal ? `${homeUrl(lang)}${p.url}` : p.url || p.repo || '';
         return (
           <article class:list={['tile', { 'has-img': !!img }]} data-item data-group="products" data-type={p.type} data-tech={p.tech.join(' ')}>
             <div class="media">
@@ -55,7 +57,7 @@ const typeIcon: Record<string, string> = { gee: 'EE', powerbi: 'BI', arcgis: 'GI
             </div>
             <div class="body">
               <p class="meta"><span>{L(p.org, lang)}</span>{p.year && <span class="mono-num">{p.year}</span>}</p>
-              <h3>{href ? <a href={href} target="_blank" rel="noopener" class="stretched">{L(p.title, lang)}</a> : L(p.title, lang)}</h3>
+              <h3>{href ? <a href={href} class="stretched" {...(internal ? {} : { target: '_blank', rel: 'noopener' })}>{L(p.title, lang)}</a> : L(p.title, lang)}</h3>
               <p class="desc">{L(p.description, lang)}</p>
               <div class="foot">
                 <ul class="tech-list">
@@ -63,7 +65,7 @@ const typeIcon: Record<string, string> = { gee: 'EE', powerbi: 'BI', arcgis: 'GI
                 </ul>
                 <span class="actions">
                   {p.repo && p.url && <a class="repo" href={p.repo} target="_blank" rel="noopener" aria-label={`${T.code}: ${L(p.title, lang)}`}><Icon name="github" size={16} /></a>}
-                  {href && <Icon name="external" size={16} class="go" />}
+                  {href && <Icon name={internal ? 'arrow' : 'external'} size={16} class="go" />}
                 </span>
               </div>
             </div>

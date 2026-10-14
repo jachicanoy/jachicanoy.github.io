@@ -47,6 +47,8 @@
   --tech: #00b485;          /* main-green */
   --tech-soft: rgba(0, 180, 133, 0.13);
   --warm: #c9a27a;          /* arcilla / madera (Japandi) */
+  --series-1: #409ecd;      /* gráficos: par validado CVD/visión normal sobre --bg-elev oscuro */
+  --series-2: #cc7a30;
   --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 20px 40px -24px rgba(0, 0, 0, 0.65);
 
   --font: 'Lato', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -77,6 +79,8 @@
   --tech: #008a66;
   --tech-soft: rgba(0, 138, 102, 0.09);
   --warm: #8f6640;
+  --series-1: #006ba2;      /* par validado sobre --bg-elev claro */
+  --series-2: #c0671c;
   --shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 18px 36px -26px rgba(19, 36, 46, 0.3);
 }
 
@@ -190,3 +194,24 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .toast[hidden] { display: none; }
 @keyframes rise { from { opacity: 0; transform: translate(-50%, 10px); } }
+
+/* ---------- Gráficos de tableros ---------- */
+.chart svg { display: block; overflow: visible; }
+.chart .axis { stroke: var(--line); stroke-width: 1; }
+.chart .bar.s1 { fill: var(--series-1); }
+.chart .bar.s2 { fill: var(--series-2); }
+.chart .lbl { fill: var(--text-2); font-size: 12px; }
+.chart .val { fill: var(--text); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.chart .hit { fill: transparent; }
+.chart .mark { outline: none; cursor: default; }
+.chart .mark:hover .bar, .chart .mark:focus-visible .bar { filter: brightness(1.15); }
+.chart .mark:focus-visible .hit { stroke: var(--accent); stroke-width: 1.5; }
+.chart-tip {
+  position: absolute; z-index: 80; pointer-events: none; opacity: 0; transition: opacity 0.12s;
+  display: grid; gap: 3px; padding: 8px 10px; border-radius: 8px; max-width: 260px;
+  background: var(--surface); color: var(--text); border: 1px solid var(--line); box-shadow: var(--shadow); font-size: 0.8125rem;
+}
+.chart-tip span { color: var(--text-2); display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.chart-tip .sw, .legend-sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+.sw.s1, .legend-sw.s1 { background: var(--series-1); }
+.sw.s2, .legend-sw.s2 { background: var(--series-2); }

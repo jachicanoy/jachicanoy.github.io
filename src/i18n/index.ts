@@ -44,7 +44,7 @@ export const ui = {
       eyebrow: '04 · Products', title: 'Apps, dashboards & <strong>maps</strong>',
       lead: 'A selection of live Earth Engine apps, Power BI reports, ArcGIS dashboards and information products.',
       all: 'All', open: 'Open', code: 'Code',
-      types: { gee: 'Earth Engine', powerbi: 'Power BI', arcgis: 'ArcGIS', infographic: 'Infographics', code: 'Code' },
+      types: { dashboard: 'Dashboards', gee: 'Earth Engine', powerbi: 'Power BI', arcgis: 'ArcGIS', infographic: 'Infographics', code: 'Code' },
     },
     footprint: {
       eyebrow: '05 · Geospatial footprint', title: 'Operations <strong>map</strong>',
@@ -84,7 +84,7 @@ export const ui = {
       eyebrow: '04 · Productos', title: 'Apps, tableros y <strong>mapas</strong>',
       lead: 'Una selección de apps de Earth Engine, reportes de Power BI, tableros de ArcGIS y productos de información en vivo.',
       all: 'Todos', open: 'Abrir', code: 'Código',
-      types: { gee: 'Earth Engine', powerbi: 'Power BI', arcgis: 'ArcGIS', infographic: 'Infografías', code: 'Código' },
+      types: { dashboard: 'Tableros', gee: 'Earth Engine', powerbi: 'Power BI', arcgis: 'ArcGIS', infographic: 'Infografías', code: 'Código' },
     },
     footprint: {
       eyebrow: '05 · Huella geoespacial', title: 'Mapa de <strong>operaciones</strong>',

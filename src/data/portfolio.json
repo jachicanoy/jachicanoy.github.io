@@ -1264,6 +1264,95 @@
       ]
     },
     {
+      "id": "putumayo-territorial-intelligence",
+      "featured": false,
+      "title": {
+        "en": "Putumayo Territorial Intelligence System",
+        "es": "Sistema de inteligencia territorial del Putumayo"
+      },
+      "subtitle": {
+        "en": "NASA Lifelines Speed Dating · Mujeres Tejedoras de Vida",
+        "es": "NASA Lifelines Speed Dating · Mujeres Tejedoras de Vida"
+      },
+      "org": "3iS",
+      "region": "latam",
+      "country": {
+        "en": "Colombia (Putumayo)",
+        "es": "Colombia (Putumayo)"
+      },
+      "year": "2026",
+      "description": {
+        "en": "Three Earth Engine apps co-designed with a women-led community organisation for territorial defence, advocacy and productive planning: agro-climatic monitoring, radar-based forest-loss alert verification under persistent cloud cover, and multi-layer social cartography — with plain-language legends, GeoTIFF/CSV exports and hands-on training for non-technical users.",
+        "es": "Tres apps de Earth Engine co-diseñadas con una organización comunitaria de mujeres para la defensa del territorio, la incidencia y la planificación productiva: monitoreo agroclimático, verificación de alertas de pérdida de bosque con radar bajo nubosidad persistente y cartografía social multicapa, con leyendas en lenguaje cotidiano, exportación GeoTIFF/CSV y formación práctica para usuarias no técnicas."
+      },
+      "metrics": [
+        {
+          "label": {
+            "en": "Apps",
+            "es": "Apps"
+          },
+          "value": "3"
+        },
+        {
+          "label": {
+            "en": "Users",
+            "es": "Usuarias"
+          },
+          "value": {
+            "en": "Community organisation",
+            "es": "Organización comunitaria"
+          }
+        }
+      ],
+      "tech": [
+        "gee",
+        "javascript",
+        "sentinel",
+        "drr"
+      ],
+      "links": [
+        {
+          "label": {
+            "en": "Climate module",
+            "es": "Módulo climático"
+          },
+          "url": "https://alianzamtv.projects.earthengine.app/view/putumayoclimatemodule"
+        },
+        {
+          "label": {
+            "en": "Forest monitor",
+            "es": "Monitor forestal"
+          },
+          "url": "https://alianzamtv.projects.earthengine.app/view/putumayoforestguardian"
+        },
+        {
+          "label": {
+            "en": "Social cartography",
+            "es": "Cartografía social"
+          },
+          "url": "https://alianzamtv.projects.earthengine.app/view/putumayocartosocial"
+        }
+      ],
+      "method": [
+        {
+          "en": "Community needs",
+          "es": "Necesidades comunitarias"
+        },
+        {
+          "en": "Satellite indicators",
+          "es": "Indicadores satelitales"
+        },
+        {
+          "en": "Earth Engine apps",
+          "es": "Apps en Earth Engine"
+        },
+        {
+          "en": "Training & appropriation",
+          "es": "Formación y apropiación"
+        }
+      ]
+    },
+    {
       "id": "el-nino-country-outlooks",
       "featured": false,
       "title": {
@@ -1474,6 +1563,74 @@
       "repo": "https://github.com/jachicanoy/karamoja-climate-portal"
     },
     {
+      "id": "putumayo-climate",
+      "type": "gee",
+      "title": {
+        "en": "Putumayo Climate Module",
+        "es": "Módulo Climático Putumayo"
+      },
+      "org": {
+        "en": "3iS · NASA Speed Dating",
+        "es": "3iS · NASA Speed Dating"
+      },
+      "year": "2026",
+      "description": {
+        "en": "Monthly NDVI, rainfall, soil moisture and land-surface temperature with side-by-side comparison and municipal trends.",
+        "es": "NDVI, precipitación, humedad del suelo y temperatura de superficie mensuales con comparación lado a lado y tendencias municipales."
+      },
+      "tech": [
+        "gee",
+        "sentinel",
+        "javascript"
+      ],
+      "url": "https://alianzamtv.projects.earthengine.app/view/putumayoclimatemodule"
+    },
+    {
+      "id": "putumayo-forest",
+      "type": "gee",
+      "title": {
+        "en": "Forest Guardians Monitor",
+        "es": "Monitor Forestal: Guardianas del Bosque"
+      },
+      "org": {
+        "en": "3iS · NASA Speed Dating",
+        "es": "3iS · NASA Speed Dating"
+      },
+      "year": "2026",
+      "description": {
+        "en": "Forest-loss alert verification combining radar alerts, optical context and a local SAR inspector.",
+        "es": "Verificación de alertas de pérdida de bosque con alertas de radar, contexto óptico e inspector SAR local."
+      },
+      "tech": [
+        "gee",
+        "sentinel",
+        "javascript"
+      ],
+      "url": "https://alianzamtv.projects.earthengine.app/view/putumayoforestguardian"
+    },
+    {
+      "id": "putumayo-cartosocial",
+      "type": "gee",
+      "title": {
+        "en": "Social Cartography Module",
+        "es": "Módulo de Cartografía Social"
+      },
+      "org": {
+        "en": "3iS · NASA Speed Dating",
+        "es": "3iS · NASA Speed Dating"
+      },
+      "year": "2026",
+      "description": {
+        "en": "Multi-layer territorial maps (vegetation, water, population, access, night lights, buildings) with export.",
+        "es": "Mapas territoriales multicapa (vegetación, agua, población, accesibilidad, luz nocturna, edificaciones) con exportación."
+      },
+      "tech": [
+        "gee",
+        "javascript"
+      ],
+      "url": "https://alianzamtv.projects.earthengine.app/view/putumayocartosocial"
+    },
+    {
       "id": "purace-volcanic-sentry",
       "type": "gee",
       "title": {
@@ -1595,23 +1752,26 @@
     },
     {
       "id": "r4v-rmrp-2023",
-      "type": "powerbi",
+      "type": "dashboard",
       "title": {
         "en": "R4V Regional Response Plan 2023",
         "es": "Plan Regional de Respuesta R4V 2023"
       },
-      "org": "R4V · UNHCR",
+      "org": {
+        "en": "Work sample · R4V data",
+        "es": "Muestra de trabajo · datos R4V"
+      },
       "year": "2023",
       "description": {
-        "en": "Population projections, people in need, targeted and reached under the RMRP.",
-        "es": "Proyecciones de población, personas con necesidades, focalizadas y alcanzadas del RMRP."
+        "en": "Power BI model rebuilt as a native, filterable web dashboard on public RMRP 2023 figures.",
+        "es": "Modelo de Power BI reconstruido como tablero web nativo y filtrable con cifras públicas del RMRP 2023."
       },
       "tech": [
-        "powerbi"
+        "powerbi",
+        "python"
       ],
-      "url": "",
-      "image": "r4v_rmrp",
-      "hidden": true
+      "url": "dashboards/rmrp-2023/",
+      "image": "dash_rmrp"
     },
     {
       "id": "r4v-activities",
@@ -1633,23 +1793,26 @@
     },
     {
       "id": "afg-country-profile",
-      "type": "powerbi",
+      "type": "dashboard",
       "title": {
         "en": "Afghanistan Country Profile",
         "es": "Perfil de país de Afganistán"
       },
-      "org": "DPPA",
+      "org": {
+        "en": "Work sample · public data",
+        "es": "Muestra de trabajo · datos públicos"
+      },
       "year": "2024",
       "description": {
-        "en": "Demography, economy, health, education and governance indicators.",
-        "es": "Indicadores de demografía, economía, salud, educación y gobernanza."
+        "en": "Power BI country profile rebuilt natively: development, needs, displacement, conflict and risk (public data).",
+        "es": "Perfil de país de Power BI reconstruido en nativo: desarrollo, necesidades, desplazamiento, conflicto y riesgo (datos públicos)."
       },
       "tech": [
-        "powerbi"
+        "powerbi",
+        "python"
       ],
-      "url": "",
-      "image": "afg_profile",
-      "hidden": true
+      "url": "dashboards/afghanistan/",
+      "image": "dash_afg"
     },
     {
       "id": "oef-colombia-report",
@@ -2431,8 +2594,8 @@
           38.74
         ],
         "note": {
-          "en": "Anticipatory action trigger support",
-          "es": "Apoyo en disparadores de acción anticipatoria"
+          "en": "Flood anticipatory action trigger support",
+          "es": "Apoyo en disparadores de acción anticipatoria por inundaciones"
         },
         "countries": [
           {
