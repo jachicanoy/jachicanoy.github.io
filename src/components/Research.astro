@@ -21,7 +21,7 @@ const { education } = data;
         <article class="thesis reveal">
           <p class="label">{L(phd.degree, lang)}</p>
           <p class="inst">{phd.institution}</p>
-          <h3>“{phd.thesis}”</h3>
+          <h3>“{L(phd.thesis as any, lang)}”</h3>
           <p class="abstract">{L(phd.abstract, lang)}</p>
           <ul class="kw">{L(phd.keywords, lang).map((k) => <li class="chip">{k}</li>)}</ul>
           <svg class="glyph" viewBox="0 0 200 120" aria-hidden="true">
@@ -71,7 +71,7 @@ const { education } = data;
               <Tag class="out" {...(o.url ? { href: o.url, target: '_blank', rel: 'noopener' } : {})}>
                 <span class="type">{L(o.type, lang)}</span>
                 <span class="title">{L(o.title, lang)}</span>
-                <span class="venue">{o.venue} · <span class="mono-num">{o.year}</span></span>
+                <span class="venue">{L(o.venue as any, lang)} · <span class="mono-num">{o.year}</span></span>
                 {o.url && <Icon name="external" size={16} class="ext" />}
               </Tag>
             </li>

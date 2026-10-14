@@ -144,8 +144,8 @@
           "es": "Investigación doctoral"
         },
         "text": {
-          "en": "Machine learning and Earth observation for humanitarian applications: modelling human mobility in emergencies, with Somalia as primary case study and scaling to Colombia and the Horn of Africa.",
-          "es": "Machine learning y observación de la Tierra para aplicaciones humanitarias: modelado de la movilidad humana en emergencias, con Somalia como caso principal y escalamiento a Colombia y el Cuerno de África."
+          "en": "Machine learning and Earth observation for humanitarian applications: forecasting internal displacement in Somalia with pre-registered, out-of-sample validation and an explicit model of how displacement is observed.",
+          "es": "Machine learning y observación de la Tierra para aplicaciones humanitarias: pronóstico del desplazamiento interno en Somalia con validación fuera de muestra pre-registrada y un modelo explícito de cómo se observa el desplazamiento."
         }
       },
       {
@@ -2898,25 +2898,28 @@
         "es": "Candidato a doctor en Ciencia de Datos"
       },
       "institution": "Universidad Loyola Andalucía · 2023–2027",
-      "thesis": "El Espejismo del Migrante Racional",
+      "thesis": {
+        "en": "Modelling human mobility patterns in emergencies: the case of Somalia",
+        "es": "Modelamiento de patrones de movilidad humana en situaciones de emergencia: el caso de Somalia"
+      },
       "abstract": {
-        "en": "Behavioural economics applied to climate-driven human mobility: modelling displacement in emergencies by combining Earth observation and machine learning. Primary case study Somalia, scaling to Colombia and the Horn of Africa.",
-        "es": "Economía conductual aplicada a la movilidad humana impulsada por el clima: modelado de desplazamientos en emergencias combinando observación de la Tierra y machine learning. Caso principal Somalia, con escalamiento a Colombia y el Cuerno de África."
+        "en": "How far, and under which conditions, can information on climate hazards (drought, floods), conflict, vulnerability and territorial characteristics anticipate internal displacement in Somalia? Models are evaluated out of sample against simple baselines, under pre-registered validation that respects the spatio-temporal structure of the data, with explicit treatment of how displacement is observed. A separate analysis asks when forecasts could support early warning and anticipatory action.",
+        "es": "¿Hasta qué punto, y en qué condiciones, la información sobre amenazas climáticas (sequía, inundaciones), conflicto, vulnerabilidad y características territoriales permite anticipar el desplazamiento interno en Somalia? Los modelos se evalúan fuera de muestra frente a referencias simples, con una validación pre-registrada que respeta la estructura espacio-temporal de los datos y un tratamiento explícito de cómo se observa el desplazamiento. Un análisis aparte examina cuándo los pronósticos podrían apoyar la alerta temprana y la acción anticipatoria."
       },
       "keywords": {
         "en": [
-          "Human mobility",
-          "Behavioural economics",
-          "Machine learning",
-          "Earth observation",
-          "Climate"
+          "Internal displacement",
+          "Out-of-sample forecasting",
+          "Pre-registration",
+          "Anticipatory action",
+          "Somalia"
         ],
         "es": [
-          "Movilidad humana",
-          "Economía conductual",
-          "Machine learning",
-          "Observación de la Tierra",
-          "Clima"
+          "Desplazamiento interno",
+          "Pronóstico fuera de muestra",
+          "Pre-registro",
+          "Acción anticipatoria",
+          "Somalia"
         ]
       }
     },
@@ -2927,10 +2930,39 @@
           "es": "Ponencia"
         },
         "title": {
-          "en": "Impact-based anticipatory action in Latin America and the Caribbean",
-          "es": "Acción anticipatoria basada en impacto en América Latina y el Caribe"
+          "en": "Speaking the same language: interoperability, trigger harmonization and data sharing — the Somalia case",
+          "es": "Hablar el mismo idioma: interoperabilidad, armonización de disparadores e intercambio de datos — el caso de Somalia"
         },
         "venue": "14th Global Dialogue Platform on Anticipatory Action, Berlin",
+        "year": "2026",
+        "url": ""
+      },
+      {
+        "type": {
+          "en": "Lightning talk · FAO",
+          "es": "Ponencia relámpago · FAO"
+        },
+        "title": {
+          "en": "AI for Anticipatory Action workshop",
+          "es": "Taller de IA para la acción anticipatoria"
+        },
+        "venue": "Anticipation Hub & Google, Berlin",
+        "year": "2026",
+        "url": ""
+      },
+      {
+        "type": {
+          "en": "Article · in preparation",
+          "es": "Artículo · en preparación"
+        },
+        "title": {
+          "en": "Two lenses on the same crisis: comparing humanitarian instruments for measuring internal displacement in Somalia and implications for predictive modelling",
+          "es": "Dos instrumentos, una crisis: comparación de la medición del desplazamiento interno en Somalia y sus implicaciones para el modelado predictivo"
+        },
+        "venue": {
+          "en": "Single author · doctoral research",
+          "es": "Autor único · investigación doctoral"
+        },
         "year": "2026",
         "url": ""
       },
