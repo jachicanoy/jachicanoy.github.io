@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import About from './About.astro';
+import StackMatrix from './StackMatrix.astro';
+import Projects from './Projects.astro';
+import Products from './Products.astro';
+import FootprintMap from './FootprintMap.astro';
+import Research from './Research.astro';
+import Timeline from './Timeline.astro';
+import Footer from './Footer.astro';
+import type { Lang } from '../i18n';
+const { lang } = Astro.props as { lang: Lang };
+---
+<BaseLayout lang={lang}>
+  <Nav lang={lang} />
+  <main id="main">
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <StackMatrix lang={lang} />
+    <Projects lang={lang} />
+    <Products lang={lang} />
+    <FootprintMap lang={lang} />
+    <Research lang={lang} />
+    <Timeline lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>

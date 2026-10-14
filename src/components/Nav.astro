@@ -1,0 +1,131 @@
+---
+import Icon from './Icon.astro';
+import data from '../data/portfolio.json';
+import { t, homeUrl, type Lang } from '../i18n';
+const { lang } = Astro.props as { lang: Lang };
+const T = t(lang);
+const other: Lang = lang === 'en' ? 'es' : 'en';
+const { profile } = data;
+const items = (['about', 'stack', 'projects', 'products', 'footprint', 'research', 'experience'] as const).map((k) => ({
+  href: `#${k}`,
+  label: T.nav[k],
+}));
+---
+<header class="nav" data-nav>
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label={profile.name}>
+      <span class="mark">{profile.initials}</span>
+      <span class="brand-name">{profile.name}</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="links" data-links>
+        {items.map((i) => <li><a href={i.href}>{i.label}</a></li>)}
+        <li class="mobile-only"><a href="#contact">{T.nav.contact}</a></li>
+      </ul>
+    </nav>
+    <div class="actions">
+      <a class="lang" href={homeUrl(other)} hreflang={other} lang={other} aria-label={T.langSwitchLabel} data-lang-switch>
+        <span class="lang-code">{other.toUpperCase()}</span>
+      </a>
+      <button class="icon-btn" data-theme-toggle aria-label={T.themeToggle}>
+        <Icon name="sun" class="i-sun" /><Icon name="moon" class="i-moon" />
+      </button>
+      <a class="btn btn-sm desktop-only" href="#contact">{T.nav.contact}</a>
+      <button class="icon-btn mobile-only" data-menu aria-expanded="false" aria-label={T.menu}>
+        <Icon name="menu" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s var(--ease);
+  }
+  .nav.scrolled { border-bottom-color: var(--line-soft); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.01em; flex: none; }
+  .mark {
+    display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px;
+    background: var(--accent-fill); color: #fff; font-size: 0.8rem; letter-spacing: 0.06em;
+  }
+  .brand-name { font-size: 0.95rem; }
+  .links { display: flex; gap: 2px; }
+  .links a {
+    display: block; padding: 8px 10px; border-radius: 8px;
+    font-size: 0.875rem; color: var(--text-2); transition: color 0.2s, background 0.2s;
+  }
+  .links a:hover, .links a.active { color: var(--text); background: var(--surface); }
+  .actions { display: flex; align-items: center; gap: 8px; }
+  .icon-btn, .lang { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; color: var(--text-2); border: 1px solid var(--line-soft); }
+  .icon-btn:hover, .lang:hover { color: var(--text); border-color: var(--line); }
+  .lang-code { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; }
+  .btn-sm { min-height: 40px; padding: 0 16px; font-size: 0.875rem; }
+  :global(:root:not([data-theme='light']) .i-moon) { display: none; }
+  :global(:root[data-theme='light'] .i-sun) { display: none; }
+  .mobile-only { display: none; }
+
+  @media (max-width: 1100px) { .brand-name { display: none; } }
+  @media (max-width: 980px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: grid; }
+    li.mobile-only { display: block; }
+    .links {
+      position: fixed; inset: 68px 0 auto 0; flex-direction: column; gap: 0;
+      padding: 8px var(--gutter) 20px; background: var(--bg); border-bottom: 1px solid var(--line);
+      transform: translateY(-8px); opacity: 0; pointer-events: none; transition: all 0.25s var(--ease);
+    }
+    .links.open { transform: none; opacity: 1; pointer-events: auto; }
+    .links a { padding: 14px 4px; font-size: 1rem; border-radius: 0; border-bottom: 1px solid var(--line-soft); }
+    .links a:hover { background: none; }
+  }
+</style>
+
+<script>
+  const nav = document.querySelector<HTMLElement>('[data-nav]')!;
+  const links = nav.querySelector<HTMLElement>('[data-links]')!;
+  const menu = nav.querySelector<HTMLButtonElement>('[data-menu]')!;
+  const langLink = nav.querySelector<HTMLAnchorElement>('[data-lang-switch]')!;
+
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Tema
+  nav.querySelector('[data-theme-toggle]')!.addEventListener('click', () => {
+    const root = document.documentElement;
+    const light = root.dataset.theme !== 'light';
+    if (light) root.dataset.theme = 'light'; else delete root.dataset.theme;
+    try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch {}
+    document.dispatchEvent(new CustomEvent('themechange', { detail: { light } }));
+  });
+
+  // Cambio de idioma: conserva sección (hash) y filtro (?tech=), y recuerda la preferencia
+  langLink.addEventListener('click', () => {
+    const target = new URL(langLink.href);
+    target.search = location.search;
+    target.hash = location.hash;
+    langLink.href = target.href;
+    try { localStorage.setItem('lang', langLink.hreflang); } catch {}
+  });
+
+  // Menú móvil
+  const setMenu = (open: boolean) => { links.classList.toggle('open', open); menu.setAttribute('aria-expanded', String(open)); };
+  menu.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+  links.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) setMenu(false); });
+
+  // Sección activa
+  const anchors = [...links.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')];
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      anchors.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${e.target.id}`));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section[id]').forEach((s) => spy.observe(s));
+</script>

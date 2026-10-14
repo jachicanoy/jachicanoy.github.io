@@ -1,0 +1,215 @@
+---
+import data from '../data/portfolio.json';
+import { L, t, type Lang } from '../i18n';
+const { lang } = Astro.props as { lang: Lang };
+const T = t(lang).footprint;
+const { footprint } = data;
+const places = footprint.places.map((p: any) => ({ ...p, name: L(p.name, lang), note: L(p.note, lang) }));
+// Solo regiones con lugares
+const regions = footprint.regions.filter((r) => places.some((p) => p.region === r.id));
+---
+<section class="section" id="footprint">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{T.eyebrow}</span>
+      <h2 class="section-title" set:html={T.title} />
+      <p class="section-lead">{T.lead}</p>
+    </div>
+
+    <div class="map-shell reveal">
+      <div class="map-wrap">
+        <div id="footprint-map" class="map" data-places={JSON.stringify(places)} role="region" aria-label={T.aria}>
+          <div class="map-placeholder" aria-hidden="true"><span>{T.loading}</span></div>
+        </div>
+        <ul class="legend">
+          {Object.entries(T.types).map(([k, v]) => <li><span class={`sw ${k}`}></span>{v}</li>)}
+        </ul>
+      </div>
+
+      <aside class="panel">
+        <div class="tabs" role="tablist" aria-label={T.filter}>
+          <button role="tab" aria-selected="true" data-region="all">{T.all}</button>
+          {regions.map((r) => <button role="tab" aria-selected="false" data-region={r.id}>{L(r.name, lang)}</button>)}
+        </div>
+        <ol class="places">
+          {places.map((p, i) => (
+            <li data-region={p.region}>
+              <button data-place={i}>
+                <span class={`sw ${p.type}`} aria-hidden="true"></span>
+                <span class="pl"><strong>{p.name}</strong><span>{p.note}</span></span>
+              </button>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-shell { display: grid; grid-template-columns: minmax(0, 1fr) 320px; border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; background: var(--bg-elev); }
+  .map-wrap { position: relative; }
+  .map { height: clamp(380px, 52vw, 560px); background: var(--bg-elev); }
+  :global(#footprint-map.leaflet-container) { background: var(--bg-elev); }
+  .map-placeholder { height: 100%; display: grid; place-items: center; color: var(--muted); font-size: 0.875rem;
+    background-image: radial-gradient(var(--line) 1px, transparent 1px); background-size: 22px 22px; }
+  .legend { position: absolute; left: 14px; bottom: 14px; z-index: 500; display: grid; gap: 6px; padding: 10px 12px; border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(6px); border: 1px solid var(--line-soft); font-size: 0.75rem; color: var(--text-2); }
+  .legend li { display: flex; align-items: center; gap: 8px; }
+  .sw { flex: none; width: 10px; height: 10px; border-radius: 50%; border: 2px solid; }
+  .sw.lead { border-color: var(--accent); background: var(--accent-soft); }
+  .sw.regional { border-color: var(--tech); background: var(--tech-soft); }
+  .sw.academic { border-color: var(--warm); background: transparent; }
+
+  .panel { border-left: 1px solid var(--line-soft); display: flex; flex-direction: column; min-height: 0; max-height: clamp(380px, 52vw, 560px); }
+  .tabs { display: flex; gap: 4px; padding: 12px; border-bottom: 1px solid var(--line-soft); }
+  .tabs button { flex: 1; padding: 8px 6px; border-radius: 8px; font-size: 0.8125rem; color: var(--text-2); }
+  .tabs button[aria-selected='true'] { background: var(--surface-2); color: var(--text); font-weight: 700; }
+  .places { list-style: none; margin: 0; padding: 6px; overflow-y: auto; }
+  .places li[hidden] { display: none; }
+  .places button { width: 100%; display: flex; gap: 12px; align-items: flex-start; text-align: left; padding: 10px; border-radius: 8px; }
+  .places button:hover, .places button.is-active { background: var(--surface); }
+  .places .sw { margin-top: 6px; }
+  .pl { display: grid; gap: 2px; }
+  .pl strong { font-size: 0.9rem; }
+  .pl span { font-size: 0.8125rem; color: var(--muted); line-height: 1.45; }
+
+  @media (max-width: 900px) {
+    .map-shell { grid-template-columns: 1fr; }
+    .panel { border-left: 0; border-top: 1px solid var(--line-soft); max-height: 340px; }
+    .map { height: 380px; }
+  }
+
+  /* Leaflet — integración con tokens */
+  :global(.leaflet-container) { font-family: var(--font); background: var(--bg-elev); }
+  :global(.leaflet-control-zoom a) { background: var(--surface) !important; color: var(--text) !important; border-color: var(--line) !important; }
+  :global(.leaflet-control-attribution) { background: color-mix(in srgb, var(--bg) 75%, transparent) !important; color: var(--muted) !important; font-size: 10px; }
+  :global(.leaflet-control-attribution a) { color: var(--text-2) !important; }
+  :global(.leaflet-tooltip.fp-tip) { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 8px 10px; font-size: 0.8125rem; max-width: 240px; white-space: normal; }
+  :global(.leaflet-tooltip.fp-tip::before) { display: none; }
+  :global(.fp-tip strong) { display: block; font-size: 0.875rem; }
+  :global(.fp-tip span) { color: var(--text-2); }
+  :global(.fp-pulse) { animation: fpPulse 2.8s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes fpPulse { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(3.2); } }
+</style>
+
+<script>
+  import worldUrl from 'world-atlas/countries-110m.json?url';
+
+  type Place = { name: string; lat: number; lng: number; region: string; type: 'lead' | 'regional' | 'academic'; note: string; iso?: string };
+
+  const el = document.getElementById('footprint-map')!;
+  const places: Place[] = JSON.parse(el.dataset.places || '[]');
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('#footprint button[data-region]')];
+  const items = [...document.querySelectorAll<HTMLLIElement>('#footprint .places li')];
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('#footprint [data-place]')];
+
+  const css = (v: string) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+  async function boot() {
+    // Leaflet + mapa base vectorial auto-hospedado (Natural Earth 1:110m vía world-atlas):
+    // sin API keys, sin teselas de terceros, coherente con el tema claro/oscuro.
+    const [{ default: L }, { feature }, topo] = await Promise.all([
+      import('leaflet'),
+      import('topojson-client'),
+      fetch(worldUrl).then((r) => r.json()),
+      import('leaflet/dist/leaflet.css'),
+    ]);
+    el.innerHTML = '';
+    const map = L.map(el, {
+      scrollWheelZoom: false, worldCopyJump: false, zoomSnap: 0.25, minZoom: 1.5, maxZoom: 6,
+      maxBounds: [[-75, -200], [85, 200]], attributionControl: true,
+    });
+    map.attributionControl.setPrefix('').addAttribution('Natural Earth');
+
+    const active = new Set(places.map((p) => p.iso).filter(Boolean));
+    const world = feature(topo, topo.objects.countries) as any;
+    const countryStyle = (f: any) => {
+      const on = active.has(f.id);
+      return {
+        color: on ? css('--accent') : css('--line'),
+        weight: on ? 1 : 0.6,
+        fillColor: on ? css('--accent') : css('--surface-2'),
+        fillOpacity: on ? 0.22 : 1,
+      };
+    };
+    const countries = L.geoJSON(world, { style: countryStyle, interactive: false }).addTo(map);
+
+    const color = (t: Place['type']) => (t === 'lead' ? css('--accent') : t === 'regional' ? css('--tech') : css('--warm'));
+    const hub = places[0];
+
+    // Arcos desde la base (curva cuadrática en lat/lng: ligera y suficiente a esta escala)
+    const arcs = L.layerGroup().addTo(map);
+    const drawArcs = () => {
+      arcs.clearLayers();
+      places.slice(1).forEach((p) => {
+        const mid = [(hub.lat + p.lat) / 2 + Math.abs(hub.lng - p.lng) * 0.12, (hub.lng + p.lng) / 2];
+        const pts: [number, number][] = [];
+        for (let t = 0; t <= 1.0001; t += 0.05) {
+          pts.push([
+            (1 - t) ** 2 * hub.lat + 2 * (1 - t) * t * mid[0] + t ** 2 * p.lat,
+            (1 - t) ** 2 * hub.lng + 2 * (1 - t) * t * mid[1] + t ** 2 * p.lng,
+          ]);
+        }
+        L.polyline(pts, { color: css('--text'), opacity: 0.14, weight: 1, dashArray: '2 5', interactive: false }).addTo(arcs);
+      });
+    };
+    drawArcs();
+
+    const markers = places.map((p, i) => {
+      const c = color(p.type);
+      const g = L.layerGroup();
+      if (p.type === 'lead') {
+        L.circleMarker([p.lat, p.lng], { radius: 6, color: c, weight: 1, fillOpacity: 0, className: 'fp-pulse', interactive: false }).addTo(g);
+      }
+      const m = L.circleMarker([p.lat, p.lng], {
+        radius: p.type === 'lead' ? 6 : 5, color: c, weight: 2,
+        fillColor: c, fillOpacity: p.type === 'academic' ? 0 : 0.3,
+      })
+        .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span>`, { className: 'fp-tip', direction: 'top', offset: [0, -8] })
+        .on('click', () => focus(i));
+      m.addTo(g);
+      g.addTo(map);
+      return { g, m, p };
+    });
+
+    const fitAll = (subset = markers) => {
+      const b = L.latLngBounds(subset.map((x) => [x.p.lat, x.p.lng] as [number, number]));
+      map.fitBounds(b.pad(subset.length > 3 ? 0.18 : 0.6), { maxZoom: 5, animate: true });
+    };
+    fitAll();
+
+    function focus(i: number) {
+      const { p, m } = markers[i];
+      map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), 4.5), { duration: 0.8 });
+      m.openTooltip();
+      buttons.forEach((b) => b.classList.toggle('is-active', Number(b.dataset.place) === i));
+    }
+    buttons.forEach((b) => b.addEventListener('click', () => focus(Number(b.dataset.place))));
+
+    tabs.forEach((t) =>
+      t.addEventListener('click', () => {
+        const r = t.dataset.region!;
+        tabs.forEach((x) => x.setAttribute('aria-selected', String(x === t)));
+        items.forEach((li) => (li.hidden = r !== 'all' && li.dataset.region !== r));
+        markers.forEach((x) => {
+          const on = r === 'all' || x.p.region === r;
+          if (on) x.g.addTo(map); else x.g.remove();
+        });
+        fitAll(r === 'all' ? markers : markers.filter((x) => x.p.region === r));
+      }),
+    );
+
+    document.addEventListener('themechange', () => {
+      countries.setStyle(countryStyle);
+      markers.forEach(({ g, p }) => g.eachLayer((l: any) => l.setStyle?.({ color: color(p.type), fillColor: color(p.type) })));
+      drawArcs();
+    });
+  }
+
+  // Carga diferida: Leaflet solo se descarga cuando el mapa se acerca al viewport.
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) { io.disconnect(); boot(); }
+  }, { rootMargin: '300px 0px' });
+  io.observe(el);
+</script>

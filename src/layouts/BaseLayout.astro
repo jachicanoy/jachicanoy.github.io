@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import lato300 from '../assets/fonts/lato-latin-300-normal.woff2?url';
+import lato700 from '../assets/fonts/lato-latin-700-normal.woff2?url';
+import data from '../data/portfolio.json';
+import { L, t, homeUrl, languages, defaultLang, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const { meta, profile, links } = data;
+const title = L(meta.title, lang);
+const description = L(meta.description, lang);
+const site = Astro.site ?? new URL('http://localhost:4321');
+const abs = (l: Lang) => new URL(homeUrl(l), site).href;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: L(profile.headline, lang),
+  worksFor: { '@type': 'Organization', name: 'Food and Agriculture Organization of the United Nations (FAO)' },
+  alumniOf: ['Universidad Loyola Andalucía', 'Universidad Nacional de Colombia', 'Universidad de Nariño'],
+  url: abs(lang),
+  email: `mailto:${links.email}`,
+  sameAs: [links.github, links.linkedin, links.orcid, links.scholar].filter((u) => u && !u.includes('TODO')),
+  knowsAbout: meta.keywords,
+  knowsLanguage: ['es', 'en'],
+};
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={abs(lang)} />
+    {(Object.keys(languages) as Lang[]).map((l) => <link rel="alternate" hreflang={l} href={abs(l)} />)}
+    <link rel="alternate" hreflang="x-default" href={abs(defaultLang)} />
+    <meta name="theme-color" content="#0d1a22" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={abs(lang)} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_CO' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_CO'} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="preload" href={lato300} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={lato700} as="font" type="font/woff2" crossorigin />
+    <script is:inline define:vars={{ lang, esUrl: homeUrl('es') }}>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var th = localStorage.getItem('theme'); if (th === 'light') d.dataset.theme = 'light';
+          // Primera visita a la raíz (EN) con navegador en español: ir a /es/ una sola vez
+          if (lang === 'en' && !localStorage.getItem('lang') && /^es\b/i.test(navigator.language || '')) {
+            localStorage.setItem('lang', 'es');
+            location.replace(esUrl + location.search + location.hash);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t(lang).skip}</a>
+    <slot />
+    <script>
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }),
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

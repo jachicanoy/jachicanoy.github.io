@@ -1,0 +1,132 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import data from '../data/portfolio.json';
+import { workImage } from '../data/images';
+import { L, t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const T = t(lang).products;
+const TP = t(lang).projects;
+const { products, stack } = data;
+const techName = new Map(stack.domains.flatMap((d) => d.items.map((i) => [i.id, L(i.name as any, lang) as string] as const)));
+
+// Pestañas solo para los tipos presentes; con imagen primero dentro del orden del JSON
+const types = (Object.keys(T.types) as (keyof typeof T.types)[]).filter((k) => products.some((p) => p.type === k));
+const ordered = [...products].sort((a: any, b: any) => Number(!!b.image) - Number(!!a.image));
+const typeIcon: Record<string, string> = { gee: 'EE', powerbi: 'BI', arcgis: 'GIS', infographic: 'INF', code: '</>' };
+---
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{T.eyebrow}</span>
+      <h2 class="section-title" set:html={T.title} />
+      <p class="section-lead">{T.lead}</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-type-tab="all">{T.all} <span class="mono-num">{products.length}</span></button>
+        {types.map((k) => (
+          <button role="tab" aria-selected="false" data-type-tab={k}>{T.types[k]} <span class="mono-num">{products.filter((p) => p.type === k).length}</span></button>
+        ))}
+      </div>
+      <div class="filter-status" data-filter-status="products" hidden role="status" aria-live="polite">
+        <span class="pulse" aria-hidden="true"></span>
+        <span data-filter-label></span>
+        <button class="clear" data-filter-clear><Icon name="close" size={14} /> {TP.clear}</button>
+      </div>
+    </div>
+
+    <div class="gallery">
+      {ordered.map((p: any) => {
+        const img = workImage(p.image);
+        const href = p.url || p.repo || '';
+        return (
+          <article class:list={['tile', { 'has-img': !!img }]} data-item data-group="products" data-type={p.type} data-tech={p.tech.join(' ')}>
+            <div class="media">
+              {img ? (
+                <Image src={img} alt={L(p.title, lang)} widths={[400, 720]} sizes="(max-width: 640px) 100vw, 360px" loading="lazy" />
+              ) : (
+                <div class:list={['placeholder', p.type]} aria-hidden="true"><span>{typeIcon[p.type]}</span></div>
+              )}
+              <span class="badge">{T.types[p.type as keyof typeof T.types]}</span>
+            </div>
+            <div class="body">
+              <p class="meta"><span>{L(p.org, lang)}</span>{p.year && <span class="mono-num">{p.year}</span>}</p>
+              <h3>{href ? <a href={href} target="_blank" rel="noopener" class="stretched">{L(p.title, lang)}</a> : L(p.title, lang)}</h3>
+              <p class="desc">{L(p.description, lang)}</p>
+              <div class="foot">
+                <ul class="tech-list">
+                  {p.tech.slice(0, 3).map((x: string) => <li><button class="chip tech-chip" data-chip-tech={x}>{techName.get(x) ?? x}</button></li>)}
+                </ul>
+                <span class="actions">
+                  {p.repo && p.url && <a class="repo" href={p.repo} target="_blank" rel="noopener" aria-label={`${T.code}: ${L(p.title, lang)}`}><Icon name="github" size={16} /></a>}
+                  {href && <Icon name="external" size={16} class="go" />}
+                </span>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+      <p class="empty" data-filter-empty="products" hidden>{TP.none}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .toolbar { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .toolbar .filter-status { margin: 0; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tabs button {
+    display: inline-flex; gap: 8px; align-items: center; padding: 8px 14px; border-radius: 999px;
+    font-size: 0.875rem; color: var(--text-2); border: 1px solid var(--line-soft); transition: all 0.2s var(--ease);
+  }
+  .tabs button span { font-size: 0.75rem; color: var(--muted); }
+  .tabs button:hover { border-color: var(--line); color: var(--text); }
+  .tabs button[aria-selected='true'] { background: var(--accent-fill); border-color: var(--accent-fill); color: #fff; }
+  .tabs button[aria-selected='true'] span { color: rgba(255, 255, 255, 0.8); }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .tile {
+    position: relative; display: flex; flex-direction: column; border-radius: var(--radius); overflow: hidden;
+    background: var(--bg-elev); border: 1px solid var(--line-soft);
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+    animation: fade 0.45s var(--ease);
+  }
+  .tile[hidden] { display: none; }
+  .tile:hover { border-color: var(--accent-line); transform: translateY(-2px); }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
+  .media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface); border-bottom: 1px solid var(--line-soft); }
+  .media :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.6s var(--ease); }
+  .tile:hover .media :global(img) { transform: scale(1.03); }
+  .placeholder {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    background:
+      radial-gradient(circle at 70% 30%, var(--accent-soft), transparent 60%),
+      repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--line) 50%, transparent) 14px 15px);
+  }
+  .placeholder span { font-size: 1.6rem; font-weight: 300; letter-spacing: 0.08em; color: var(--accent); opacity: 0.85; }
+  .placeholder.powerbi span { color: var(--warm); }
+  .placeholder.gee span { color: var(--tech); }
+  .badge {
+    position: absolute; left: 12px; top: 12px; padding: 4px 10px; border-radius: 999px; font-size: 0.6875rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: color-mix(in srgb, #0b1a24 78%, transparent); backdrop-filter: blur(4px);
+  }
+  .body { padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .meta { display: flex; justify-content: space-between; gap: 8px; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; }
+  .body h3 { font-size: 1.0625rem; font-weight: 700; line-height: 1.3; }
+  .stretched::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+  .stretched:focus-visible { outline: none; }
+  .tile:has(.stretched:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .desc { font-size: 0.875rem; font-weight: 300; color: var(--text-2); line-height: 1.55; }
+  .foot { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .tech-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-chip { position: relative; z-index: 2; cursor: pointer; }
+  .tech-chip.is-active { background: var(--accent-soft); border-color: var(--accent-line); color: var(--text); }
+  .actions { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); }
+  .repo { position: relative; z-index: 2; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; }
+  .repo:hover { color: var(--text); background: var(--surface); }
+  .tile:hover :global(.go) { color: var(--accent); }
+  .empty { grid-column: 1 / -1; color: var(--muted); padding: 32px 0; }
+</style>

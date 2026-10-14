@@ -1,0 +1,98 @@
+---
+import Icon from './Icon.astro';
+import data from '../data/portfolio.json';
+import { L, t, type Lang } from '../i18n';
+const { lang } = Astro.props as { lang: Lang };
+const T = t(lang).research;
+const { phd, outputs } = data.research;
+const { education } = data;
+---
+<section class="section" id="research">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{T.eyebrow}</span>
+      <h2 class="section-title" set:html={T.title} />
+    </div>
+
+    <div class="hub">
+      <div class="left">
+        <article class="thesis reveal">
+          <p class="label">{L(phd.degree, lang)}</p>
+          <p class="inst">{phd.institution}</p>
+          <h3>“{phd.thesis}”</h3>
+          <p class="abstract">{L(phd.abstract, lang)}</p>
+          <ul class="kw">{L(phd.keywords, lang).map((k) => <li class="chip">{k}</li>)}</ul>
+          <svg class="glyph" viewBox="0 0 200 120" aria-hidden="true">
+            {Array.from({ length: 28 }, (_, i) => {
+              const x = 6 + i * 7, h = 18 + 38 * Math.abs(Math.sin(i * 0.55) * Math.cos(i * 0.21));
+              return <rect x={x} y={110 - h} width="3" height={h} rx="1.5" />;
+            })}
+            <path d="M6 70 C 50 30, 90 95, 130 50 S 190 40, 196 30" />
+          </svg>
+        </article>
+
+        <div class="edu reveal">
+          <p class="edu-title">{T.education}</p>
+          <ol>
+            {education.map((e) => (
+              <li><span class="years mono-num">{e.years}</span><span><strong>{L(e.degree, lang)}</strong><small>{e.institution}</small></span></li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <ol class="outputs">
+        {outputs.map((o) => {
+          const Tag = o.url ? 'a' : 'div';
+          return (
+            <li class="reveal">
+              <Tag class="out" {...(o.url ? { href: o.url, target: '_blank', rel: 'noopener' } : {})}>
+                <span class="type">{L(o.type, lang)}</span>
+                <span class="title">{L(o.title, lang)}</span>
+                <span class="venue">{o.venue} · <span class="mono-num">{o.year}</span></span>
+                {o.url && <Icon name="external" size={16} class="ext" />}
+              </Tag>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hub { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .left { display: grid; gap: 16px; }
+  .thesis {
+    position: relative; overflow: hidden; padding: clamp(26px, 3.4vw, 44px); border-radius: var(--radius);
+    background: linear-gradient(160deg, var(--surface) 0%, var(--bg-elev) 70%); border: 1px solid var(--line-soft);
+    display: grid; gap: 14px; align-content: start;
+  }
+  .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+  .inst { color: var(--text-2); font-size: 0.9rem; margin-top: -8px; }
+  .thesis h3 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 300; letter-spacing: -0.02em; margin-top: 8px; }
+  .abstract { color: var(--text-2); font-weight: 300; max-width: 46ch; position: relative; z-index: 1; }
+  .kw { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; position: relative; z-index: 1; }
+  .glyph { position: absolute; right: -10px; bottom: -6px; width: 58%; opacity: 0.2; pointer-events: none; }
+  .glyph rect { fill: var(--tech); }
+  .glyph path { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+
+  .edu { padding: 22px 24px; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--bg-elev); }
+  .edu-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); margin-bottom: 12px; }
+  .edu ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .edu li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; }
+  .years { font-size: 0.8125rem; color: var(--muted); padding-top: 2px; }
+  .edu strong { display: block; font-weight: 700; font-size: 0.95rem; }
+  .edu small { color: var(--text-2); font-size: 0.8125rem; }
+
+  .outputs { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
+  .out { position: relative; display: grid; gap: 6px; padding: 20px 52px 20px 24px; background: var(--bg); height: 100%; transition: background 0.2s; }
+  a.out:hover { background: var(--surface); }
+  .type { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); }
+  .title { font-size: 1rem; font-weight: 400; line-height: 1.4; }
+  .venue { font-size: 0.8125rem; color: var(--muted); }
+  :global(.out .ext) { position: absolute; right: 20px; top: 22px; color: var(--muted); }
+  a.out:hover :global(.ext) { color: var(--accent); }
+
+  @media (max-width: 900px) { .hub { grid-template-columns: 1fr; } }
+</style>

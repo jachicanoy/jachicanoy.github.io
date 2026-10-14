@@ -1,0 +1,49 @@
+---
+import data from '../data/portfolio.json';
+import { L, t, type Lang } from '../i18n';
+const { lang } = Astro.props as { lang: Lang };
+const T = t(lang).about;
+const { profile, about } = data;
+const summary = L(profile.summary, lang);
+---
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="section-head reveal">
+      <span class="eyebrow">{T.eyebrow}</span>
+      <h2 class="section-title" set:html={T.title} />
+    </div>
+    <div class="summary reveal">
+      {summary.map((p, i) => <p class={i === 0 ? 'lead' : ''}>{p}</p>)}
+      <ul class="focus">{L(profile.focus, lang).map((f) => <li class="chip">{f}</li>)}</ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="pillars">
+      {about.pillars.map((p, i) => (
+        <article class="pillar reveal">
+          <span class="idx mono-num">{String(i + 1).padStart(2, '0')}</span>
+          <p class="kicker">{L(p.kicker, lang)}</p>
+          <h3>{L(p.title, lang)}</h3>
+          <p class="text">{L(p.text, lang)}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(24px, 6vw, 80px); align-items: start; }
+  .summary { display: grid; gap: 18px; color: var(--text-2); font-weight: 300; font-size: 1.0625rem; }
+  .summary .lead { color: var(--text); font-size: clamp(1.15rem, 1.8vw, 1.35rem); line-height: 1.55; }
+  .focus { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .pillars { margin-top: clamp(48px, 7vw, 80px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
+  .pillar { position: relative; padding: clamp(24px, 3vw, 36px); background: var(--bg); display: grid; gap: 10px; align-content: start; }
+  .idx { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
+  .kicker { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); margin-top: 18px; }
+  .pillar h3 { font-size: 1.35rem; font-weight: 400; }
+  .pillar .text { color: var(--text-2); font-weight: 300; font-size: 0.975rem; }
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .pillars { grid-template-columns: 1fr; }
+  }
+</style>

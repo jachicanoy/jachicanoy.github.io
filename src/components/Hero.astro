@@ -1,0 +1,143 @@
+---
+import fs from 'node:fs';
+import Icon from './Icon.astro';
+import data from '../data/portfolio.json';
+import { L, t, type Lang } from '../i18n';
+
+const { lang } = Astro.props as { lang: Lang };
+const T = t(lang);
+const { profile, links } = data;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+// CV: usa el PDF del idioma; si no existe, el del otro idioma; si ninguno, LinkedIn.
+const cvCandidates = [L(links.cv, lang), L(links.cv, lang === 'en' ? 'es' : 'en')];
+const cvFile = cvCandidates.find((f) => fs.existsSync(new URL(`../../public/${f}`, import.meta.url)));
+const cvHref = cvFile ? `${base}${cvFile}` : links.linkedin;
+
+// Curvas de nivel procedurales (generadas en build, 0 KB de JS en cliente).
+function contour(r: number, seed: number, cx = 300, cy = 300) {
+  const pts: [number, number][] = [];
+  const n = 40;
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2;
+    const k = r * (1 + 0.09 * Math.sin(3 * a + seed) + 0.05 * Math.sin(5 * a - seed * 1.7) + 0.03 * Math.cos(7 * a + seed * 0.6));
+    pts.push([cx + k * Math.cos(a), cy + k * 0.86 * Math.sin(a)]);
+  }
+  let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < n; i++) {
+    const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += `C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+  }
+  return d + 'Z';
+}
+const rings = Array.from({ length: 13 }, (_, i) => ({ d: contour(24 + i * 17, i * 0.55), i }));
+const ok = (u: string) => /^https?:/.test(u) && !u.includes('TODO');
+---
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="status reveal"><span class="dot" aria-hidden="true"></span>{L(profile.currentRole, lang)} · {profile.currentOrg}</p>
+      <h1 class="reveal">
+        <span class="name">{profile.name}<span class="suffix">{profile.suffix}</span></span>
+        <span class="role">{L(profile.headline, lang)}</span>
+      </h1>
+      <p class="tagline reveal">{L(profile.tagline, lang)}</p>
+      <p class="scope reveal"><Icon name="pin" size={16} /> {L(profile.location, lang)} · {L(profile.currentScope, lang)}</p>
+      <div class="ctas reveal">
+        <a class="btn btn-primary" href={cvHref} {...(cvFile ? { download: '' } : { target: '_blank', rel: 'noopener' })}>
+          <Icon name="download" /> {T.hero.cv}
+        </a>
+        <a class="btn" href="#projects">{T.hero.projects} <Icon name="arrow" /></a>
+        <div class="socials">
+          {ok(links.github) && <a class="icon-link" href={links.github} target="_blank" rel="noopener" aria-label="GitHub"><Icon name="github" size={20} /></a>}
+          {ok(links.linkedin) && <a class="icon-link" href={links.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn"><Icon name="linkedin" size={20} /></a>}
+          <a class="icon-link" href={`mailto:${links.email}`} aria-label={T.contact.email}><Icon name="mail" size={20} /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 600 600" class="contours">
+        {rings.map((r) => <path d={r.d} class={r.i % 4 === 0 ? 'index' : ''} style={`--i:${r.i}`} />)}
+        <g class="crosshair">
+          <line x1="300" y1="250" x2="300" y2="350" /><line x1="250" y1="300" x2="350" y2="300" />
+          <circle cx="300" cy="300" r="5" />
+        </g>
+      </svg>
+      <div class="coord mono-num">
+        <span>04°42′N</span><span>074°04′W</span><span class="elev">2 640 m</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <dl class="stats reveal">
+      {profile.stats.map((s) => (
+        <div class="stat"><dt class="mono-num">{s.value}</dt><dd>{L(s.label, lang)}</dd></div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .hero { position: relative; padding-top: clamp(40px, 8vw, 96px); padding-bottom: clamp(48px, 7vw, 88px); overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  .status {
+    display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 12px;
+    border: 1px solid var(--line); border-radius: 999px; font-size: 0.8125rem; color: var(--text-2);
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  h1 { margin-top: 28px; display: grid; gap: 14px; }
+  .name { font-size: clamp(2.6rem, 7.2vw, 5.4rem); font-weight: 300; letter-spacing: -0.035em; line-height: 0.98; }
+  .suffix { font-size: 0.26em; font-weight: 400; letter-spacing: 0.04em; color: var(--muted); margin-left: 0.5em; vertical-align: 0.9em; white-space: nowrap; }
+  .role { font-size: clamp(1.05rem, 2vw, 1.4rem); font-weight: 700; color: var(--accent); letter-spacing: 0; max-width: 30em; }
+  .tagline { margin-top: 26px; max-width: 34em; font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: 300; color: var(--text-2); line-height: 1.6; }
+  .scope { margin-top: 18px; display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--muted); }
+  .ctas { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .socials { display: flex; gap: 4px; margin-left: 4px; }
+  .icon-link { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--text-2); transition: color 0.2s, background 0.2s; }
+  .icon-link:hover { color: var(--accent); background: var(--surface); }
+
+  .hero-visual { position: relative; aspect-ratio: 1; max-width: 520px; justify-self: end; width: 100%; }
+  .contours { width: 100%; height: 100%; }
+  .contours path {
+    fill: none; stroke: var(--text); stroke-opacity: calc(0.05 + var(--i) * 0.008); stroke-width: 1;
+    stroke-dasharray: 2400; stroke-dashoffset: 2400; animation: draw 2.6s var(--ease) forwards; animation-delay: calc(var(--i) * 70ms);
+  }
+  .contours path.index { stroke: var(--accent); stroke-opacity: 0.5; stroke-width: 1.2; }
+  .crosshair line { stroke: var(--warm); stroke-opacity: 0.6; stroke-width: 1; }
+  .crosshair circle { fill: var(--bg); stroke: var(--warm); stroke-width: 1.5; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .coord {
+    position: absolute; right: 4%; bottom: 8%; display: grid; gap: 2px; padding: 10px 14px;
+    font-size: 0.75rem; letter-spacing: 0.08em; color: var(--text-2);
+    border-left: 1px solid var(--warm); background: color-mix(in srgb, var(--bg) 70%, transparent);
+  }
+  .coord .elev { color: var(--muted); }
+
+  .stats {
+    margin: clamp(48px, 7vw, 80px) 0 0; display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .stat { padding: 26px 20px; border-left: 1px solid var(--line-soft); }
+  .stat:first-child { border-left: 0; padding-left: 0; }
+  .stat dt { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 300; letter-spacing: -0.02em; }
+  .stat dd { margin: 4px 0 0; font-size: 0.8125rem; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { position: absolute; top: -40px; right: -30%; width: 110%; max-width: none; opacity: 0.4; pointer-events: none; z-index: -1; }
+    .coord { display: none; }
+    .hero { isolation: isolate; }
+  }
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat { padding: 20px 16px; }
+    .stat:nth-child(odd) { border-left: 0; padding-left: 0; }
+    .stat:nth-child(n + 3) { border-top: 1px solid var(--line-soft); }
+    .ctas .btn { flex: 1 1 auto; justify-content: center; }
+    .socials { width: 100%; justify-content: center; margin: 4px 0 0; }
+  }
+</style>

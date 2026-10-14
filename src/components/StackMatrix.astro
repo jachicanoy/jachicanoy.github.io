@@ -1,0 +1,101 @@
+---
+import data from '../data/portfolio.json';
+import { L, t, type Lang } from '../i18n';
+const { lang } = Astro.props as { lang: Lang };
+const T = t(lang).stack;
+const { stack, projects, products } = data;
+const all = [...projects, ...products];
+
+// Conteo y co-ocurrencias calculados en build.
+const count = (id: string) => all.filter((p) => p.tech.includes(id)).length;
+const related = (id: string) =>
+  [...new Set(all.filter((p) => p.tech.includes(id)).flatMap((p) => p.tech))].filter((x) => x !== id).join(' ');
+---
+<section class="section" id="stack">
+  <div class="container">
+    <div class="head-row">
+      <div class="section-head reveal">
+        <span class="eyebrow">{T.eyebrow}</span>
+        <h2 class="section-title" set:html={T.title} />
+        <p class="section-lead">{T.lead}</p>
+      </div>
+      <p class="legend reveal" aria-hidden="true"><span class="n">n</span> {T.legend}</p>
+    </div>
+
+    <div class="matrix reveal" data-matrix>
+      {stack.domains.map((d, i) => (
+        <div class="domain">
+          <h3><span class="mono-num">{String(i + 1).padStart(2, '0')}</span>{L(d.title, lang)}</h3>
+          <ul>
+            {d.items.map((it) => {
+              const n = count(it.id);
+              const name = L(it.name as any, lang) as string;
+              return (
+                <li>
+                  <button
+                    class="tech"
+                    data-tech={it.id}
+                    data-name={name}
+                    data-related={related(it.id)}
+                    aria-pressed="false"
+                    disabled={n === 0}
+                    title={n === 0 ? T.empty : `${T.filterBy} ${name}`}
+                  >
+                    <span class="t-name">{name}</span>
+                    <span class="n mono-num">{n}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head-row { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+  .head-row .section-head { margin-bottom: 0; }
+  .legend { font-size: 0.8125rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .matrix {
+    margin-top: clamp(36px, 5vw, 56px);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden;
+    gap: 1px; background: var(--line-soft);
+  }
+  .domain { background: var(--bg); padding: clamp(20px, 2.4vw, 28px); }
+  .domain h3 { display: flex; gap: 10px; align-items: baseline; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-2); margin-bottom: 16px; }
+  .domain h3 span { color: var(--muted); font-weight: 400; }
+  .domain ul { display: grid; gap: 4px; }
+  .tech {
+    width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 9px 12px; border-radius: var(--radius-sm); text-align: left;
+    font-size: 0.9375rem; color: var(--text); border: 1px solid transparent;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s, opacity 0.2s;
+  }
+  .tech:disabled { color: var(--muted); cursor: default; }
+  .n {
+    min-width: 24px; height: 22px; padding: 0 6px; display: inline-grid; place-items: center;
+    border-radius: 6px; font-size: 0.75rem; color: var(--muted); background: var(--surface);
+  }
+  .tech:not(:disabled):hover, .tech.is-hover { background: var(--surface); border-color: var(--line); }
+  .tech.is-related { background: var(--tech-soft); }
+  .tech.is-related .n { color: var(--tech); }
+  .tech[aria-pressed='true'] { background: var(--accent-soft); border-color: var(--accent-line); color: var(--text); }
+  .tech[aria-pressed='true'] .n { background: var(--accent-fill); color: #fff; font-weight: 700; }
+  .matrix.has-focus .tech:not(.is-hover):not(.is-related):not([aria-pressed='true']) { opacity: 0.42; }
+
+  @media (max-width: 960px) { .matrix { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) {
+    .matrix { grid-template-columns: 1fr; }
+    .domain ul { display: flex; flex-wrap: wrap; gap: 6px; }
+    .domain li { flex: 0 0 auto; }
+    .tech { width: auto; padding: 7px 8px 7px 12px; border-color: var(--line-soft); font-size: 0.875rem; }
+  }
+</style>
+
+<script>
+  import { initFilter } from '../scripts/filter';
+  initFilter();
+</script>

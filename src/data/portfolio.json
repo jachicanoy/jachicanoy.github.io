@@ -1,0 +1,834 @@
+{
+  "$comment": "Single source of content. Localized fields are objects {\"en\": \"...\", \"es\": \"...\"}; plain strings are shared by both languages. Edit and push: the workflow rebuilds and deploys.",
+
+  "meta": {
+    "title": {
+      "en": "Jerson Achicanoy — Senior Data Scientist & Geospatial Information Systems Expert",
+      "es": "Jerson Achicanoy — Científico de datos sénior y experto en sistemas de información geográfica"
+    },
+    "description": {
+      "en": "Data scientist and GIS expert with 14+ years across the UN system (FAO, WFP, UNICEF, UNHCR, IOM, UNODC). Anticipatory action, early warning, Earth observation and interoperable data platforms.",
+      "es": "Científico de datos y experto GIS con más de 14 años en el Sistema de Naciones Unidas (FAO, WFP, UNICEF, UNHCR, IOM, UNODC). Acción anticipatoria, alerta temprana, observación de la Tierra y plataformas de datos interoperables."
+    },
+    "keywords": ["data science", "GIS", "remote sensing", "Earth observation", "anticipatory action", "early warning", "Google Earth Engine", "Power BI", "FAO", "WFP", "UNICEF"]
+  },
+
+  "profile": {
+    "name": "Jerson Achicanoy",
+    "suffix": "Ph.D. (c)",
+    "initials": "JA",
+    "headline": {
+      "en": "Senior Data Scientist & Geospatial Information Systems Expert",
+      "es": "Científico de datos sénior y experto en sistemas de información geográfica"
+    },
+    "currentRole": { "en": "Anticipatory Action & GIS Specialist", "es": "Especialista en Acción Anticipatoria y GIS" },
+    "currentOrg": "FAO",
+    "currentScope": {
+      "en": "Anticipatory Action focal point for Latin America and the Caribbean",
+      "es": "Punto focal de Acción Anticipatoria para América Latina y el Caribe"
+    },
+    "location": { "en": "Bogotá, Colombia · Rome, Italy", "es": "Bogotá, Colombia · Roma, Italia" },
+    "tagline": {
+      "en": "I turn Earth observation, machine learning and interoperable data platforms into operational decisions — before the disaster hits.",
+      "es": "Convierto observación de la Tierra, machine learning y plataformas de datos interoperables en decisiones operativas, antes de que llegue el desastre."
+    },
+    "summary": {
+      "en": [
+        "Data scientist and geospatial information systems expert with 14+ years designing interoperable data architectures and decision-support systems across the United Nations system — FAO, WFP, UNICEF, UNHCR, IOM, UNODC and UNTMIS — in Latin America, the Caribbean and Africa.",
+        "Currently supporting FAO's Anticipatory Action programme, integrating Earth observation, climate-risk analytics and Digital Public Infrastructure principles to protect agricultural livelihoods and food security.",
+        "Track record architecting multi-country data platforms (ActivityInfo, KoboToolbox, Power BI, ArcGIS), automating workflows with Power Apps, Power Automate, Python and R, and training 850+ professionals. PhD candidate in Data Science (machine learning, Earth observation, predictive modelling)."
+      ],
+      "es": [
+        "Científico de datos y experto en sistemas de información geográfica con más de 14 años diseñando arquitecturas de datos interoperables y sistemas de soporte a la decisión en el Sistema de Naciones Unidas (FAO, WFP, UNICEF, UNHCR, IOM, UNODC y UNTMIS) en América Latina, el Caribe y África.",
+        "Actualmente apoyo el programa de Acción Anticipatoria de la FAO, integrando observación de la Tierra, analítica de riesgo climático y principios de Infraestructura Pública Digital para proteger los medios de vida agrícolas y la seguridad alimentaria.",
+        "He diseñado plataformas de datos multipaís (ActivityInfo, KoboToolbox, Power BI, ArcGIS), automatizado flujos con Power Apps, Power Automate, Python y R, y formado a más de 850 profesionales. Candidato a doctor en Ciencia de Datos (machine learning, observación de la Tierra, modelado predictivo)."
+      ]
+    },
+    "focus": {
+      "en": ["Interoperable data platforms", "Earth observation", "Anticipatory action", "Climate-risk analytics", "Data governance", "Offline-first data collection"],
+      "es": ["Plataformas de datos interoperables", "Observación de la Tierra", "Acción anticipatoria", "Analítica de riesgo climático", "Gobernanza de datos", "Recolección de datos offline-first"]
+    },
+    "stats": [
+      { "value": "14+", "label": { "en": "years in the UN system", "es": "años en el Sistema ONU" } },
+      { "value": "7", "label": { "en": "UN agencies & missions", "es": "agencias y misiones ONU" } },
+      { "value": "850+", "label": { "en": "professionals trained", "es": "profesionales formados" } },
+      { "value": "PhD(c)", "label": { "en": "Data Science", "es": "Ciencia de Datos" } }
+    ]
+  },
+
+  "links": {
+    "email": "jerson.achicanoy@outlook.com",
+    "github": "https://github.com/JersonCatalyst",
+    "linkedin": "https://www.linkedin.com/in/jachicanoy",
+    "orcid": "",
+    "scholar": "",
+    "gee": "https://ee-jersoncatalyst.projects.earthengine.app/",
+    "mapsDrive": "https://drive.google.com/drive/folders/1tGA7pQPmmxrKPp7Qc0ODjnIwV94CcggC?usp=sharing",
+    "cv": { "en": "cv/CV_Jerson_Achicanoy_EN.pdf", "es": "cv/CV_Jerson_Achicanoy_ES.pdf" }
+  },
+
+  "about": {
+    "pillars": [
+      {
+        "kicker": { "en": "Operations", "es": "Operaciones" },
+        "title": { "en": "United Nations", "es": "Naciones Unidas" },
+        "text": {
+          "en": "From Kampala and Mogadishu to Bridgetown, Port of Spain and Bogotá: information management, VAM and geospatial units built and led in emergency and development settings, including high-risk duty stations.",
+          "es": "De Kampala y Mogadiscio a Bridgetown, Puerto España y Bogotá: unidades de gestión de información, VAM y análisis geoespacial creadas y lideradas en contextos de emergencia y desarrollo, incluidas misiones de alto riesgo."
+        }
+      },
+      {
+        "kicker": { "en": "Data science", "es": "Ciencia de datos" },
+        "title": { "en": "Doctoral research", "es": "Investigación doctoral" },
+        "text": {
+          "en": "Machine learning and Earth observation for humanitarian applications: modelling human mobility in emergencies, with Somalia as primary case study and scaling to Colombia and the Horn of Africa.",
+          "es": "Machine learning y observación de la Tierra para aplicaciones humanitarias: modelado de la movilidad humana en emergencias, con Somalia como caso principal y escalamiento a Colombia y el Cuerno de África."
+        }
+      },
+      {
+        "kicker": { "en": "Discipline", "es": "Base disciplinar" },
+        "title": { "en": "Environmental engineering", "es": "Ingeniería ambiental" },
+        "text": {
+          "en": "BSc in Agroforestry Engineering and MEng in Environmental Engineering: reading the territory, productive systems and climate variability as the starting point of every model.",
+          "es": "Ingeniero agroforestal y magíster en Ingeniería Ambiental: la lectura del territorio, los sistemas productivos y la variabilidad climática como punto de partida de todo modelo."
+        }
+      }
+    ]
+  },
+
+  "stack": {
+    "domains": [
+      {
+        "id": "lang",
+        "title": { "en": "Languages & pipelines", "es": "Lenguajes y pipelines" },
+        "items": [
+          { "id": "python", "name": "Python" },
+          { "id": "r", "name": "R" },
+          { "id": "sql", "name": "SQL" },
+          { "id": "javascript", "name": "JavaScript" },
+          { "id": "arcpy", "name": "ArcPy" }
+        ]
+      },
+      {
+        "id": "geo",
+        "title": { "en": "GIS & Earth observation", "es": "GIS y observación de la Tierra" },
+        "items": [
+          { "id": "gee", "name": "Google Earth Engine" },
+          { "id": "arcgis", "name": "ArcGIS Pro" },
+          { "id": "arcgisweb", "name": "ArcGIS Online / Enterprise" },
+          { "id": "qgis", "name": "QGIS" },
+          { "id": "postgis", "name": "PostgreSQL / PostGIS" },
+          { "id": "sentinel", "name": "Sentinel-1/2/5P" },
+          { "id": "uav", "name": "UAV / drones" }
+        ]
+      },
+      {
+        "id": "ml",
+        "title": { "en": "Machine learning & AI", "es": "Machine learning e IA" },
+        "items": [
+          { "id": "gbm", "name": "Gradient Boosting / XGBoost" },
+          { "id": "deeplearning", "name": "CNN / LSTM" },
+          { "id": "sam", "name": "Segment Anything (SAM)" },
+          { "id": "nlp", "name": "NLP" },
+          { "id": "localllm", "name": "Local LLMs" },
+          { "id": "mcp", "name": "MCP" }
+        ]
+      },
+      {
+        "id": "platforms",
+        "title": { "en": "Data platforms & collection", "es": "Plataformas y recolección de datos" },
+        "items": [
+          { "id": "activityinfo", "name": "ActivityInfo" },
+          { "id": "kobo", "name": "KoboToolbox / ODK / Survey123" },
+          { "id": "powerapps", "name": "Power Apps" },
+          { "id": "powerautomate", "name": "Power Automate" },
+          { "id": "sharepoint", "name": "SharePoint" }
+        ]
+      },
+      {
+        "id": "bi",
+        "title": { "en": "Visualization & BI", "es": "Visualización y BI" },
+        "items": [
+          { "id": "powerbi", "name": "Power BI" },
+          { "id": "tableau", "name": "Tableau" },
+          { "id": "webmaps", "name": "Web mapping (Leaflet)" },
+          { "id": "docker", "name": "Docker" },
+          { "id": "github", "name": "Git / GitHub Actions" }
+        ]
+      },
+      {
+        "id": "methods",
+        "title": { "en": "Methods & M&E", "es": "Metodologías y M&E" },
+        "items": [
+          { "id": "aa", "name": { "en": "Anticipatory action", "es": "Acción anticipatoria" } },
+          { "id": "ews", "name": { "en": "Early warning systems", "es": "Sistemas de alerta temprana" } },
+          { "id": "vam", "name": "VAM / EFSA" },
+          { "id": "mande", "name": "M&E" },
+          { "id": "drr", "name": { "en": "Disaster risk reduction", "es": "Gestión del riesgo (DRR)" } },
+          { "id": "dataprotection", "name": { "en": "Data governance & protection", "es": "Gobernanza y protección de datos" } }
+        ]
+      }
+    ]
+  },
+
+  "projects": [
+    {
+      "id": "fao-aa-map",
+      "featured": true,
+      "title": { "en": "Global Map of Anticipatory Action Protocols", "es": "Mapa global de protocolos de acción anticipatoria" },
+      "subtitle": { "en": "One comparable dataset of AA protocols worldwide", "es": "Un dataset comparable de protocolos AA a escala global" },
+      "org": "FAO",
+      "region": "global",
+      "country": { "en": "Global", "es": "Global" },
+      "year": "2026",
+      "description": {
+        "en": "Interactive dashboard consolidating FAO and inter-agency AA protocols into one structured dataset (one row per country × hazard × agency). Triggers, thresholds, financing and coverage are extracted directly from source frameworks — never inferred — with timelines and a confidence rating per record. Trilingual EN/ES/FR.",
+        "es": "Tablero interactivo que consolida los protocolos AA de la FAO e interagenciales en un único dataset estructurado (una fila por país × amenaza × agencia). Disparadores, umbrales, financiamiento y cobertura se extraen directamente de los marcos fuente, sin inferencias, con cronogramas y nivel de confianza por registro. Trilingüe EN/ES/FR."
+      },
+      "metrics": [
+        { "label": { "en": "Unit", "es": "Unidad" }, "value": { "en": "Country × hazard", "es": "País × amenaza" } },
+        { "label": { "en": "Languages", "es": "Idiomas" }, "value": "EN · ES · FR" }
+      ],
+      "tech": ["javascript", "webmaps", "python", "aa", "ews"],
+      "links": [
+        { "label": { "en": "Live app", "es": "App en vivo" }, "url": "https://jersoncatalyst.github.io/fao_aa_map/" },
+        { "label": "GitHub", "url": "https://github.com/JersonCatalyst/fao_aa_map" }
+      ]
+    },
+    {
+      "id": "hazard-chronicity-index",
+      "featured": true,
+      "title": { "en": "Hazard Chronicity Index — Ecuador", "es": "Índice de cronicidad de amenazas — Ecuador" },
+      "subtitle": { "en": "El Niño-related hazards, 2015–2025", "es": "Amenazas asociadas a El Niño, 2015–2025" },
+      "org": "3iS",
+      "region": "latam",
+      "country": { "en": "Ecuador", "es": "Ecuador" },
+      "year": "2026",
+      "description": {
+        "en": "Canton-level index (recurrence, severity, persistence, El Niño magnitude) to prioritise anticipatory action. Weights validated with AHP, Monte Carlo, Sobol indices and PCA; spatial statistics (Getis-Ord Gi*, local Moran, H3), Sentinel-1 flood detection and a negative-binomial attribution model showing a ×3.5 El Niño signal on the Coast.",
+        "es": "Índice cantonal (recurrencia, severidad, persistencia, magnitud de El Niño) para priorizar la acción anticipatoria. Pesos validados con AHP, Monte Carlo, índices de Sobol y PCA; estadística espacial (Getis-Ord Gi*, Moran local, H3), detección de inundación con Sentinel-1 y un modelo binomial negativo que atribuye una señal ×3,5 de El Niño en la Costa."
+      },
+      "metrics": [
+        { "label": { "en": "El Niño signal (Coast)", "es": "Señal El Niño (Costa)" }, "value": "×3.5" },
+        { "label": { "en": "Validation", "es": "Validación" }, "value": "AHP · Sobol · PCA" }
+      ],
+      "tech": ["python", "sentinel", "gee", "webmaps", "github", "aa", "drr"],
+      "links": [
+        { "label": { "en": "Interactive atlas", "es": "Atlas interactivo" }, "url": "https://jersoncatalyst.github.io/hazard-chronicity-index/" },
+        { "label": "GitHub", "url": "https://github.com/JersonCatalyst/hazard-chronicity-index" }
+      ]
+    },
+    {
+      "id": "amazon-basin-monitor",
+      "featured": true,
+      "title": { "en": "Amazon Basin Risk Monitor", "es": "Monitor de riesgos de la cuenca amazónica" },
+      "subtitle": { "en": "Amazon Forever · ECHO-DP", "es": "Amazon Forever · ECHO-DP" },
+      "org": "3iS",
+      "region": "latam",
+      "country": { "en": "Amazon basin", "es": "Cuenca amazónica" },
+      "year": "2026",
+      "description": {
+        "en": "Trilingual (ES/PT/EN) disaster-event monitor for the Amazon basin: curated event registry with reported-impact KPIs, FIRMS fire hotspots and SST layers, live filters by country, hazard, priority and date, and CSV export — rebuilt automatically by a GitHub Actions pipeline.",
+        "es": "Monitor trilingüe (ES/PT/EN) de eventos de desastre en la cuenca amazónica: registro curado de eventos con KPI de impacto reportado, focos de calor FIRMS y capas de SST, filtros en vivo por país, amenaza, prioridad y fecha, y exportación CSV, recompilado automáticamente con GitHub Actions."
+      },
+      "metrics": [
+        { "label": { "en": "Languages", "es": "Idiomas" }, "value": "ES · PT · EN" },
+        { "label": { "en": "Pipeline", "es": "Pipeline" }, "value": "GitHub Actions" }
+      ],
+      "tech": ["python", "javascript", "webmaps", "powerbi", "github", "drr", "ews"],
+      "links": [
+        { "label": { "en": "Live app", "es": "App en vivo" }, "url": "https://jersoncatalyst.github.io/amazon-basin-monitor/" },
+        { "label": "GitHub", "url": "https://github.com/JersonCatalyst/amazon-basin-monitor" }
+      ]
+    },
+    {
+      "id": "wifi-analytics",
+      "featured": true,
+      "title": { "en": "WiFi Analytics for Migration Flows", "es": "WiFi Analytics para flujos migratorios" },
+      "subtitle": { "en": "Captive-portal data collection at scale", "es": "Recolección de datos a escala con portal cautivo" },
+      "org": "IOM",
+      "region": "latam",
+      "country": { "en": "Colombia", "es": "Colombia" },
+      "year": "2020–2022",
+      "description": {
+        "en": "Captive-portal network methodology providing free internet to refugees and migrants while capturing migration-flow data through self-administered surveys, enabling near real-time population monitoring along transit routes.",
+        "es": "Metodología de red con portal cautivo que ofrece internet gratuito a refugiados y migrantes mientras capta datos de flujos migratorios mediante encuestas autoadministradas, habilitando monitoreo poblacional casi en tiempo real en rutas de tránsito."
+      },
+      "metrics": [
+        { "label": { "en": "Connection points", "es": "Puntos de conexión" }, "value": "52" },
+        { "label": { "en": "Surveys", "es": "Encuestas" }, "value": "40,000+" },
+        { "label": { "en": "Connections", "es": "Conexiones" }, "value": "70,000+" }
+      ],
+      "tech": ["python", "sql", "powerbi", "kobo", "dataprotection", "mande"],
+      "links": []
+    },
+    {
+      "id": "karamoja-sentinel",
+      "featured": false,
+      "title": { "en": "Karamoja Sentinel", "es": "Karamoja Sentinel" },
+      "subtitle": { "en": "AI for food-security forecasting", "es": "IA para pronóstico de seguridad alimentaria" },
+      "org": "WFP",
+      "region": "africa",
+      "country": { "en": "Uganda", "es": "Uganda" },
+      "year": "2025–2026",
+      "description": {
+        "en": "Forecasting pipeline combining Earth-observation time series with hybrid CNN+LSTM and XGBoost models, an NLP module over text sources and an operational dashboard for the RAM team.",
+        "es": "Pipeline de pronóstico que combina series de observación de la Tierra con modelos híbridos CNN+LSTM y XGBoost, un módulo NLP sobre fuentes textuales y un tablero operativo para el equipo RAM."
+      },
+      "metrics": [
+        { "label": { "en": "Models", "es": "Modelos" }, "value": "CNN+LSTM · XGBoost" }
+      ],
+      "tech": ["python", "deeplearning", "gbm", "nlp", "gee", "tableau", "vam", "ews"],
+      "links": []
+    },
+    {
+      "id": "unicef-ews-ccri",
+      "featured": false,
+      "title": { "en": "Eastern Caribbean EWS & CCRI-DRM", "es": "SAT del Caribe Oriental y CCRI-DRM" },
+      "subtitle": { "en": "Multi-hazard early warning for 12 countries", "es": "Alerta temprana multiamenaza para 12 países" },
+      "org": "UNICEF",
+      "region": "latam",
+      "country": { "en": "Eastern Caribbean", "es": "Caribe Oriental" },
+      "year": "2023–2024",
+      "description": {
+        "en": "Early-warning web application for hurricane season and multi-hazard emergency management (floods, seismic, volcanic), plus co-development of the Children's Climate Risk Index–Disaster Risk Model feeding national policy in health, education, WASH and social protection.",
+        "es": "Aplicación web de alerta temprana para la temporada de huracanes y gestión multiamenaza (inundaciones, sismos, volcanes), y co-desarrollo del Children's Climate Risk Index–Disaster Risk Model que alimenta política nacional en salud, educación, WASH y protección social."
+      },
+      "metrics": [
+        { "label": { "en": "Countries & territories", "es": "Países y territorios" }, "value": "12" }
+      ],
+      "tech": ["arcgisweb", "arcgis", "python", "powerbi", "ews", "drr", "dataprotection"],
+      "links": [
+        { "label": { "en": "Web app", "es": "App web" }, "url": "https://gis.unicef.org/portal/apps/webappviewer/index.html?id=356b9a78e223406b9bf8d621d8372bb6" }
+      ]
+    },
+    {
+      "id": "oef-me-system",
+      "featured": false,
+      "title": { "en": "Global M&E Information System", "es": "Sistema global de información de M&E" },
+      "subtitle": { "en": "ActivityInfo + KoboToolbox + Power BI + ArcGIS", "es": "ActivityInfo + KoboToolbox + Power BI + ArcGIS" },
+      "org": "One Earth Future",
+      "region": "global",
+      "country": { "en": "USA · Colombia · Somalia", "es": "EE. UU. · Colombia · Somalia" },
+      "year": "2023–2024",
+      "description": {
+        "en": "Architected the organisation-wide M&E platform: relational design with multi-level online/offline sub-forms, automated indicator tracking and reporting dashboards, plus end-user and systems-programming manuals for sustainability.",
+        "es": "Arquitectura de la plataforma de M&E de toda la organización: diseño relacional con subformularios multinivel online/offline, seguimiento automatizado de indicadores y tableros de reporte, más manuales de usuario y de programación para su sostenibilidad."
+      },
+      "metrics": [
+        { "label": { "en": "Offices", "es": "Oficinas" }, "value": "HQ · COL · SOM" }
+      ],
+      "tech": ["activityinfo", "kobo", "powerbi", "arcgisweb", "mande", "dataprotection"],
+      "links": []
+    },
+    {
+      "id": "untmis-protection-map",
+      "featured": false,
+      "title": { "en": "Protection Map — Somalia", "es": "Mapa de Protección — Somalia" },
+      "subtitle": { "en": "Human-rights & IDP service accessibility", "es": "Derechos humanos y acceso a servicios de desplazados" },
+      "org": "UNTMIS",
+      "region": "africa",
+      "country": { "en": "Somalia", "es": "Somalia" },
+      "year": "2024",
+      "description": {
+        "en": "Spatial network and correlation analyses of service accessibility for IDPs and marginalised groups, and a pilot Protection Map of human-rights and discrimination patterns with UNSOM HRPG, OHCHR and UNSOS GIS — handling sensitive protection data in a high-risk duty station.",
+        "es": "Análisis de redes espaciales y correlación sobre acceso a servicios de desplazados internos y grupos marginados, y un Mapa de Protección piloto de patrones de derechos humanos y discriminación con UNSOM HRPG, OHCHR y UNSOS GIS, manejando datos sensibles en una misión de alto riesgo."
+      },
+      "metrics": [
+        { "label": { "en": "Data", "es": "Datos" }, "value": { "en": "Protection-sensitive", "es": "Sensibles de protección" } }
+      ],
+      "tech": ["arcgis", "arcgisweb", "python", "dataprotection"],
+      "links": []
+    },
+    {
+      "id": "unodc-landcover-ml",
+      "featured": false,
+      "title": { "en": "ML Land-Cover Monitoring", "es": "Monitoreo de coberturas con ML" },
+      "subtitle": { "en": "Illicit crops & alluvial gold mining", "es": "Cultivos ilícitos y minería de oro de aluvión" },
+      "org": "UNODC",
+      "region": "latam",
+      "country": { "en": "Colombia", "es": "Colombia" },
+      "year": "2012–2018",
+      "description": {
+        "en": "Machine-learning classification of multisensor satellite imagery to identify illicit crops, land-cover change and alluvial gold mining, supporting evidence-based public policy for the Government of Colombia and the UN.",
+        "es": "Clasificación con machine learning de imágenes satelitales multisensor para identificar cultivos ilícitos, cambio de coberturas y minería de oro de aluvión, como soporte a política pública basada en evidencia para el Gobierno de Colombia y la ONU."
+      },
+      "metrics": [
+        { "label": { "en": "Tenure", "es": "Trayectoria" }, "value": { "en": "6 years", "es": "6 años" } }
+      ],
+      "tech": ["gbm", "arcgis", "qgis", "sentinel", "r"],
+      "links": []
+    },
+    {
+      "id": "mass-movements-ai",
+      "featured": false,
+      "title": { "en": "AI for Mass-Movement Detection", "es": "IA para detección de movimientos en masa" },
+      "subtitle": { "en": "SAM + Gradient Boosting susceptibility", "es": "Susceptibilidad con SAM + Gradient Boosting" },
+      "org": "3iS",
+      "region": "latam",
+      "country": { "en": "Colombia", "es": "Colombia" },
+      "year": "2025",
+      "description": {
+        "en": "Landslide polygons generated with Segment Anything on Sentinel-2 and a Gradient Boosting susceptibility model (elevation, lithology, precipitation) combined with a Social Exposure and Sensitivity Index for risk planning.",
+        "es": "Polígonos de deslizamientos generados con Segment Anything sobre Sentinel-2 y un modelo de susceptibilidad con Gradient Boosting (elevación, litología, precipitación) combinado con un Índice de Exposición y Sensibilidad Social para la planificación del riesgo."
+      },
+      "metrics": [
+        { "label": { "en": "Imagery", "es": "Imágenes" }, "value": "Sentinel-2" }
+      ],
+      "tech": ["sam", "gbm", "python", "sentinel", "arcgis", "drr"],
+      "links": [],
+      "image": "mass_movements"
+    },
+    {
+      "id": "aa-protocol-intelligence",
+      "featured": false,
+      "title": { "en": "AA Protocol Intelligence", "es": "AA Protocol Intelligence" },
+      "subtitle": { "en": "Local AI over anticipatory-action protocols", "es": "IA local sobre protocolos de acción anticipatoria" },
+      "org": "FAO",
+      "region": "global",
+      "country": { "en": "Global", "es": "Global" },
+      "year": "2026",
+      "description": {
+        "en": "Local MCP server exposing the AA protocol portfolio (by country, hazard, zone, trigger, calendar and governance) to locally run LLMs, alongside protocol tracking and template standardisation (Honduras pilot).",
+        "es": "Servidor MCP local que expone el portafolio de protocolos AA (por país, amenaza, zona, disparador, calendario y gobernanza) a LLMs ejecutados en local, junto con seguimiento de protocolos y estandarización de plantilla (piloto Honduras)."
+      },
+      "metrics": [
+        { "label": { "en": "Deployment", "es": "Despliegue" }, "value": { "en": "Local / no cloud", "es": "Local / sin nube" } }
+      ],
+      "tech": ["python", "mcp", "localllm", "aa"],
+      "links": []
+    },
+    {
+      "id": "ibaas",
+      "featured": false,
+      "title": { "en": "IBAAS", "es": "IBAAS" },
+      "subtitle": { "en": "Impact-Based Anticipatory Action Systems", "es": "Impact-Based Anticipatory Action Systems" },
+      "org": { "en": "Applied research", "es": "Investigación aplicada" },
+      "region": "global",
+      "country": { "en": "Global", "es": "Global" },
+      "year": "2026",
+      "description": {
+        "en": "Science-grade decision-support framework linking hazard forecasts, vulnerability and exposure to impact thresholds so AA triggers are traceable, calibratable and auditable.",
+        "es": "Marco de soporte a la decisión de grado científico que vincula pronósticos de amenaza, vulnerabilidad y exposición con umbrales de impacto, para que los disparadores AA sean trazables, calibrables y auditables."
+      },
+      "metrics": [
+        { "label": { "en": "Core", "es": "Núcleo" }, "value": { "en": "Impact thresholds", "es": "Umbrales de impacto" } }
+      ],
+      "tech": ["python", "r", "aa", "ews"],
+      "links": []
+    },
+    {
+      "id": "wfp-colombia-sdi",
+      "featured": false,
+      "title": { "en": "WFP Colombia Geospatial Unit & SDI", "es": "Unidad geoespacial y SDI de WFP Colombia" },
+      "subtitle": { "en": "L2 emergency response to Venezuelan displacement", "es": "Respuesta de emergencia L2 al desplazamiento venezolano" },
+      "org": "WFP",
+      "region": "latam",
+      "country": { "en": "Colombia", "es": "Colombia" },
+      "year": "2018–2020",
+      "description": {
+        "en": "Established the VAM geospatial unit, Spatial Data Infrastructure and automated ETL pipelines; a Python API for market analysis; UAV and remote-sensing deployments; and ArcGIS Enterprise web apps for the Level 2 emergency.",
+        "es": "Creación de la unidad geoespacial de VAM, la Infraestructura de Datos Espaciales y pipelines ETL automatizados; una API en Python para análisis de mercados; despliegues con UAV y teledetección; y apps web en ArcGIS Enterprise para la emergencia de nivel 2."
+      },
+      "metrics": [
+        { "label": { "en": "Outputs", "es": "Productos" }, "value": "SDI · ETL · API" }
+      ],
+      "tech": ["python", "postgis", "arcgisweb", "uav", "vam"],
+      "links": []
+    }
+  ],
+
+  "products": [
+    {
+      "id": "karamoja-climate-portal",
+      "type": "gee",
+      "title": { "en": "Karamoja Climate Portal", "es": "Portal climático de Karamoja" },
+      "org": "WFP Uganda",
+      "year": "2025",
+      "description": { "en": "Earth Engine app for climate-change and early-warning monitoring in Karamoja.", "es": "App de Earth Engine para monitoreo de cambio climático y alerta temprana en Karamoja." },
+      "tech": ["gee", "javascript", "ews"],
+      "url": "https://ee-jersoncatalyst.projects.earthengine.app/view/karamoja-climate-portal",
+      "repo": "https://github.com/JersonCatalyst/karamoja-climate-portal"
+    },
+    {
+      "id": "purace-volcanic-sentry",
+      "type": "gee",
+      "title": { "en": "Volcanic Sentry — Puracé", "es": "Volcanic Sentry — Puracé" },
+      "org": "3iS",
+      "year": "2025",
+      "description": { "en": "Near-real-time SO₂ plume monitoring from Sentinel-5P TROPOMI in Earth Engine.", "es": "Monitoreo casi en tiempo real de la pluma de SO₂ con Sentinel-5P TROPOMI en Earth Engine." },
+      "tech": ["gee", "sentinel", "javascript", "ews"],
+      "url": "https://jersoncatalyst.github.io/purace_volcano_monitor/",
+      "repo": "https://github.com/JersonCatalyst/purace_volcano_monitor",
+      "image": "purace"
+    },
+    {
+      "id": "unicef-ews-app",
+      "type": "arcgis",
+      "title": { "en": "Emergency & Early Warning Web Map", "es": "Mapa web de emergencias y alerta temprana" },
+      "org": "UNICEF ECA",
+      "year": "2024",
+      "description": { "en": "Hurricane-season and multi-hazard monitoring for the Eastern Caribbean.", "es": "Monitoreo de huracanes y multiamenaza para el Caribe Oriental." },
+      "tech": ["arcgisweb", "ews"],
+      "url": "https://gis.unicef.org/portal/apps/webappviewer/index.html?id=356b9a78e223406b9bf8d621d8372bb6",
+      "image": "unicef_epr"
+    },
+    {
+      "id": "unicef-country-profiles",
+      "type": "powerbi",
+      "title": { "en": "Eastern Caribbean Country Profiles", "es": "Perfiles de país del Caribe Oriental" },
+      "org": "UNICEF ECA",
+      "year": "2023",
+      "description": { "en": "Child-focused country profiles for the UNICEF Office for the Eastern Caribbean Area.", "es": "Perfiles de país con enfoque de niñez para la Oficina de UNICEF del Caribe Oriental." },
+      "tech": ["powerbi"],
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiZGIwYmU3MWYtNjk4Ny00ODI1LWE3OWUtNzRhZjBlMDQyYjNkIiwidCI6IjU0ZDA3ZTJhLWEzNzEtNDhhZC1iN2FlLTJhMWM5M2FjYjM3MiIsImMiOjF9"
+    },
+    {
+      "id": "unicef-tt-epr",
+      "type": "infographic",
+      "title": { "en": "Trinidad & Tobago EPR Initiative", "es": "Iniciativa EPR de Trinidad y Tobago" },
+      "org": "UNICEF",
+      "year": "2023",
+      "description": { "en": "Emergency preparedness and response interventions across 10 programme areas.", "es": "Intervenciones de preparación y respuesta a emergencias en 10 áreas programáticas." },
+      "tech": ["drr"],
+      "url": "",
+      "image": "tt_epr"
+    },
+    {
+      "id": "wfp-nutrition-uganda",
+      "type": "arcgis",
+      "title": { "en": "Integrated Nutrition Programme", "es": "Programa Integrado de Nutrición" },
+      "org": "WFP Uganda",
+      "year": "2024",
+      "description": { "en": "Dashboard of MAM outposts, hubs and targeted households for nutrition-sensitive livelihoods.", "es": "Tablero de puestos MAM, hubs y hogares focalizados para medios de vida sensibles a la nutrición." },
+      "tech": ["arcgisweb", "vam"],
+      "url": "https://www.arcgis.com/apps/dashboards/cd8724a6e6754d949a6093904492c864",
+      "image": "wfp_nutrition"
+    },
+    {
+      "id": "uganda-mills",
+      "type": "arcgis",
+      "title": { "en": "Uganda Milling Map", "es": "Mapa de molinos de Uganda" },
+      "org": "WFP Uganda",
+      "year": "2025",
+      "description": { "en": "ArcGIS Experience mapping milling capacity for supply-chain planning.", "es": "ArcGIS Experience con la capacidad de molienda para planificación logística." },
+      "tech": ["arcgisweb", "vam"],
+      "url": "https://experience.arcgis.com/experience/f24274780fde45c1b292187577eeee10/"
+    },
+    {
+      "id": "r4v-rmrp-2023",
+      "type": "powerbi",
+      "title": { "en": "R4V Regional Response Plan 2023", "es": "Plan Regional de Respuesta R4V 2023" },
+      "org": "R4V · UNHCR",
+      "year": "2023",
+      "description": { "en": "Population projections, people in need, targeted and reached under the RMRP.", "es": "Proyecciones de población, personas con necesidades, focalizadas y alcanzadas del RMRP." },
+      "tech": ["powerbi"],
+      "url": "",
+      "image": "r4v_rmrp"
+    },
+    {
+      "id": "r4v-activities",
+      "type": "powerbi",
+      "title": { "en": "R4V Activities 2023–2024", "es": "Actividades R4V 2023–2024" },
+      "org": "R4V · UNHCR",
+      "year": "2023",
+      "description": { "en": "Caribbean partner activities under the Refugee and Migrant Response Plan.", "es": "Actividades de socios en el Caribe bajo el Plan de Respuesta para Refugiados y Migrantes." },
+      "tech": ["powerbi"],
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiNmRmYzkzYTYtNjNiMy00MTk3LWFkZGItNjJmY2Q4NTlkNjUxIiwidCI6IjU0ZDA3ZTJhLWEzNzEtNDhhZC1iN2FlLTJhMWM5M2FjYjM3MiIsImMiOjF9"
+    },
+    {
+      "id": "afg-country-profile",
+      "type": "powerbi",
+      "title": { "en": "Afghanistan Country Profile", "es": "Perfil de país de Afganistán" },
+      "org": "DPPA",
+      "year": "2024",
+      "description": { "en": "Demography, economy, health, education and governance indicators.", "es": "Indicadores de demografía, economía, salud, educación y gobernanza." },
+      "tech": ["powerbi"],
+      "url": "",
+      "image": "afg_profile"
+    },
+    {
+      "id": "oef-colombia-report",
+      "type": "powerbi",
+      "title": { "en": "OEF Colombia Programme Report", "es": "Reporte del programa OEF Colombia" },
+      "org": "One Earth Future",
+      "year": "2024",
+      "description": { "en": "Partners, beneficiaries, savings and production indicators by department.", "es": "Socios, beneficiarios, ahorro y producción por departamento." },
+      "tech": ["powerbi", "activityinfo", "mande"],
+      "url": "",
+      "image": "oef_colombia"
+    },
+    {
+      "id": "col-humanitarian-transport",
+      "type": "powerbi",
+      "title": { "en": "Colombia Humanitarian Transportation", "es": "Transporte humanitario en Colombia" },
+      "org": "Colombia",
+      "year": "",
+      "description": { "en": "Monitoring of humanitarian transportation services.", "es": "Monitoreo de servicios de transporte humanitario." },
+      "tech": ["powerbi"],
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiZWJjODRmODQtYzZlZS00NmY5LWEwNmItYjcyYjJlY2NkODVmIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9"
+    },
+    {
+      "id": "col-nfi",
+      "type": "powerbi",
+      "title": { "en": "Colombia Non-Food Item Distribution", "es": "Distribución de artículos no alimentarios" },
+      "org": "Colombia",
+      "year": "",
+      "description": { "en": "Distribution of non-food items to people in need.", "es": "Distribución de artículos no alimentarios a población con necesidades." },
+      "tech": ["powerbi"],
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiNWI4NzU3NjItMDNjZC00YTI1LWExYzEtZTM5YzEzYmU5Y2VkIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9"
+    },
+    {
+      "id": "col-shelter",
+      "type": "powerbi",
+      "title": { "en": "Colombia Shelter Services", "es": "Servicios de alojamiento en Colombia" },
+      "org": "Colombia",
+      "year": "",
+      "description": { "en": "Shelter capacity and services for refugees and migrants.", "es": "Capacidad y servicios de alojamiento para refugiados y migrantes." },
+      "tech": ["powerbi"],
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiNjg4ODM2MjQtNTcyNy00NDIxLWJlM2UtZDg5Y2RlMmVhMTgzIiwidCI6IjE1ODgyNjJkLTIzZmItNDNiNC1iZDZlLWJjZTQ5YzhlNjE4NiIsImMiOjh9"
+    },
+    {
+      "id": "venesperanza",
+      "type": "arcgis",
+      "title": { "en": "VenEsperanza Beneficiaries", "es": "Beneficiarios VenEsperanza" },
+      "org": "WFP Colombia",
+      "year": "",
+      "description": { "en": "Story map of the geographic distribution of CUA beneficiaries.", "es": "Story map de la distribución geográfica de beneficiarios CUA." },
+      "tech": ["arcgisweb"],
+      "url": "https://unwfp.maps.arcgis.com/apps/MapJournal/index.html?appid=6784a5be02cc472cac7c2ef54aea9529"
+    },
+    {
+      "id": "cbt-bogota",
+      "type": "arcgis",
+      "title": { "en": "CBT Coverage over Bogotá", "es": "Cobertura de transferencias en Bogotá" },
+      "org": "WFP Colombia",
+      "year": "",
+      "description": { "en": "Compare-analysis app of cash-based transfer coverage.", "es": "App comparativa de cobertura de transferencias monetarias." },
+      "tech": ["arcgisweb", "vam"],
+      "url": "https://unwfp.maps.arcgis.com/apps/CompareAnalysis/index.html?appid=9e1f0182ac3c47b3bb0f0d431199760b"
+    },
+    {
+      "id": "cordoba-floods",
+      "type": "arcgis",
+      "title": { "en": "Córdoba Flooding Situation Analysis", "es": "Análisis situacional de inundaciones en Córdoba" },
+      "org": "Colombia",
+      "year": "",
+      "description": { "en": "Operations dashboard for flooding in the Department of Córdoba.", "es": "Tablero operativo de las inundaciones en el departamento de Córdoba." },
+      "tech": ["arcgisweb", "sentinel", "drr"],
+      "url": "https://www.arcgis.com/apps/dashboards/fb32894dfde54177919db7474b9aba10"
+    },
+    {
+      "id": "covid-hub",
+      "type": "arcgis",
+      "title": { "en": "COVID-19 Response Hub", "es": "Hub de respuesta COVID-19" },
+      "org": "WFP Colombia",
+      "year": "2020",
+      "description": { "en": "ArcGIS Hub for WFP Colombia's COVID-19 response.", "es": "ArcGIS Hub para la respuesta COVID-19 de WFP Colombia." },
+      "tech": ["arcgisweb"],
+      "url": "https://col-coronavirus-response-unwfp.hub.arcgis.com/"
+    },
+    {
+      "id": "afg-conflict",
+      "type": "arcgis",
+      "title": { "en": "Afghanistan Conflict Dashboard", "es": "Tablero de conflicto en Afganistán" },
+      "org": "WFP",
+      "year": "",
+      "description": { "en": "Operations dashboard of conflict events.", "es": "Tablero operativo de eventos de conflicto." },
+      "tech": ["arcgisweb"],
+      "url": "https://unwfp.maps.arcgis.com/apps/opsdashboard/index.html#/23ea8b0e34724c68a23264649552db93"
+    },
+    {
+      "id": "humanitarian-geocode",
+      "type": "code",
+      "title": { "en": "Humanitarian Geocode — SAM notebook", "es": "Humanitarian Geocode — notebook SAM" },
+      "org": "GitHub",
+      "year": "2023",
+      "description": { "en": "Segment-geospatial point prompts for feature extraction from imagery.", "es": "Prompts de puntos con segment-geospatial para extraer objetos de imágenes." },
+      "tech": ["python", "sam"],
+      "url": "",
+      "repo": "https://github.com/JersonCatalyst/Humanitarian-Geocode"
+    },
+    {
+      "id": "maps-infographics",
+      "type": "infographic",
+      "title": { "en": "Maps & Infographics Library", "es": "Biblioteca de mapas e infografías" },
+      "org": { "en": "Multiple agencies", "es": "Varias agencias" },
+      "year": "",
+      "description": { "en": "Selection of cartographic products and infographics.", "es": "Selección de productos cartográficos e infografías." },
+      "tech": ["arcgis", "qgis"],
+      "url": "https://drive.google.com/drive/folders/1tGA7pQPmmxrKPp7Qc0ODjnIwV94CcggC?usp=sharing"
+    }
+  ],
+
+  "footprint": {
+    "$comment": "type: lead = on-site operations led · regional = regional/remote coverage · academic = research & events. iso = ISO 3166-1 numeric (shaded on the local basemap).",
+    "regions": [
+      { "id": "latam", "name": { "en": "LAC", "es": "LAC" } },
+      { "id": "africa", "name": { "en": "Africa", "es": "África" } },
+      { "id": "europe", "name": { "en": "Europe", "es": "Europa" } },
+      { "id": "asia", "name": { "en": "Asia", "es": "Asia" } }
+    ],
+    "places": [
+      { "name": "Colombia", "lat": 4.71, "lng": -74.07, "region": "latam", "type": "lead", "iso": "170", "note": { "en": "Base · UNODC, WFP, IOM, iMMAP, 3iS", "es": "Base · UNODC, WFP, IOM, iMMAP, 3iS" } },
+      { "name": "Trinidad & Tobago", "lat": 10.66, "lng": -61.51, "region": "latam", "type": "lead", "iso": "780", "note": { "en": "UNHCR · Caribbean RMRP, 5 countries", "es": "UNHCR · RMRP Caribe, 5 países" } },
+      { "name": "Barbados", "lat": 13.1, "lng": -59.61, "region": "latam", "type": "lead", "note": { "en": "UNICEF · Eastern Caribbean, 12 countries", "es": "UNICEF · Caribe Oriental, 12 países" } },
+      { "name": "Ecuador", "lat": -1.83, "lng": -78.18, "region": "latam", "type": "regional", "iso": "218", "note": { "en": "Hazard Chronicity Index (El Niño)", "es": "Índice de cronicidad de amenazas (El Niño)" } },
+      { "name": "Venezuela", "lat": 10.48, "lng": -66.9, "region": "latam", "type": "regional", "iso": "862", "note": { "en": "Displacement response & 2026 earthquakes", "es": "Respuesta al desplazamiento y sismos 2026" } },
+      { "name": "Honduras", "lat": 14.07, "lng": -87.19, "region": "latam", "type": "regional", "iso": "340", "note": { "en": "Drought thresholds · AA template pilot", "es": "Umbrales de sequía · piloto de plantilla AA" } },
+      { "name": { "en": "Amazon basin", "es": "Cuenca amazónica" }, "lat": -3.75, "lng": -64.0, "region": "latam", "type": "regional", "note": { "en": "Amazon Basin Risk Monitor · ECHO-DP", "es": "Monitor de riesgos amazónico · ECHO-DP" } },
+      { "name": "Uganda", "lat": 0.35, "lng": 32.58, "region": "africa", "type": "lead", "iso": "800", "note": { "en": "WFP · RAM Ecosystems Team Lead, Karamoja", "es": "WFP · Líder del equipo RAM Ecosystems, Karamoja" } },
+      { "name": "Somalia", "lat": 2.05, "lng": 45.32, "region": "africa", "type": "lead", "iso": "706", "note": { "en": "UNTMIS Mogadishu · PhD case study", "es": "UNTMIS Mogadiscio · caso de estudio doctoral" } },
+      { "name": "Malawi", "lat": -13.25, "lng": 34.3, "region": "africa", "type": "regional", "iso": "454", "note": { "en": "El Niño country risk outlook", "es": "Perspectiva de riesgo El Niño" } },
+      { "name": { "en": "Afghanistan", "es": "Afganistán" }, "lat": 34.53, "lng": 69.17, "region": "asia", "type": "regional", "iso": "004", "note": { "en": "Country profile & conflict dashboards (remote)", "es": "Perfil de país y tableros de conflicto (remoto)" } },
+      { "name": { "en": "Rome, Italy", "es": "Roma, Italia" }, "lat": 41.88, "lng": 12.49, "region": "europe", "type": "lead", "iso": "380", "note": { "en": "FAO HQ · current duty station", "es": "Sede FAO · lugar de destino actual" } },
+      { "name": { "en": "Seville, Spain", "es": "Sevilla, España" }, "lat": 37.39, "lng": -5.98, "region": "europe", "type": "academic", "iso": "724", "note": { "en": "Universidad Loyola Andalucía · PhD", "es": "Universidad Loyola Andalucía · Doctorado" } },
+      { "name": { "en": "Berlin, Germany", "es": "Berlín, Alemania" }, "lat": 52.52, "lng": 13.4, "region": "europe", "type": "academic", "iso": "276", "note": { "en": "Global Dialogue Platform on AA 2026", "es": "Global Dialogue Platform sobre AA 2026" } }
+    ]
+  },
+
+  "research": {
+    "phd": {
+      "degree": { "en": "PhD candidate in Data Science", "es": "Candidato a doctor en Ciencia de Datos" },
+      "institution": "Universidad Loyola Andalucía · 2023–2027",
+      "thesis": "El Espejismo del Migrante Racional",
+      "abstract": {
+        "en": "Behavioural economics applied to climate-driven human mobility: modelling displacement in emergencies by combining Earth observation and machine learning. Primary case study Somalia, scaling to Colombia and the Horn of Africa.",
+        "es": "Economía conductual aplicada a la movilidad humana impulsada por el clima: modelado de desplazamientos en emergencias combinando observación de la Tierra y machine learning. Caso principal Somalia, con escalamiento a Colombia y el Cuerno de África."
+      },
+      "keywords": {
+        "en": ["Human mobility", "Behavioural economics", "Machine learning", "Earth observation", "Climate"],
+        "es": ["Movilidad humana", "Economía conductual", "Machine learning", "Observación de la Tierra", "Clima"]
+      }
+    },
+    "outputs": [
+      { "type": { "en": "Talk", "es": "Ponencia" }, "title": { "en": "Impact-based anticipatory action in Latin America and the Caribbean", "es": "Acción anticipatoria basada en impacto en América Latina y el Caribe" }, "venue": "14th Global Dialogue Platform on Anticipatory Action, Berlin", "year": "2026", "url": "" },
+      { "type": { "en": "Congress", "es": "Congreso" }, "title": { "en": "Drought risk in Karamoja — geospatial analysis", "es": "Riesgo de sequía en Karamoja — análisis geoespacial" }, "venue": "3rd UN World Geospatial Information Congress", "year": "2026", "url": "" },
+      { "type": { "en": "Governance", "es": "Gobernanza" }, "title": { "en": "Data Governance Task Force — open vs. restricted imagery access and harm prevention", "es": "Data Governance Task Force — acceso abierto vs. restringido a imágenes y prevención de daño" }, "venue": "Common Space", "year": "2026", "url": "https://commonspace.world" },
+      { "type": { "en": "Report", "es": "Informe" }, "title": { "en": "RMNA 2022 and RMRP 2023–2024 — Caribbean chapters", "es": "RMNA 2022 y RMRP 2023–2024 — capítulos del Caribe" }, "venue": "R4V", "year": "2022–2023", "url": "https://www.r4v.info" },
+      { "type": { "en": "Article", "es": "Artículo" }, "title": { "en": "Analysis and projection of plant cover using remote sensors and GIS, Suba, Bogotá", "es": "Análisis y proyección de la cobertura vegetal con sensores remotos y SIG, Suba, Bogotá" }, "venue": "Revista Gestión y Ambiente 21(1)", "year": "2018", "url": "" },
+      { "type": { "en": "Article", "es": "Artículo" }, "title": { "en": "Remote sensing for detection of sediment alteration from alluvial gold exploitation", "es": "Sensores remotos para la detección de alteración de sedimentos por explotación de oro de aluvión" }, "venue": "Análisis Geográficos 55, IGAC-CIAF", "year": "2018", "url": "" },
+      { "type": { "en": "Guidelines", "es": "Lineamientos" }, "title": { "en": "Methodological guidelines for detection, analysis and projection of plant cover using remote sensors and GIS", "es": "Lineamientos metodológicos para detección, análisis y proyección de coberturas con sensores remotos y SIG" }, "venue": "Universidad Nacional de Colombia", "year": "2018", "url": "" },
+      { "type": { "en": "Article", "es": "Artículo" }, "title": { "en": "Population dynamics of free-living nematodes under different land uses and soil management", "es": "Dinámica poblacional de nematodos de vida libre bajo diferentes usos y manejos del suelo" }, "venue": "Revista de Ciencias Agrícolas 29(2)", "year": "2012", "url": "" }
+    ]
+  },
+
+  "experience": [
+    {
+      "org": "FAO", "current": true,
+      "role": { "en": "Anticipatory Action & GIS Specialist", "es": "Especialista en Acción Anticipatoria y GIS" },
+      "period": { "en": "Jun 2026 — Present", "es": "Jun 2026 — Actual" },
+      "location": { "en": "Rome, Italy", "es": "Roma, Italia" },
+      "highlights": {
+        "en": ["Advises decentralised offices on AA systems, SOPs and triggers; funding proposals for SFERA AA and CERF AA.", "Geospatial exposure analyses with the Data in Emergencies (DIEM) system to inform trigger design and anticipatory-financing prioritisation.", "Integration of AI/ML into AA initiatives and global trigger reference frameworks; AA focal point for LAC."],
+        "es": ["Asesora a oficinas descentralizadas en sistemas AA, SOP y disparadores; propuestas de financiamiento para SFERA AA y CERF AA.", "Análisis geoespaciales de exposición con el sistema Data in Emergencies (DIEM) para el diseño de disparadores y la priorización del financiamiento anticipatorio.", "Integración de IA/ML en iniciativas AA y marcos globales de referencia de disparadores; punto focal AA para LAC."]
+      }
+    },
+    {
+      "org": "3iS", "current": true,
+      "role": { "en": "Geographic Information System Expert (part-time)", "es": "Experto en Sistemas de Información Geográfica (medio tiempo)" },
+      "period": { "en": "Dec 2025 — Present", "es": "Dic 2025 — Actual" },
+      "location": { "en": "Bogotá, Colombia", "es": "Bogotá, Colombia" },
+      "highlights": {
+        "en": ["GIS software solutions and spatial-analysis workflows to maximise information synergy among humanitarian partners.", "Geospatial data-management systems ensuring interoperability and data-quality standards across inter-agency platforms."],
+        "es": ["Soluciones GIS y flujos de análisis espacial para maximizar la sinergia de información entre socios humanitarios.", "Sistemas de gestión de datos geoespaciales con estándares de interoperabilidad y calidad entre plataformas interagenciales."]
+      }
+    },
+    {
+      "org": "WFP", "current": false,
+      "role": { "en": "Climate Change, AA & Early Warning VAM Officer · RAM Ecosystems Team Lead", "es": "Oficial VAM de Cambio Climático, AA y Alerta Temprana · Líder del equipo RAM Ecosystems" },
+      "period": { "en": "Feb 2024 — May 2026", "es": "Feb 2024 — May 2026" },
+      "location": { "en": "Kampala, Uganda", "es": "Kampala, Uganda" },
+      "highlights": {
+        "en": ["Led the RAM Ecosystems, Analytics and Geospatial Analysis function; regional framework for climate resilience, AA and early warning aligned with the Country Strategic Plan.", "Geospatial, remote-sensing and drone-based tools for needs assessments and targeting; WFP Spatial Data Library and metadata infrastructure.", "SOPs and data-privacy protocols for climate assessments and programme targeting."],
+        "es": ["Lideró la función RAM Ecosystems, Analytics and Geospatial Analysis; marco regional de resiliencia climática, AA y alerta temprana alineado con el Plan Estratégico de País.", "Herramientas geoespaciales, de teledetección y con drones para evaluaciones de necesidades y focalización; Spatial Data Library y metadatos de WFP.", "SOP y protocolos de privacidad de datos para evaluaciones climáticas y focalización."]
+      }
+    },
+    {
+      "org": "UNTMIS", "current": false,
+      "role": { "en": "Geospatial Analyst & Information Management Officer", "es": "Analista geoespacial y Oficial de Gestión de Información" },
+      "period": { "en": "Jun — Sep 2024", "es": "Jun — Sep 2024" },
+      "location": { "en": "Mogadishu, Somalia", "es": "Mogadiscio, Somalia" },
+      "highlights": {
+        "en": ["Spatial network and correlation analyses on IDP service accessibility in a high-risk, non-family duty station.", "Pilot Protection Map with UNSOM HRPG, OHCHR and UNSOS GIS; technical manual and training for UN staff and partners."],
+        "es": ["Análisis de redes espaciales y correlación sobre acceso a servicios de desplazados en una misión de alto riesgo.", "Mapa de Protección piloto con UNSOM HRPG, OHCHR y UNSOS GIS; manual técnico y formación para personal ONU y socios."]
+      }
+    },
+    {
+      "org": "One Earth Future", "current": false,
+      "role": { "en": "M&E Information System Manager", "es": "Gerente del Sistema de Información de M&E" },
+      "period": { "en": "Oct 2023 — Oct 2024", "es": "Oct 2023 — Oct 2024" },
+      "location": { "en": "United States (global)", "es": "Estados Unidos (global)" },
+      "highlights": {
+        "en": ["Architected the global ActivityInfo M&E system across HQ, Colombia and Somalia, integrated with KoboToolbox, Power BI and ArcGIS."],
+        "es": ["Arquitectura del sistema global de M&E en ActivityInfo para la sede, Colombia y Somalia, integrado con KoboToolbox, Power BI y ArcGIS."]
+      }
+    },
+    {
+      "org": "UNICEF", "current": false,
+      "role": { "en": "Regional Information Management Specialist", "es": "Especialista Regional en Gestión de Información" },
+      "period": { "en": "Jan 2023 — Jan 2024", "es": "Ene 2023 — Ene 2024" },
+      "location": { "en": "Bridgetown, Barbados", "es": "Bridgetown, Barbados" },
+      "highlights": {
+        "en": ["IM architecture and data governance across 12 Eastern Caribbean countries and territories.", "Early Warning System application for hurricane season and multi-hazard emergencies; co-developed CCRI-DRM."],
+        "es": ["Arquitectura de IM y gobernanza de datos en 12 países y territorios del Caribe Oriental.", "Aplicación de Sistema de Alerta Temprana para huracanes y emergencias multiamenaza; co-desarrollo del CCRI-DRM."]
+      }
+    },
+    {
+      "org": "UNHCR", "current": false,
+      "role": { "en": "Regional Information Management Officer", "es": "Oficial Regional de Gestión de Información" },
+      "period": { "en": "Jun — Dec 2022", "es": "Jun — Dic 2022" },
+      "location": { "en": "Port of Spain, Trinidad & Tobago", "es": "Puerto España, Trinidad y Tobago" },
+      "highlights": {
+        "en": ["Data architecture and protection across five Caribbean countries, aligning national, regional and HQ reporting for the Venezuela displacement response (RMRP)."],
+        "es": ["Arquitectura y protección de datos en cinco países del Caribe, alineando reportes nacionales, regionales y de sede para la respuesta al desplazamiento venezolano (RMRP)."]
+      }
+    },
+    {
+      "org": "IOM", "current": false,
+      "role": { "en": "Head of Information Management Unit", "es": "Jefe de la Unidad de Gestión de Información" },
+      "period": { "en": "Sep 2020 — Jun 2022", "es": "Sep 2020 — Jun 2022" },
+      "location": { "en": "Bogotá, Colombia", "es": "Bogotá, Colombia" },
+      "highlights": {
+        "en": ["Led the national DTM strategy: 18 analytical reports across 10 departments and 300+ staff trained.", "WiFi Analytics: 17 departments, 27 municipalities, 52 connection points, 40,000+ surveys and 70,000+ connections."],
+        "es": ["Lideró la estrategia nacional DTM: 18 informes analíticos en 10 departamentos y más de 300 personas formadas.", "WiFi Analytics: 17 departamentos, 27 municipios, 52 puntos de conexión, más de 40.000 encuestas y 70.000 conexiones."]
+      }
+    },
+    {
+      "org": "iMMAP", "current": false,
+      "role": { "en": "Expert Data Analyst", "es": "Analista de datos experto" },
+      "period": { "en": "Oct 2020 — Jan 2021", "es": "Oct 2020 — Ene 2021" },
+      "location": { "en": "Bogotá, Colombia", "es": "Bogotá, Colombia" },
+      "highlights": {
+        "en": ["Secondary-data integration and quality-assurance protocols for COVID-19 epidemiological monitoring."],
+        "es": ["Integración de datos secundarios y protocolos de calidad para el monitoreo epidemiológico de COVID-19."]
+      }
+    },
+    {
+      "org": "WFP", "current": false,
+      "role": { "en": "Data Management & Geospatial Analysis Officer", "es": "Oficial de Gestión de Datos y Análisis Geoespacial" },
+      "period": { "en": "Nov 2018 — Dec 2020", "es": "Nov 2018 — Dic 2020" },
+      "location": { "en": "Bogotá, Colombia", "es": "Bogotá, Colombia" },
+      "highlights": {
+        "en": ["Established the VAM geospatial unit, EFSA operations, UAV and remote-sensing deployments.", "Spatial Data Infrastructure, automated ETL pipelines and a Python API for market analysis; ArcGIS Enterprise apps for the L2 emergency."],
+        "es": ["Creó la unidad geoespacial de VAM, operaciones EFSA y despliegues con UAV y teledetección.", "Infraestructura de Datos Espaciales, pipelines ETL automatizados y una API en Python para análisis de mercados; apps ArcGIS Enterprise para la emergencia L2."]
+      }
+    },
+    {
+      "org": "UNODC", "current": false,
+      "role": { "en": "Digital Processing Analyst → GIS Support Engineer", "es": "Analista de Procesamiento Digital → Ingeniero de Soporte GIS" },
+      "period": { "en": "Oct 2012 — Oct 2018", "es": "Oct 2012 — Oct 2018" },
+      "location": { "en": "Bogotá, Colombia", "es": "Bogotá, Colombia" },
+      "highlights": {
+        "en": ["Machine-learning land-cover classification to identify illicit crops, land-cover change and alluvial gold mining from multisensor imagery."],
+        "es": ["Clasificación de coberturas con machine learning para identificar cultivos ilícitos, cambio de coberturas y minería de oro de aluvión con imágenes multisensor."]
+      }
+    }
+  ],
+
+  "education": [
+    { "degree": { "en": "PhD (candidate), Data Science", "es": "Doctorado (candidato), Ciencia de Datos" }, "institution": "Universidad Loyola Andalucía, Spain", "years": "2023–2027" },
+    { "degree": { "en": "MEng, Environmental Engineering", "es": "Maestría en Ingeniería Ambiental" }, "institution": "Universidad Nacional de Colombia", "years": "2014–2017" },
+    { "degree": { "en": "BSc, Agroforestry Engineering", "es": "Ingeniería Agroforestal" }, "institution": "Universidad de Nariño, Colombia", "years": "2007–2012" }
+  ]
+}
